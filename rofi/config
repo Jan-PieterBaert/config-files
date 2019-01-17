@@ -1,0 +1,4 @@
+rofi.theme: /usr/share/rofi/themes/DarkBlue.rasi
+rofi.combi-modi: window,run,ssh
+rofi.modi: combi,run,window,ssh
+rofi.font: hack 10
