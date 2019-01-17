@@ -1,1 +1,2 @@
-/home/jan-pieter/.vimrc
+set number
+colorscheme delek
