@@ -299,9 +299,9 @@ bindsym XF86MonBrightnessUp exec "/fast_files/git_repos/custum_scripts/changebac
 bindsym XF86MonBrightnessDown exec "/fast_files/git_repos/custum_scripts/changebacklight.sh down" 
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id /home/jan-pieter/custum_scripts/changeVolume +2 #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id /home/jan-pieter/custum_scripts/changeVolume -2 #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id /home/jan-pieter/custum_scripts/changeVolume # mute sound by dailing back the volume to 0
+bindsym XF86AudioRaiseVolume exec --no-startup-id /fast_files/git_repos/custum_scripts/changeVolume +2 #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id /fast_files/git_repos/custum_scripts/changeVolume -2 #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id /fast_files/git_repos/custum_scripts/changeVolume # mute sound by dailing back the volume to 0
 
 bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
 
