@@ -290,7 +290,7 @@ for_window [class="Arandr"] floating enable
 for_window [class="Shutter"] floating enable
 
 #Some custom hotkeys
-bindcode 78 exec fancy_lock
+bindcode 78 exec /fast_files/custum_scripts/fancy_lock
 
 # Sreen brightness controls
 # increase screen brightness
