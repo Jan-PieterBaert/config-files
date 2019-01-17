@@ -1,0 +1,320 @@
+# i3 config file (v4)
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 7
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn't scale on retina/hidpi displays.
+
+# set super mod
+set $mod Mod4
+set $mod2 Mod1
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up k
+set $down j
+set $left h
+set $right l
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec urxvt
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+#alternative to dmenu ,we use the rofi-version
+bindsym $mod+d exec rofi -show run
+#this shows all open windows across workspaces
+bindsym $mod+bracketleft exec rofi -show combi
+#my (local) passwordmanager
+bindsym $mod+bracketright exec rofi-pass
+
+# start dmenu (a program launcher)
+# dmenu with some cool colors
+#bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#6F7700' -sf '#EEEEEE' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
+#bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+z focus child
+
+## I don't use a scratchpad because I have enough workspaces
+	# move the currently focused window to the scratchpad
+	#bindsym $mod+Shift+minus move scratchpad
+	
+	# Show the next scratchpad window or hide the focused scratchpad window.
+	# If there are multiple scratchpad windows, this command cycles through them.
+	#bindsym $mod+minus scratchpad show
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+# We have 13 workspaces because the number row on my keyboard has 3 keys except for the 10 numbers
+set $ws0 "0|✉"
+set $ws1 "1|⌨"
+set $ws2 "2|♫"
+set $ws3 "3|📺"
+set $ws4 "4|fcp"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8|cne"
+set $ws9 "9"
+set $ws10 "10|git"
+set $ws11 "11|⛲"
+set $ws12 "12ul"
+
+# switch to workspace
+bindsym $mod+grave workspace $ws0
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+minus workspace $ws11
+bindsym $mod+equal workspace $ws12
+
+# move focused container to workspace
+bindsym $mod+Shift+grave move container to workspace $ws0
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+minus move container to workspace $ws11
+bindsym $mod+Shift+equal move container to workspace $ws12
+
+#workspace mods (move to the next or prev workspace
+bindsym --whole-window $mod+Tab workspace next_on_output
+bindsym --whole-window $mod+Shift+Tab workspace prev_on_output
+
+#workspace assignment
+assign [class="Rambox"] $ws11
+assign [class="Thunderbird"] $ws0
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 5 px or 5 ppt
+        bindsym $down       resize grow height 5 px or 5 ppt
+        bindsym $up         resize shrink height 5 px or 5 ppt
+        bindsym $right      resize grow width 5 px or 5 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 5 px or 5 ppt
+        bindsym Down        resize grow height 5 px or 5 ppt
+        bindsym Up          resize shrink height 5 px or 5 ppt
+        bindsym Right       resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Mode to logout, reboot or shutdown
+mode "[l]ogout / [h]ibernate / [r]eboot / [s]hutdown / suspend-[t]hen-hibernate / sus[p]end" {
+	bindsym l exit
+	bindsym t exec systemctl suspend-then-hibernate
+	bindsym h exec hibernate_lock
+	bindsym r exec reboot
+	bindsym s exec shutdown now
+	bindsym p exec systemctl suspend
+	bindsym Escape mode "default"
+}
+bindsym $mod+x mode "[l]ogout / [h]ibernate / [r]eboot / [s]hutdown / suspend-[t]hen-hibernate / sus[p]end"
+
+# Mode to start frequently used programs and handy ones
+mode "[c]hromium | [r]ambox | [g]oogle-chrome | [a]tom | [r]estart i3 | [q]utebrowser" {
+	bindsym c exec chromium
+	bindsym r exec rambox
+	bindsym g exec google-chrome-stable
+	bindsym a exec atom
+	bindsym r exec "i3-msg -q restart"
+	bindsym q exec qutebrowser
+	bindsym Escape mode "default"
+}
+bindsym $mod+Shift+b mode "[c]hromium | [r]ambox | [g]oogle-chrome | [a]tom | [r]estart i3 | [q]utebrowser" 
+
+#Set some cool colors for i3
+# class                 border  bground text    indicator child_border
+client.focused          #004F00 #000088 #FFFFFF #00004F   #00FF00
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
+# Start the i3bar which contains some cool stuff and information from the i3blocks command, there are also a few awesome color settings
+bar {
+        mode dock
+        hidden_state hide
+        modifier mod5
+        #output eDP1
+        position top 
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+    colors {
+    	background #000000
+    	statusline #FFFFFF
+    	separator  #006600
+
+    	focused_workspace  #00FF00 #000088 #FFFFFF
+    	active_workspace   #333333 #000000 #FFFFFF
+    	inactive_workspace #333333 #555555 #FFFFFF
+    	urgent_workspace   #2F343A #900000 #FFFFFF
+    	binding_mode       #2F343A #900000 #FFFFFF
+  }
+}
+
+# Make it possible to toggle the bar to be hidden
+bindsym $mod+backslash bar mode toggle
+
+#Using below keybindings we can give a certain windw a bar or not 
+bindsym $mod+$mod2+b border normal
+bindsym $mod+$mod2+n border pixel 1
+
+#Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
+for_window [class="^.*"] border pixel 1
+#gaps inner 0
+#smart_gaps on
+new_window normal 0
+new_float normal 10
+hide_edge_borders smart
+
+#Move to top right, for video playing
+bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window to position 1400 75
+
+#playerctl play-pause
+bindsym Pause exec playerctl play-pause
+
+#floating windows
+for_window [class="GParted"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="Shutter"] floating enable
+
+#Some custom hotkeys
+bindcode 78 exec fancy_lock
+bindcode $mod+107 exec "scrot /tmp/screenshot.png && /fast_files/git_repos/custum_scripts/copy_to_clipboard /tmp/screenshot.png"
+
+# Sreen brightness controls
+# increase screen brightness
+bindsym XF86MonBrightnessUp exec "/fast_files/git_repos/custum_scripts/changebacklight.sh up" 
+# decrease screen brightness
+bindsym XF86MonBrightnessDown exec "/fast_files/git_repos/custum_scripts/changebacklight.sh down" 
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/jan-pieter/custum_scripts/changeVolume +2 #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/jan-pieter/custum_scripts/changeVolume -2 #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id /home/jan-pieter/custum_scripts/changeVolume # mute sound by dailing back the volume to 0
+
+bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
+
+# Used to configure my screens layout when a new one connects
+bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto;arandr"
+
+# Set wallpaper
+exec_always --no-startup-id "feh --bg-scale /home/jan-pieter/custum_scripts/lockscreen/background_10.png &"
+# Num lock on
+exec --no-startup-id numlockx &
+# kill the old xss-lock and start a new one
+exec_always --no-startup-id "killall xss-lock; xss-lock fancy_lock"
+#start flux
+exec --no-startup-id fluxgui &
+
