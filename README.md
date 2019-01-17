@@ -1,2 +1,2 @@
 # config-files
-General config files for arch
+These are some of my configuration files for arch, enjoy it!
