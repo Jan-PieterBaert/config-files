@@ -291,7 +291,6 @@ for_window [class="Shutter"] floating enable
 
 #Some custom hotkeys
 bindcode 78 exec fancy_lock
-bindcode $mod+107 exec "scrot /tmp/screenshot.png && /fast_files/git_repos/custum_scripts/copy_to_clipboard /tmp/screenshot.png"
 
 # Sreen brightness controls
 # increase screen brightness
