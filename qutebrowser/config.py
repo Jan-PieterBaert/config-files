@@ -153,7 +153,7 @@ c.tabs.show_switching_delay = 1000
 #   - left
 #   - right
 #   - center
-c.tabs.title.alignment = 'center'
+c.tabs.title.alignment = 'left'
 
 # Format to use for the tab title. The following placeholders are
 # defined:  * `{perc}`: Percentage as a string like `[10%]`. *
@@ -167,7 +167,7 @@ c.tabs.title.alignment = 'center'
 # `{protocol}`: Protocol (http/https/...) of the current web page. *
 # `{audio}`: Indicator for audio/mute status.
 # Type: FormatString
-c.tabs.title.format = '{protocol}|{private}{audio}{index}{title_sep}{title}'
+c.tabs.title.format = '{private}{audio}{index}{title_sep}{title}'
 
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
@@ -179,7 +179,7 @@ c.tabs.width = 100
 # setting does not apply to pinned tabs, unless `tabs.pinned.shrink` is
 # False.
 # Type: Int
-c.tabs.min_width = 100
+c.tabs.min_width = 50
 
 # Padding (in pixels) for tab indicators.
 # Type: Padding
@@ -199,7 +199,7 @@ c.url.default_page = 'https://google.com'
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'arch': 'https://wiki.archlinux.org/?search={}', 'contact':'https://contacts.google.com/search/{}', 'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
+c.url.searchengines = {'arch': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
@@ -299,7 +299,7 @@ config.bind(',vd', 'set content.user_stylesheets /fast_files/git_repos/config-fi
 config.bind(',write!!!', 'config-write-py --force')
 config.bind('<Ctrl+Alt+Shift+m>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{url}"')
 config.bind('<Ctrl+Alt+Shift+y>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{url}"')
-config.bind('<Ctrl+Alt+`>','hint links spawn --detach mpv {url}')
+config.bind('<Ctrl+Alt+`>', 'hint links spawn --detach mpv {url}')
 config.bind('<Ctrl+Shift+Tab>', 'tab-prev')
 config.bind('<Ctrl+Shift+m>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{hint-url}"')
 config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{hint-url}"')
