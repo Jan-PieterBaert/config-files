@@ -309,7 +309,7 @@ bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
 bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto;arandr"
 
 # Set wallpaper
-exec_always --no-startup-id "feh --bg-scale /home/jan-pieter/custum_scripts/lockscreen/background_10.png &"
+exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_10.png &"
 # Num lock on
 exec --no-startup-id numlockx &
 # kill the old xss-lock and start a new one
