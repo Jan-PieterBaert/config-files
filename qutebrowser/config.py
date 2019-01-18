@@ -92,6 +92,10 @@ c.downloads.position = 'top'
 # Type: Int
 c.downloads.remove_finished = 60000
 
+# Minimum number of characters used for hint strings.
+# Type: Int
+c.hints.min_chars = 2
+
 # When to show the scrollbar.
 # Type: String
 # Valid values:
