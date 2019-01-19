@@ -1,2 +1,2 @@
 set number
-colorscheme delek
+colorscheme peachpuff
