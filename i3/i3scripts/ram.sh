@@ -16,7 +16,7 @@ then
 	color="yellow"
 fi
 
-swapVal=$(/fast_files/git_repos/custum_scripts/i3scripts/swap.sh)
+swapVal=$(/fast_files/git_repos/config-files/i3/i3scripts/swap.sh)
 
 if [ $(echo $swapVal -n | wc -l) -gt 0 ]
 then
