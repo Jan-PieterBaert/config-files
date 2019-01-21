@@ -128,12 +128,12 @@ bindsym $mod+space focus mode_toggle
 	set $ws1 "1|⌨"
 	set $ws2 "2|♫"
 	set $ws3 "3|📺"
-	set $ws4 "4|fcp"
-	set $ws5 "5"
-	set $ws6 "6"
-	set $ws7 "7"
-	set $ws8 "8|cne"
-	set $ws9 "9"
+	set $ws4 "4|CompArch"
+	set $ws5 "5|Multi"
+	set $ws6 "6|SEL1"
+	set $ws7 "7|WebDev"
+	set $ws8 "8|Wetrek"
+	set $ws9 "9|cne"
 	set $ws10 "10|git"
 	set $ws11 "11|⛲"
 	set $ws12 "12ul"
@@ -308,7 +308,7 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 
 # Hotkeys for my custum scripts
 	# Lock the screen when scroll lock is pressed
-	bindcode 78 exec /fast_files/custum_scripts/fancy_lock
+	bindsym Scroll_Lock exec /fast_files/custum_scripts/fancy_lock
 	# Hibernate (and lock) the computer using this key combination
 	bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
 
