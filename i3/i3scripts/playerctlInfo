@@ -6,6 +6,12 @@ playPauze=$(playerctl status 2>/dev/null || echo "")
 
 retVal=""
 
+if [ "$(playerctl metadata 2>/dev/null | grep -i coldplay)" ]
+then
+	playerctl next; 
+	notify-send "saved Robbe's musical life"
+fi
+
 if [ "$artist" ]
 then
 	retVal+="${artist}: "
