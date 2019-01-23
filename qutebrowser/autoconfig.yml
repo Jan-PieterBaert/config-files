@@ -4,12 +4,4 @@
 config_version: 2
 settings:
   content.user_stylesheets:
-    global: /fast_files/git_repos/solarized-everything-css/css/darculized/darculized-all-sites.css
-  hints.min_chars:
-    global: 2
-  tabs.min_width:
-    global: 50
-  tabs.title.alignment:
-    global: left
-  tabs.title.format:
-    global: '{private}{audio}{index}{title_sep}{title}'
+    global: /fast_files/git_repos/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css
