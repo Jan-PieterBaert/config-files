@@ -133,7 +133,7 @@ bindsym $mod+space focus mode_toggle
 	set $ws6 "6|SEL1"
 	set $ws7 "7|WebDev"
 	set $ws8 "8|Wetrek"
-	set $ws9 "9|cne"
+	set $ws9 "9"
 	set $ws10 "10|git"
 	set $ws11 "11"
 	set $ws12 "12ul"
@@ -276,7 +276,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
-	for_window [class="^.*"] border pixel 1
+	for_window [class="^.*"] border pixel 0
 	#gaps inner 0
 	#smart_gaps on
 	new_window normal 0
