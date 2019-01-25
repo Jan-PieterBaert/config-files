@@ -3,5 +3,7 @@
 
 config_version: 2
 settings:
-  content.user_stylesheets:
-    global: /fast_files/git_repos/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css
+  tabs.position:
+    global: left
+  tabs.width:
+    global: 100

@@ -135,7 +135,7 @@ c.tabs.padding = {'bottom': 0, 'left': 0, 'right': 0, 'top': 0}
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'top'
+c.tabs.position = 'left'
 
 # When to show the tab bar.
 # Type: String
@@ -318,8 +318,8 @@ config.bind('Sb', None)
 config.bind('Ss', 'open -t qute://settings')
 config.bind('eew', ':set-cmd-text :open -p {url:pretty}')
 config.bind('ewc', ':set-cmd-text :open -p {clipboard}')
+config.bind('ewf', 'hint links fill :open -p {hint-url}')
 config.bind('eww', ':set-cmd-text -s :open -p ')
-config.bind('ewf','hint links fill :open -p {hint-url}')
 config.bind('gB', None)
 config.bind('gb', None)
 config.bind('m', 'quickmark-save')
