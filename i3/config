@@ -173,7 +173,7 @@ bindsym $mod+space focus mode_toggle
 	bindsym --whole-window $mod+Shift+Tab workspace prev_on_output
 
 #workspace assignment
-assign [class="Rambox"] $ws11
+assign [class="Rambox"] $ws1
 assign [class="Thunderbird"] $ws0
 
 # reload the configuration file
@@ -272,11 +272,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 #Using below keybindings we can give a certain windw a bar or not 
 	bindsym $mod+$mod2+b border normal
-	bindsym $mod+$mod2+n border pixel 1
+	bindsym $mod+$mod2+n border pixel 0
 
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
-	for_window [class="^.*"] border pixel 0
+	for_window [class="^.*"] border pixel 1
 	#gaps inner 0
 	#smart_gaps on
 	new_window normal 0
