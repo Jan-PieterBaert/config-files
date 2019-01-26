@@ -46,6 +46,22 @@ c.content.autoplay = False
 # Type: String
 c.content.headers.user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
 
+# List of URLs of lists which contain hosts to block.  The file can be
+# in one of the following formats:  - An `/etc/hosts`-like file - One
+# host per line - A zip-file of any of the above, with either only one
+# file, or a file   named `hosts` (with any extension).  It's also
+# possible to add a local file or directory via a `file://` URL. In case
+# of a directory, all files in the directory are read as adblock lists.
+# The file `~/.config/qutebrowser/blocked-hosts` is always read if it
+# exists.
+# Type: List of Url
+c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts']
+
+# A list of patterns that should always be loaded, despite being ad-
+# blocked. Local domains are always exempt from hostblocking.
+# Type: List of UrlPattern
+c.content.host_blocking.whitelist = ['piwik.org']
+
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'file://*')
@@ -189,11 +205,21 @@ c.statusbar.position = 'bottom'
 #   - tabs: Current active tab, e.g. `2`.
 #   - keypress: Display pressed keys when composing a vi command.
 #   - progress: Progress bar for the current page loading.
-c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'tabs', 'progress']
+c.statusbar.widgets = ['keypress', 'url', 'scroll_raw', 'history', 'tabs', 'progress']
 
 # Open new tabs (middleclick/ctrl+click) in the background.
 # Type: Bool
 c.tabs.background = True
+
+# How to behave when the last tab is closed.
+# Type: String
+# Valid values:
+#   - ignore: Don't do anything.
+#   - blank: Load a blank page.
+#   - startpage: Load the start page.
+#   - default-page: Load the default page.
+#   - close: Close the window.
+c.tabs.last_close = 'blank'
 
 # Padding (in pixels) around text for tabs.
 # Type: Padding
@@ -244,6 +270,11 @@ c.tabs.title.alignment = 'left'
 # Type: FormatString
 c.tabs.title.format = '{private}{audio}{index}{title_sep}{title}'
 
+# Format to use for the tab title for pinned tabs. The same placeholders
+# like for `tabs.title.format` are defined.
+# Type: FormatString
+c.tabs.title.format_pinned = 'PIN|{private}{audio}{index}{title_sep}{title}'
+
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
 # Type: PercOrInt
@@ -279,6 +310,16 @@ c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'con
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
 c.url.start_pages = 'https://google.com'
+
+# Hide the window decoration.  This setting requires a restart on
+# Wayland.
+# Type: Bool
+c.window.hide_decoration = True
+
+# Format to use for the window title. The same placeholders like for
+# `tabs.title.format` are defined.
+# Type: FormatString
+c.window.title_format = '{audio}{protocol}{title_sep}{title}{title_sep}qutebrowser'
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
