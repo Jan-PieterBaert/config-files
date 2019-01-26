@@ -9,7 +9,7 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'private': 'open -p', 'set': 'set -t', 'quickmarks': 'open -t qute://bookmarks/', 'bindings': 'open -t qute://bindings/'}
+c.aliases = {'private': 'open -p', 'quickmarks': 'open -t qute://bookmarks/', 'bindings': 'open -t qute://bindings/'}
 
 # Require a confirmation before quitting the application.
 # Type: ConfirmQuit
@@ -40,6 +40,11 @@ c.auto_save.session = True
 # this option needs a restart and does not support URL patterns.
 # Type: Bool
 c.content.autoplay = False
+
+# User agent to send. Unset to send the default. Note that the value
+# read from JavaScript is always the global value.
+# Type: String
+c.content.headers.user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
 
 # Enable JavaScript.
 # Type: Bool
@@ -109,9 +114,63 @@ c.scrolling.bar = 'always'
 # Type: Bool
 c.scrolling.smooth = True
 
+# Languages to use for spell checking. You can check for available
+# languages and install dictionaries using scripts/dictcli.py. Run the
+# script with -h/--help for instructions.
+# Type: List of String
+# Valid values:
+#   - af-ZA: Afrikaans (South Africa)
+#   - bg-BG: Bulgarian (Bulgaria)
+#   - ca-ES: Catalan (Spain)
+#   - cs-CZ: Czech (Czech Republic)
+#   - da-DK: Danish (Denmark)
+#   - de-DE: German (Germany)
+#   - el-GR: Greek (Greece)
+#   - en-AU: English (Australia)
+#   - en-CA: English (Canada)
+#   - en-GB: English (United Kingdom)
+#   - en-US: English (United States)
+#   - es-ES: Spanish (Spain)
+#   - et-EE: Estonian (Estonia)
+#   - fa-IR: Farsi (Iran)
+#   - fo-FO: Faroese (Faroe Islands)
+#   - fr-FR: French (France)
+#   - he-IL: Hebrew (Israel)
+#   - hi-IN: Hindi (India)
+#   - hr-HR: Croatian (Croatia)
+#   - hu-HU: Hungarian (Hungary)
+#   - id-ID: Indonesian (Indonesia)
+#   - it-IT: Italian (Italy)
+#   - ko: Korean
+#   - lt-LT: Lithuanian (Lithuania)
+#   - lv-LV: Latvian (Latvia)
+#   - nb-NO: Norwegian (Norway)
+#   - nl-NL: Dutch (Netherlands)
+#   - pl-PL: Polish (Poland)
+#   - pt-BR: Portuguese (Brazil)
+#   - pt-PT: Portuguese (Portugal)
+#   - ro-RO: Romanian (Romania)
+#   - ru-RU: Russian (Russia)
+#   - sh: Serbo-Croatian
+#   - sk-SK: Slovak (Slovakia)
+#   - sl-SI: Slovenian (Slovenia)
+#   - sq: Albanian
+#   - sr: Serbian
+#   - sv-SE: Swedish (Sweden)
+#   - ta-IN: Tamil (India)
+#   - tg-TG: Tajik (Tajikistan)
+#   - tr-TR: Turkish (Turkey)
+#   - uk-UA: Ukrainian (Ukraine)
+#   - vi-VN: Vietnamese (Viet Nam)
+c.spellcheck.languages = ['en-US', 'en-GB', 'nl-NL']
+
 # Hide the statusbar unless a message is shown.
 # Type: Bool
 c.statusbar.hide = False
+
+# Padding (in pixels) for the statusbar.
+# Type: Padding
+c.statusbar.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
 
 # Position of the status bar.
 # Type: VerticalPosition
@@ -119,6 +178,18 @@ c.statusbar.hide = False
 #   - top
 #   - bottom
 c.statusbar.position = 'bottom'
+
+# List of widgets displayed in the statusbar.
+# Type: List of String
+# Valid values:
+#   - url: Current page URL.
+#   - scroll: Percentage of the current page position like `10%`.
+#   - scroll_raw: Raw percentage of the current page position like `10`.
+#   - history: Display an arrow when possible to go back/forward in history.
+#   - tabs: Current active tab, e.g. `2`.
+#   - keypress: Display pressed keys when composing a vi command.
+#   - progress: Progress bar for the current page loading.
+c.statusbar.widgets = ['keypress', 'url', 'scroll', 'history', 'tabs', 'progress']
 
 # Open new tabs (middleclick/ctrl+click) in the background.
 # Type: Bool
