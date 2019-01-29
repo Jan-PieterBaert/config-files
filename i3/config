@@ -23,8 +23,9 @@ font pango:monospace 7
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn't scale on retina/hidpi displays.
 
-# set super mods (at the moment Windows is $mod and Alt is $mod2)
+# set super mods (at the moment Windows is $mod, AltGr is $mod1 and Alt is $mod2)
 set $mod Mod4
+set $mod1 Mod5
 set $mod2 Mod1
 
 # use these keys for focus, movement, and resize directions when reaching for
@@ -171,7 +172,8 @@ bindsym $mod+space focus mode_toggle
 # workspace mods (move to the next or prev open workspace on current display)
 	bindsym --whole-window $mod+Tab workspace next_on_output
 	bindsym --whole-window $mod+Shift+Tab workspace prev_on_output
-
+	bindsym --whole-window $mod+BackSpace workspace prev_on_output	
+	
 #workspace assignment
 assign [class="Rambox"] $ws1
 assign [class="Thunderbird"] $ws0
@@ -249,7 +251,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	bar {
 	        mode dock
 	        hidden_state hide
-	        modifier mod5
+	        modifier $mod1
 	        #output eDP1
 	        position top 
 	        status_command i3blocks -c ~/.config/i3/i3blocks.conf
@@ -277,7 +279,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
 	for_window [class="^.*"] border pixel 0
-	#gaps inner 0
+	#gaps inner 10
+	#gaps outer 10
 	#smart_gaps on
 	new_window normal 0
 	new_float normal 10
@@ -288,6 +291,11 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 
 #playerctl keybinding
 	bindsym Pause exec playerctl play-pause
+	bindsym $mod1+Pause exec playerctl pause
+	bindsym $mod1+Left exec playerctl previous
+	bindsym $mod1+$left exec playerctl previous
+	bindsym $mod1+Right exec playerctl next
+	bindsym $mod1+$right exec playerctl next
 
 #floating windows
 	for_window [class="GParted"] floating enable
