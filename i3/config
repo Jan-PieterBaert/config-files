@@ -27,6 +27,7 @@ font pango:monospace 7
 set $mod Mod4
 set $mod1 Mod5
 set $mod2 Mod1
+set $terminal alactrity
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -40,7 +41,7 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -70,7 +71,7 @@ bindsym $mod+Shift+q kill
 
 	# focus the parent container
 	bindsym $mod+a focus parent
-	
+
 	# focus the child container
 	bindsym $mod+z focus child
 
@@ -98,10 +99,10 @@ bindsym $mod+Shift+q kill
 	bindsym $mod+w layout tabbed
 	bindsym $mod+e layout toggle split
 
-# Change split mode 
+# Change split mode
 	# split in horizontal orientation
 	bindsym $mod+g split h
-	
+
 	# split in vertical orientation
 	bindsym $mod+v split v
 
@@ -117,7 +118,7 @@ bindsym $mod+space focus mode_toggle
 ## I don't use a scratchpad because I have enough workspaces
 	# move the currently focused window to the scratchpad
 	#bindsym $mod+Shift+minus move scratchpad
-	
+
 	# Show the next scratchpad window or hide the focused scratchpad window.
 	# If there are multiple scratchpad windows, this command cycles through them.
 	#bindsym $mod+minus scratchpad show
@@ -172,8 +173,8 @@ bindsym $mod+space focus mode_toggle
 # workspace mods (move to the next or prev open workspace on current display)
 	bindsym --whole-window $mod+Tab workspace next_on_output
 	bindsym --whole-window $mod+Shift+Tab workspace prev_on_output
-	bindsym --whole-window $mod+BackSpace workspace prev_on_output	
-	
+	bindsym --whole-window $mod+BackSpace workspace prev_on_output
+
 #workspace assignment
 assign [class="Rambox"] $ws1
 assign [class="Thunderbird"] $ws0
@@ -188,7 +189,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 	mode "resize" {
 	        # These bindings trigger as soon as you enter the resize mode
-	
+
 	        # Pressing left will shrink the window’s width.
 	        # Pressing right will grow the window’s width.
 	        # Pressing up will shrink the window’s height.
@@ -197,19 +198,19 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	        bindsym $down       resize grow height 5 px or 5 ppt
 	        bindsym $up         resize shrink height 5 px or 5 ppt
 	        bindsym $right      resize grow width 5 px or 5 ppt
-	
+
 	        # same bindings, but for the arrow keys
 	        bindsym Left        resize shrink width 5 px or 5 ppt
 	        bindsym Down        resize grow height 5 px or 5 ppt
 	        bindsym Up          resize shrink height 5 px or 5 ppt
 	        bindsym Right       resize grow width 5 px or 5 ppt
-	
+
 	        # back to normal: Enter or Escape or $mod+r
 	        bindsym Return mode "default"
 	        bindsym Escape mode "default"
 	        bindsym $mod+r mode "default"
 	}
-	
+
 	bindsym $mod+r mode "resize"
 
 # Mode to logout, reboot or shutdown
@@ -243,7 +244,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	client.unfocused        #333333 #222222 #888888 #292D2E   #222222
 	client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 	client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
-	
+
 	client.background       #FFFFFF
 
 # Bar settings and hotkeys
@@ -253,14 +254,14 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	        hidden_state hide
 	        modifier $mod1
 	        #output eDP1
-	        position top 
+	        position top
 	        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	
+
 	    colors {
 	    	background #000000
 	    	statusline #FFFFFF
 	    	separator  #006600
-	
+
 	    	focused_workspace  #00FF00 #000088 #FFFFFF
 	    	active_workspace   #333333 #000000 #FFFFFF
 	    	inactive_workspace #333333 #555555 #FFFFFF
@@ -268,17 +269,17 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	    	binding_mode       #2F343A #900000 #FFFFFF
 	  }
 	}
-	
+
 	# Make it possible to toggle the bar to be hidden
 	bindsym $mod+backslash bar mode toggle
 
-#Using below keybindings we can give a certain windw a bar or not 
+#Using below keybindings we can give a certain windw a bar or not
 	bindsym $mod+$mod2+b border normal
 	bindsym $mod+$mod2+n border pixel 0
 
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
-	for_window [class="^.*"] border pixel 0
+	for_window [class="^.*"] border pixel 1
 	#gaps inner 10
 	#gaps outer 10
 	#smart_gaps on
@@ -305,9 +306,9 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 
 # Sreen brightness controls
 	# increase screen brightness
-	bindsym XF86MonBrightnessUp exec "/fast_files/git_repos/custum_scripts/changebacklight.sh up" 
+	bindsym XF86MonBrightnessUp exec "/fast_files/git_repos/custum_scripts/changebacklight.sh up"
 	# decrease screen brightness
-	bindsym XF86MonBrightnessDown exec "/fast_files/git_repos/custum_scripts/changebacklight.sh down" 
+	bindsym XF86MonBrightnessDown exec "/fast_files/git_repos/custum_scripts/changebacklight.sh down"
 
 # Pulse Audio controls
 	bindsym XF86AudioRaiseVolume exec --no-startup-id /fast_files/git_repos/custum_scripts/changeVolume +2 #increase sound volume
@@ -335,3 +336,12 @@ exec_always --no-startup-id "killall xss-lock; xss-lock fancy_lock"
 #start flux
 exec --no-startup-id fluxgui &
 
+# Volume scratchpad
+for_window [instance="volume"] move to scratchpad, border 1pixel
+bindsym $mod1+v [instance="volume"] scratchpad show
+exec $terminal --class 'volume' -t volume_scratchpad -e pulsemixer
+
+# irssi scratchpad
+#for_window [instance="irssi"] move to scratchpad, border 1pixel
+#bindsym mod4+Shift+i [instance="irssi"] scratchpad show
+#exec $terminal --class 'irssi' -t irssi_scratchpad -e irssi
