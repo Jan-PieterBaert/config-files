@@ -3,50 +3,5 @@
 
 config_version: 2
 settings:
-  content.headers.user_agent:
-    global: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML,
-      like Gecko) Chrome/58.0.3029.110 Safari/537.36
-  content.host_blocking.lists:
-    global:
-    - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-    - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
-  content.host_blocking.whitelist:
-    global:
-    - piwik.org
-  content.user_stylesheets:
-    global: null
-  fonts.statusbar:
-    global: 8pt monospace
-  spellcheck.languages:
-    global:
-    - en-US
-    - en-GB
-    - nl-NL
-  statusbar.padding:
-    global:
-      bottom: 0
-      left: 0
-      right: 0
-      top: 0
-  statusbar.widgets:
-    global:
-    - keypress
-    - url
-    - scroll
-    - history
-    - tabs
-    - progress
-  tabs.last_close:
-    global: blank
   tabs.position:
-    global: left
-  tabs.title.format:
-    global: '{private}{audio}{index}{title_sep}{title}'
-  tabs.title.format_pinned:
-    global: PIN|{private}{audio}{index}{title_sep}{title}
-  tabs.width:
-    global: 100
-  window.hide_decoration:
-    global: true
-  window.title_format:
-    global: '{audio}{protocol}{title_sep}{title}{title_sep}qutebrowser'
+    global: top
