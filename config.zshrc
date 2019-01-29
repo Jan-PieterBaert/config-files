@@ -1,5 +1,6 @@
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
+export BROWSER="qutebrowser"
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
