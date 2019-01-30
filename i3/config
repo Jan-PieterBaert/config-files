@@ -94,8 +94,7 @@ bindsym $mod+Shift+q kill
 	bindsym $mod+Shift+Up move up
 	bindsym $mod+Shift+Right move right
 
-# change container layout (stacked, tabbed, toggle split)
-	bindsym $mod+s layout stacking
+# change container layout (tabbed, toggle split)
 	bindsym $mod+w layout tabbed
 	bindsym $mod+e layout toggle split
 
