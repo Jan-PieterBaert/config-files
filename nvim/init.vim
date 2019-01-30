@@ -158,10 +158,6 @@ Arpeggio inoremap jk <ESC>
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-" Better search
-" This rewires n and N to do the highlighing...
-nnoremap <silent> n   n:call HLNext(0.4)<cr>
-nnoremap <silent> N   N:call HLNext(0.4)<cr>
 " Makes search act like search in modern browsers
 set incsearch
 " For regular expressions turn magic on
@@ -379,7 +375,7 @@ let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 " deoplete + neosnippet + autopairs changes
 let g:AutoPairsMapCR=0
