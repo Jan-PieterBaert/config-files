@@ -50,7 +50,7 @@ bindsym $mod+Shift+q kill
 	# alternative to dmenu, we use the rofi-version
 	bindsym $mod+d exec rofi -show run
 	# this shows all open windows across workspaces
-	bindsym $mod+bracketleft exec rofi -show combi
+	bindsym $mod+bracketleft exec rofi -show window
 	# my (local) passwordmanager (unix pass)
 	bindsym $mod+bracketright exec rofi-pass
 
@@ -126,7 +126,7 @@ bindsym $mod+space focus mode_toggle
 # We use variables to avoid repeating the names in multiple places.
 # We have 13 workspaces because the number row on my keyboard has 3 keys except for the 10 numbers also fuck people who think 13 brings them bad luck
 	set $ws0 "0|✉"
-	set $ws1 "1|⛲"
+	set $ws1 "1|Random"
 	set $ws2 "2|♫"
 	set $ws3 "3|📺"
 	set $ws4 "4|CompArch"
@@ -252,7 +252,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	  mode dock
 	  hidden_state hide
 	  modifier $mod1
-	  #output eDP1
+	  output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
 

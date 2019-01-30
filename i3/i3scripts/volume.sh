@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # If click, open pavucontrol
-if [ $BLOCK_BUTTON -eq 1 ]
-then
-	pavucontrol &
-fi
+#if [ $BLOCK_BUTTON -eq 1 ]
+#then
+#	pavucontrol &
+#fi
 
 # 1.  List all information.
 # 2.  Filter lines starting with 'State', 'Mute', 'Volume' or 'alsa.name'.
