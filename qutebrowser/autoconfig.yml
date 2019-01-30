@@ -3,5 +3,5 @@
 
 config_version: 2
 settings:
-  tabs.position:
-    global: top
+  content.user_stylesheets:
+    global: null
