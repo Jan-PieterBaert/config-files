@@ -115,12 +115,12 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 ## I don't use a scratchpad because I have enough workspaces
-	# move the currently focused window to the scratchpad
-	#bindsym $mod+Shift+minus move scratchpad
+  # move the currently focused window to the scratchpad
+	bindsym $mod+Shift+m move scratchpad
 
 	# Show the next scratchpad window or hide the focused scratchpad window.
 	# If there are multiple scratchpad windows, this command cycles through them.
-	#bindsym $mod+minus scratchpad show
+	bindsym $mod+m scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -334,12 +334,11 @@ exec_always --no-startup-id "killall xss-lock; xss-lock fancy_lock"
 #start flux
 exec --no-startup-id fluxgui &
 
-# Volume scratchpad
-for_window [instance="volume"] move to scratchpad, border 1pixel
-bindsym $mod1+v [instance="volume"] scratchpad show
-exec $terminal --class 'volume' -t volume_scratchpad -e pulsemixer
+for_window [instance="volume_scratchpad"] move to scratchpad
+bindsym $mod+$mod2+v [instance="volume_scratchpad"] scratchpad show
+exec urxvt -name "volume_scratchpad" -title "volume_scratchpad" -e pulsemixer
 
-# irssi scratchpad
-#for_window [instance="irssi"] move to scratchpad, border 1pixel
-#bindsym mod4+Shift+i [instance="irssi"] scratchpad show
-#exec $terminal --class 'irssi' -t irssi_scratchpad -e irssi
+for_window [instance="terminal_scratchpad"] move to scratchpad
+bindsym $mod+$mod2+t [instance="terminal_scratchpad"] scratchpad show
+exec urxvt -name "terminal_scratchpad" -title "terminal_scratchpad"
+
