@@ -90,7 +90,7 @@ set nowritebackup
 set noerrorbells
 set updatetime=250
 
-set colorcolumn=80
+set colorcolumn=100
 
 set number
 set numberwidth=2
