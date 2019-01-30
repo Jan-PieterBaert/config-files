@@ -27,7 +27,7 @@ font pango:monospace 7
 set $mod Mod4
 set $mod1 Mod5
 set $mod2 Mod1
-set $terminal alactrity
+set $terminal /usr/bin/urxvt
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -235,7 +235,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 		bindsym q exec qutebrowser
 		bindsym Escape mode "default"
 	}
-	bindsym $mod+Shift+b mode "[c]hromium | [r]ambox | [g]oogle-chrome | [a]tom | [r]estart i3 | [q]utebrowser" 
+	bindsym $mod+Shift+b mode "[c]hromium | [r]ambox | [g]oogle-chrome | [a]tom | [r]estart i3 | [q]utebrowser"
 
 # Set some cool colors for i3
 	# class                 border  bground text    indicator child_border
@@ -250,24 +250,23 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Bar settings and hotkeys
 	# Start the i3bar which contains some cool stuff and information from the i3blocks command, there are also a few awesome color settings
 	bar {
-	        mode dock
-	        hidden_state hide
-	        modifier $mod1
-	        #output eDP1
-	        position top
-	        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	  mode dock
+	  hidden_state hide
+	  modifier $mod1
+	  #output eDP1
+	  position top
+	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
-	    colors {
-	    	background #000000
-	    	statusline #FFFFFF
-	    	separator  #006600
-
-	    	focused_workspace  #00FF00 #000088 #FFFFFF
-	    	active_workspace   #333333 #000000 #FFFFFF
-	    	inactive_workspace #333333 #555555 #FFFFFF
-	    	urgent_workspace   #2F343A #900000 #FFFFFF
-	    	binding_mode       #2F343A #900000 #FFFFFF
-	  }
+    colors {
+     	background #000000
+     	statusline #FFFFFF
+   	  separator  #006600
+  	  focused_workspace  #00FF00 #000088 #FFFFFF
+   	  active_workspace   #333333 #000000 #FFFFFF
+   	  inactive_workspace #333333 #555555 #FFFFFF
+   	  urgent_workspace   #2F343A #900000 #FFFFFF
+   	  binding_mode       #2F343A #900000 #FFFFFF
+ 	  }
 	}
 
 	# Make it possible to toggle the bar to be hidden
