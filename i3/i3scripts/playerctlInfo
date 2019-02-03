@@ -8,8 +8,8 @@ retVal=""
 
 if [ "$(playerctl metadata 2>/dev/null | grep -i coldplay)" ]
 then
-	playerctl next; 
-	notify-send "saved Robbe's musical life"
+	playerctl next
+	notify-send "I skipped it, fuck coldplay"
 fi
 
 if [ "$artist" ]
@@ -20,7 +20,7 @@ fi
 if [ "$title" ]
 then
 	retVal+="${title}"
-fi 
+fi
 
 if [ "$(echo $playPauze | grep Play)" ]
 then
