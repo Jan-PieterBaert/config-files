@@ -3,6 +3,7 @@
 title=$(playerctl metadata title 2>/dev/null|| echo "")
 artist=$(playerctl metadata artist 2>/dev/null || echo "")
 playPauze=$(playerctl status 2>/dev/null || echo "")
+playerName=$(playerctl --list-all)
 
 retVal=""
 
@@ -30,6 +31,11 @@ fi
 if [ "$(echo $playPauze | grep Pause)" ]
 then
 	retVal+=" ⏸"
+fi
+
+if [ "$(echo $playerName | grep -vy "No players")" ]
+then
+  retVal+=" ($playerName)"
 fi
 
 if [ "$retVal" ]
