@@ -3,24 +3,5 @@
 
 config_version: 2
 settings:
-  url.searchengines:
-    global:
-      DEFAULT: https://google.com/search?q={}
-      archwiki: https://wiki.archlinux.org/?search={}
-      contact: https://contacts.google.com/search/{}
-      ddg: https://duckduckgo.com/?q={}
-      facebook: https://facebook.com/search/top/?q={}
-      github: https://github.com/search?q={}
-      google: https://google.com/search?q={}
-      hoogle: https://www.haskell.org/hoogle/?hoogle={}
-      maps: https://www.google.be/maps/search/{}+
-      movie: https://www.imdb.com/find?q={}&s=all
-      osm: https://www.openstreetmap.org/search?query={}
-      reddit: https://www.reddit.com/search?q={}
-      time: https://time.is/{}
-      urban: https://www.urbandictionary.com/define.php?term={}
-      weather: https://wttr.in/{}
-      wiki: https://en.wikipedia.org/wiki/{}
-      woord: https://woordenlijst.org/#/?q={}
-      word: https://www.wordnik.com/words/{}
-      youtube: https://www.youtube.com/results?search_query={}
+  content.headers.user_agent:
+    global: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:53.0) Gecko/20100101 Firefox/53.0
