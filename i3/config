@@ -288,7 +288,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	hide_edge_borders smart
 
 #Move to top right, for video playing
-bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window to position 1400 75
+bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window to position 200 75
 
 #playerctl keybinding
 	bindsym Pause exec playerctl play-pause
