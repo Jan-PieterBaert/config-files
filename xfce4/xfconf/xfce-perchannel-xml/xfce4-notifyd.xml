@@ -20,6 +20,7 @@
       <value type="string" value="Thunderbird"/>
       <value type="string" value="Transmission"/>
       <value type="string" value="Xfce4-notifyd settings"/>
+      <value type="string" value="xfce4-power-manager"/>
     </property>
   </property>
   <property name="primary-monitor" type="uint" value="1"/>
