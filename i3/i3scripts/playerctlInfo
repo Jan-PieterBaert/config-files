@@ -3,7 +3,7 @@
 title=$(playerctl metadata title 2>/dev/null|| echo "")
 artist=$(playerctl metadata artist 2>/dev/null || echo "")
 playPauze=$(playerctl status 2>/dev/null || echo "")
-playerName=$(playerctl --list-all)
+playerName=$(playerctl --list-all | head -n1)
 
 retVal=""
 

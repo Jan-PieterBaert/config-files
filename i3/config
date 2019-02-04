@@ -251,7 +251,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Bar settings and hotkeys
 	# Start the i3bar which contains some cool stuff and information from the i3blocks command, there are also a few awesome color settings
 	bar {
-	  mode dock
+	  mode hide
 	  hidden_state hide
 	  modifier $mod1
 	  output eDP1
