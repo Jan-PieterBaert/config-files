@@ -44,7 +44,7 @@ c.content.autoplay = False
 # User agent to send. Unset to send the default. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:53.0) Gecko/20100101 Firefox/53.0'
+c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
 
 # List of URLs of lists which contain hosts to block.  The file can be
 # in one of the following formats:  - An `/etc/hosts`-like file - One
@@ -437,3 +437,5 @@ config.bind('gb', None)
 config.bind('m', 'quickmark-save')
 config.bind('q', None)
 config.bind('wB', None)
+config.bind('<Ctrl+q>')
+config.bind('ZQ')
