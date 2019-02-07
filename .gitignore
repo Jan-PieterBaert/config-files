@@ -1,5 +1,7 @@
 /nvim/.netrwhist
 **/mpv/watch_later/**
 /xfce4/xfconf/xfce-perchannel-xml/thunar.xml
-!qutebrowser/config.py
 /qutebrowser
+!qutebrowser/config.py
+!qutebrowser/quickmarks
+
