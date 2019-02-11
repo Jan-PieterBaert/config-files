@@ -1,0 +1,25 @@
+# add wifi network to wpa_supplicant config
+function addWifi() {
+	if [ "$2" == "" ]
+	then
+		echo "network={" >> /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf
+		echo "	ssid=\"$1\"" >> /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf
+		echo "	key_mgmt=NONE" >> /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf
+		echo "}" >> /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf
+	else
+		res=`wpa_passphrase "$1" "$2"`
+		if [ $? == 0 ]
+		then
+			echo $res >> /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf
+		else
+			echo $res
+		fi
+	fi
+}
+
+# get the full path of a file/directory
+function path() {
+	parent=`pwd`
+	echo $parent/$1
+}
+

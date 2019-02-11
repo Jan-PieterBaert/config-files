@@ -16,13 +16,14 @@ alias editi3Config="vim ~/.config/i3/config"
 alias serve="python3 -m http.server"
 alias fuck="sudo"
 alias playOnHoek="PULSE_SERVER=10.0.0.5 "
+alias kelderforward="pax11publish -e -S 10.0.0.5"
+
 
 #network aliasses
-#alias restartNetwork="sudo systemctl restart NetworkManager"
 alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0"
 alias fixEth="sudo systemctl restart dhcpcd.service"
 alias editWifiConf="sudo nvim /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf && fixWifi"
-alias wifiStatus="wpa_cli -i wlp2s0 status"
+alias wifiStatus="watch wpa_cli -i wlp2s0 status"
 
 #git aliasses
 alias gitStatusSub="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
@@ -48,3 +49,9 @@ alias statusbbs="sudo systemctl status bumblebeed.service"
 # stackstorage aliasses
 alias startStack="sudo mount ~/stackstorage && sudo chown jan-pieter:jan-pieter ~/stackstorage"
 alias stopStack="sudo umount ~/stackstorage"
+
+# kelder aliasses
+alias kelderforward="pax11publish -e -S 10.0.0.5"
+alias kelderforward="pax11publish -e -S 10.0.0.5"
+alias cammie='curl http://kelder.zeus.ugent.be/webcam/video/mjpg.cgi | mpv --no-correct-pts --fps 5 -'
+
