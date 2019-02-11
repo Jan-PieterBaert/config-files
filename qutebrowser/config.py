@@ -309,7 +309,7 @@ c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'con
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'https://google.com'
+c.url.start_pages = 'https://xkcd.com/'
 
 # Hide the window decoration.  This setting requires a restart on
 # Wayland.
