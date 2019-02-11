@@ -23,3 +23,14 @@ function path() {
 	echo $parent/$1
 }
 
+# run a Flask app
+function runFlask() {
+	export FLASK_APP="$1"
+	flask run
+}
+
+# read a .md file
+function readMarkDown() {
+  file=${1:-README.md}
+  pandoc -f gfm -t plain -s $file | less
+}
