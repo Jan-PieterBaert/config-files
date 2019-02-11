@@ -113,6 +113,11 @@ c.downloads.position = 'top'
 # Type: Int
 c.downloads.remove_finished = 60000
 
+# Duration (in milliseconds) to ignore normal-mode key bindings after a
+# successful auto-follow.
+# Type: Int
+c.hints.auto_follow_timeout = 100
+
 # Minimum number of characters used for hint strings.
 # Type: Int
 c.hints.min_chars = 2
@@ -379,9 +384,46 @@ c.colors.tabs.selected.even.bg = '#000088'
 # Type: QtColor
 c.colors.webpage.bg = 'black'
 
+# Default monospace fonts. Whenever "monospace" is used in a font
+# setting, it's replaced with the fonts listed here.
+# Type: Font
+c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+
+# Font used in the completion widget.
+# Type: Font
+c.fonts.completion.entry = '8pt monospace'
+
+# Font used in the completion categories.
+# Type: Font
+c.fonts.completion.category = 'bold 8pt monospace'
+
+# Font used for the debugging console.
+# Type: QtFont
+c.fonts.debug_console = '8pt monospace'
+
 # Font used for the downloadbar.
 # Type: Font
-c.fonts.downloads = '8pt monospace'
+c.fonts.downloads = '7pt monospace'
+
+# Font used for the hints.
+# Type: Font
+c.fonts.hints = 'bold 8pt monospace'
+
+# Font used in the keyhint widget.
+# Type: Font
+c.fonts.keyhint = '8pt monospace'
+
+# Font used for error messages.
+# Type: Font
+c.fonts.messages.error = '8pt monospace'
+
+# Font used for info messages.
+# Type: Font
+c.fonts.messages.info = '8pt monospace'
+
+# Font used for warning messages.
+# Type: Font
+c.fonts.messages.warning = '8pt monospace'
 
 # Font used for prompts.
 # Type: Font
@@ -395,13 +437,41 @@ c.fonts.statusbar = '8pt monospace'
 # Type: QtFont
 c.fonts.tabs = '8pt monospace'
 
+# Font family for standard fonts.
+# Type: FontFamily
+c.fonts.web.family.standard = None
+
+# Font family for fixed fonts.
+# Type: FontFamily
+c.fonts.web.family.fixed = None
+
+# Font family for serif fonts.
+# Type: FontFamily
+c.fonts.web.family.serif = None
+
+# Font family for sans-serif fonts.
+# Type: FontFamily
+c.fonts.web.family.sans_serif = None
+
+# Font family for cursive fonts.
+# Type: FontFamily
+c.fonts.web.family.cursive = None
+
+# Font family for fantasy fonts.
+# Type: FontFamily
+c.fonts.web.family.fantasy = None
+
 # Default font size (in pixels) for regular text.
 # Type: Int
-c.fonts.web.size.default = 13
+c.fonts.web.size.default = 10
 
 # Default font size (in pixels) for fixed-pitch text.
 # Type: Int
-c.fonts.web.size.default_fixed = 10
+c.fonts.web.size.default_fixed = 8
+
+# Hard minimum font size (in pixels).
+# Type: Int
+c.fonts.web.size.minimum = 0
 
 # Bindings for normal mode
 config.bind(',hb', 'history -b')
