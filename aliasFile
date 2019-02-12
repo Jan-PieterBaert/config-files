@@ -53,7 +53,7 @@ alias stopStack="sudo umount ~/stackstorage"
 # kelder aliasses
 alias kelderforward="pax11publish -e -S 10.0.0.5"
 alias kelderforward="pax11publish -e -S 10.0.0.5"
-alias cammie='mpv http://kelder.zeus.ugent.be/webcam/video/mjpg.cgi'
+alias cammie='curl http://kelder.zeus.ugent.be/webcam/video/mjpg.cgi | mpv --no-correct-pts --fps 5 -'
 alias keldermuziek="ncmpcpp -h 10.0.0.5"
 alias pong="ping ugent.be"
 alias playOnHoek="PULSE_SERVER=10.0.0.5 "
