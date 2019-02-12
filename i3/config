@@ -227,16 +227,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	bindsym $mod+x mode "[l]ogout / [h]ibernate / [r]eboot / [s]hutdown / suspend-[t]hen-hibernate / sus[p]end"
 
 # Mode to start frequently used programs and handy ones
-	mode "[c]hromium | [r]ambox | [g]oogle-chrome | [a]tom | [r]estart i3 | [q]utebrowser" {
+	mode "[c]hromium | [r]ambox | [g]hostwriter | [q]utebrowser | [t]hunderbird" {
 		bindsym c exec chromium
 		bindsym r exec rambox
-		bindsym g exec google-chrome-stable
-		bindsym a exec atom
-		bindsym r exec "i3-msg -q restart"
+		bindsym g exec ghostwriter
 		bindsym q exec qutebrowser
-		bindsym Escape mode "default"
+		bindsym t exec thunderbird
+    bindsym Escape mode "default"
 	}
-	bindsym $mod+Shift+b mode "[c]hromium | [r]ambox | [g]oogle-chrome | [a]tom | [r]estart i3 | [q]utebrowser"
+	bindsym $mod+Shift+b mode "[c]hromium | [r]ambox | [g]hostwriter | [q]utebrowser | [t]hunderbird"
 
 # Set some cool colors for i3
 	# class                 border  bground text    indicator child_border
