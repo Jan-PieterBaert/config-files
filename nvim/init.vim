@@ -328,12 +328,6 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" Limelight
-augroup goyo
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
-augroup end
-
 " VIMUX
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
@@ -352,7 +346,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'sh': ['bash-language-server', 'start'],
     \ 'php': ['/usr/bin/php-language-server'],
-    \ 'go' : ['/home/francis/Go/bin/go-langserver','-gocodecompletion','-func-snippet-enabled', 'false'],
+    \ 'go' : ['/home/jan-pieter/Go/bin/go-langserver','-gocodecompletion','-func-snippet-enabled', 'false'],
     \ 'html' : ['/usr/lib/node_modules/vscode-html-languageserver-bin/htmlServerMain.js','--stdio'],
     \ 'css' : ['/usr/lib/node_modules/vscode-css-languageserver-bin/cssServerMain.js','--stdio'],
     \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
@@ -411,7 +405,7 @@ let g:go_fmt_command = 'goimports'
 let g:go_auto_type = 1
 let g:go_template_autocreate = 0
 let g:go_gocode_unimported_packages = 1
-let g:go_bin_path= '/home/francis/Go/bin'
+let g:go_bin_path= '/home/jan-pieter/Go/bin'
 
 nnoremap <leader>gt :GoTest<cr>
 nnoremap <leader>gs :GoFillStruct<cr>
