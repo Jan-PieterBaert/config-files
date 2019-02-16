@@ -292,7 +292,7 @@ c.tabs.title.format_pinned = 'PIN|{private}{audio}{index}{title_sep}{title}'
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
 # Type: PercOrInt
-c.tabs.width = '10%'
+c.tabs.width = 75
 
 # Minimum width (in pixels) of tabs (-1 for the default minimum size
 # behavior). This setting only applies when tabs are horizontal. This
