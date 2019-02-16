@@ -316,7 +316,7 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 
 # Hotkeys for my custum scripts
 	# Lock the screen when scroll lock is pressed
-	bindsym Scroll_Lock exec /fast_files/git_repos/custum_scripts/fancy_lock
+	bindsym Scroll_Lock exec /fast_files/git_repos/custum_scripts/blur_lock
 	# Hibernate (and lock) the computer using this key combination
 	bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
 
