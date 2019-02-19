@@ -3,5 +3,4 @@
 /xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 /qutebrowser
 !qutebrowser/config.py
-!qutebrowser/quickmarks
 
