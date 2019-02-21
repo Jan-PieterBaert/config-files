@@ -324,7 +324,7 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto;arandr"
 
 # Set wallpaper
-exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_10.png &"
+exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_12.png &"
 
 # Num lock on
 exec --no-startup-id numlockx &
