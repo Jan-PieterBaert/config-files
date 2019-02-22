@@ -1,4 +1,4 @@
-rofi.combi-modi: window,run,ssh
+rofi.combi-modi: window,drun,ssh
 rofi.modi: combi,drun,window,ssh,run
 rofi.font: hack 10
 rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
