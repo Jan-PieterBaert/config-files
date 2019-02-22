@@ -48,9 +48,9 @@ bindsym $mod+Shift+q kill
 
 # Rofi things, it's just the best ever, MAKE ROFI GREAT AGAIN!
 	# alternative to dmenu, we use the rofi-version
-	bindsym $mod+d exec rofi -show run -show-icons
+	bindsym $mod+d exec rofi -show run
 	# this shows all open windows across workspaces
-	bindsym $mod+bracketleft exec rofi -show combi
+	bindsym $mod+bracketleft exec rofi -show combi -show-icons
 	# my (local) passwordmanager (unix pass)
 	bindsym $mod+bracketright exec rofi-pass
 

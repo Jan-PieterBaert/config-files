@@ -28,10 +28,10 @@ then
 	retVal+=" ▶"
 fi
 
-if [ "$(echo $playPauze | grep Pause)" ]
-then
-	retVal+=" ⏸"
-fi
+#if [ "$(echo $playPauze | grep Pause)" ]
+#then
+#	retVal+=" ⏸"
+#fi
 
 if [ "$(echo $playerName | grep -vy "No players")" ]
 then
