@@ -207,7 +207,7 @@ c.statusbar.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
 # Valid values:
 #   - top
 #   - bottom
-c.statusbar.position = 'bottom'
+c.statusbar.position = 'top'
 
 # List of widgets displayed in the statusbar.
 # Type: List of String
@@ -246,7 +246,7 @@ c.tabs.padding = {'bottom': 0, 'left': 0, 'right': 0, 'top': 0}
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'left'
+c.tabs.position = 'top'
 
 # When to show the tab bar.
 # Type: String
@@ -321,7 +321,12 @@ c.url.default_page = 'https://google.com'
 # Type: Dict
 c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}',
         'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}',
-        'emoji':'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
+        'emoji':'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle':
+        'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github':
+        'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie':
+        'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit':
+        'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban':
+        'https://www.urbandictionary.com/define.php?term={}', 'unsplash':'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
