@@ -19,6 +19,7 @@ alias fuck="sudo"
 alias copy="xclip -selection clipboard"
 alias pptToPdf="unoconv -f pdf"
 alias capsState="xset -q | grep \"Caps Lock\" | sed \"s/^.*Caps Lock: *\([onf]*\) .*$/\1/\""
+alias sl="sl | lolcat"
 
 #network aliasses
 alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0"
