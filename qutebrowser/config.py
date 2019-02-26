@@ -67,7 +67,12 @@ c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.
 c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts']
 
 # A list of patterns that should always be loaded, despite being ad-
-# blocked. Local domains are always exempt from hostblocking.
+# blocked. Note this whitelists blocked hosts, not first-party URLs. As
+# an example, if `example.org` loads an ad from `ads.example.org`, the
+# whitelisted host should be `ads.example.org`. If you want to disable
+# the adblocker on a given page, use the `content.host_blocking.enabled`
+# setting with a URL pattern instead. Local domains are always exempt
+# from hostblocking.
 # Type: List of UrlPattern
 c.content.host_blocking.whitelist = ['piwik.org']
 
@@ -319,14 +324,7 @@ c.url.default_page = 'https://google.com'
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}',
-        'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}',
-        'emoji':'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle':
-        'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github':
-        'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie':
-        'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit':
-        'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban':
-        'https://www.urbandictionary.com/define.php?term={}', 'unsplash':'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
+c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
@@ -503,6 +501,7 @@ config.bind('<Ctrl+Alt+Shift+`>', 'spawn --detach mpv {url}')
 config.bind('<Ctrl+Alt+Shift+m>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{url}"')
 config.bind('<Ctrl+Alt+Shift+y>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{url}"')
 config.bind('<Ctrl+Alt+`>', 'hint links spawn --detach mpv {hint-url}')
+config.bind('<Ctrl+Backspace>', 'tab-prev')
 config.bind('<Ctrl+Shift+Tab>', 'tab-prev')
 config.bind('<Ctrl+Shift+m>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{hint-url}"')
 config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{hint-url}"')
