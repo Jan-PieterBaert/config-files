@@ -1,6 +1,6 @@
 #!/bin/bash
 
-current_brightness=$(xbacklight -get | grep -o "^.*\." | grep -o "[0-9]*")
+current_brightness=$(light -G)
 
 case $BLOCK_BUTTON in
   4) /fast_files/git_repos/custum_scripts/changebacklight.sh up ;;
