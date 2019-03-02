@@ -69,7 +69,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   git
   python
-  web-search
   dircycle
   dirhistory
   systemd
