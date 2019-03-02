@@ -326,6 +326,10 @@ bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto;arandr"
 # Set wallpaper
 exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_12.png &"
 
+# startup rambox and thunderbird
+  exec --no-startup-id rambox
+  exec --no-startup-id thunderbird
+
 # Num lock on
 exec --no-startup-id numlockx &
 
