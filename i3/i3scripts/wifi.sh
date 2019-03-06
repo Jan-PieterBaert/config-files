@@ -26,4 +26,4 @@ freq=$(wpa_cli -i wlp2s0 status | grep "^freq" | grep -o "[^=]*$" | sed 's/^\([0
 perc=$(grep wlp2s0 /proc/net/wireless | awk '{ print int($3 * 100/70)}')
 
 echo "$name($freq|$ip_a|$perc%)"
-
+echo "$name($ip_a)"

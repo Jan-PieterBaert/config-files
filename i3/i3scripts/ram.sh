@@ -20,7 +20,8 @@ swapVal=$(/fast_files/git_repos/config-files/i3/i3scripts/swap.sh)
 
 if [ $(echo $swapVal -n | wc -l) -gt 0 ]
 then
-	echo -n "<span color='lightblue'>$swapVal|</span>" 
+	echo -n "<span color='lightblue'>$swapVal|</span>"
 fi
 
+echo "<span color='$color'>$used/$total($perc%)</span>"
 echo "<span color='$color'>$used/$total($perc%)</span>"
