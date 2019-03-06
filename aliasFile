@@ -20,6 +20,7 @@ alias copy="xclip -selection clipboard"
 alias pptToPdf="unoconv -f pdf"
 alias capsState="xset -q | grep \"Caps Lock\" | sed \"s/^.*Caps Lock: *\([onf]*\) .*$/\1/\""
 alias sl="sl | lolcat"
+alias ayy=yay
 
 #network aliasses
 alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0"
@@ -55,7 +56,7 @@ alias stopStack="sudo umount ~/stackstorage"
 # kelder aliasses
 alias kelderforward="pax11publish -e -S 10.0.0.5"
 alias kelderforward="pax11publish -e -S 10.0.0.5"
-alias cammie='curl http://kelder.zeus.ugent.be/webcam/video/mjpg.cgi | mpv --no-correct-pts --fps 5 -'
+alias cammie='curl https://kelder.zeus.ugent.be/webcam/video/mjpg.cgi | mpv --no-correct-pts --fps 5 -'
 alias keldermuziek="ncmpcpp -h 10.0.0.5"
 alias pong="ping ugent.be"
 alias playOnHoek="PULSE_SERVER=10.0.0.5 "
