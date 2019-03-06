@@ -44,5 +44,10 @@ then
 else
 	echo "No playerctl playing"
 fi
-exit
 
+
+case $BLOCK_BUTTON in
+  1) playerctl play-pause ;;
+  4) playerctl play ;; # scroll up, increase
+  5) playerctl pause ;; # scroll down, decrease
+esac
