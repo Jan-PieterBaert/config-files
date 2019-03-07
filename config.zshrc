@@ -14,13 +14,6 @@ export PATH=/home/jan-pieter/.gem/ruby/2.5.0/bin:/home/jan-pieter/.local/bin:/fa
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -72,7 +65,6 @@ plugins=(
   dircycle
   dirhistory
   systemd
-  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,13 +90,6 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs battery)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -114,5 +99,8 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMT_PREFIX=''
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# source aliasses
 source $HOME/.alias
+
+# source handy functions
 source $HOME/.functions
