@@ -5,7 +5,7 @@ artist=$(playerctl metadata artist 2>/dev/null || echo "")
 playPauze=$(playerctl status 2>/dev/null || echo "")
 playerName=$(playerctl --list-all | head -n1)
 
-retVal=""
+fullText=""
 
 if [ "$(playerctl metadata 2>/dev/null | grep -i coldplay)" ]
 then
@@ -15,32 +15,35 @@ fi
 
 if [ "$artist" ]
 then
-	retVal+="${artist}: "
+	fullText+="${artist}: "
 fi
 
 if [ "$title" ]
 then
-	retVal+="${title}"
+	fullText+="${title}"
 fi
+
+shortText=$fullText
 
 if [ "$(echo $playPauze | grep Play)" ]
 then
-	retVal+=" ▶"
+	fullText+=" ▶"
 fi
 
 #if [ "$(echo $playPauze | grep Pause)" ]
 #then
-#	retVal+=" ⏸"
+#	fullText+=" ⏸"
 #fi
 
 if [ "$(echo $playerName | grep -vy "No players")" ]
 then
-  retVal+=" ($playerName)"
+  fullText+=" ($playerName)"
 fi
 
-if [ "$retVal" ]
+if [ "$fullText" ]
 then
-	echo $retVal
+	echo $fullText
+  echo $shortText
 else
 	echo "No playerctl playing"
 fi
