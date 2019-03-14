@@ -137,9 +137,9 @@ bindsym $mod+space focus mode_toggle
 	set $ws7 "7|WebDev"
 	set $ws8 "8|Wetrek"
 	set $ws9 "9"
-	set $ws10 "10|git"
+	set $ws10 "10"
 	set $ws11 "11"
-	set $ws12 "12ul"
+	set $ws12 "12"
 
 # switch to workspace
 	bindsym $mod+grave workspace $ws0
@@ -318,7 +318,7 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 	# Lock the screen when scroll lock is pressed
 	bindsym Scroll_Lock exec /fast_files/git_repos/custum_scripts/blur_lock
 	# Hibernate (and lock) the computer using this key combination
-	bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
+	#bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
 
 # Used to configure my screens layout when a new one connects
 bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto;arandr"
