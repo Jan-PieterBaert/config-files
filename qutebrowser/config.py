@@ -120,7 +120,7 @@ c.completion.min_chars = 1
 # Valid values:
 #   - top
 #   - bottom
-c.downloads.position = 'top'
+c.downloads.position = 'bottom'
 
 # Duration (in milliseconds) to wait before removing finished downloads.
 # If set to -1, downloads are never removed.
@@ -251,7 +251,7 @@ c.tabs.padding = {'bottom': 0, 'left': 0, 'right': 0, 'top': 0}
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'top'
+c.tabs.position = 'left'
 
 # When to show the tab bar.
 # Type: String
