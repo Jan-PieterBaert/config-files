@@ -20,6 +20,35 @@ c.aliases = {'private': 'open -p', 'quickmarks': 'open -t qute://bookmarks/', 'b
 #   - never: Never show a confirmation.
 c.confirm_quit = ['always']
 
+# Maximum time (in minutes) between two history items for them to be
+# considered being from the same browsing session. Items with less time
+# between them are grouped when being displayed in `:history`. Use -1 to
+# disable separation.
+# Type: Int
+c.history_gap_interval = 15
+
+# When to find text on a page case-insensitively.
+# Type: IgnoreCase
+# Valid values:
+#   - always: Search case-insensitively.
+#   - never: Search case-sensitively.
+#   - smart: Search case-sensitively if there are capital characters.
+c.search.ignore_case = 'smart'
+
+# Find text on a page incrementally, renewing the search for each typed
+# character.
+# Type: Bool
+c.search.incremental = True
+
+# Name of the session to save by default. If this is set to null, the
+# session which was last loaded is saved.
+# Type: SessionName
+c.session.default_name = None
+
+# Load a restored tab as soon as it takes focus.
+# Type: Bool
+c.session.lazy_restore = True
+
 # Which Chromium process model to use. Alternative process models use
 # less resources, but decrease security and robustness. See the
 # following pages for more details:    -
@@ -32,6 +61,11 @@ c.confirm_quit = ['always']
 #   - single-process: Run all tabs in a single process. This should be used for debugging purposes only, and it disables `:open --private`.
 c.qt.process_model = 'process-per-site-instance'
 
+# Time interval (in milliseconds) between auto-saves of
+# config/cookies/etc.
+# Type: Int
+c.auto_save.interval = 15000
+
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
 c.auto_save.session = True
@@ -40,6 +74,11 @@ c.auto_save.session = True
 # this option needs a restart and does not support URL patterns.
 # Type: Bool
 c.content.autoplay = False
+
+# Allow websites to read canvas elements. Note this is needed for some
+# websites to work properly.
+# Type: Bool
+c.content.canvas_reading = False
 
 # Which cookies to accept.
 # Type: String
@@ -111,9 +150,22 @@ c.completion.cmd_history_max_items = -1
 # Type: PercOrInt
 c.completion.height = '40%'
 
+# Format of timestamps (e.g. for the history completion).
+# Type: TimestampTemplate
+c.completion.timestamp_format = '%d/%m/%Y'
+
+# Number of URLs to show in the web history. 0: no history / -1:
+# unlimited
+# Type: Int
+c.completion.web_history.max_items = 10000
+
 # Minimum amount of characters needed to update completions.
 # Type: Int
 c.completion.min_chars = 1
+
+# Execute the best-matching command on a partial match.
+# Type: Bool
+c.completion.use_best_match = False
 
 # Where to show the downloaded files.
 # Type: VerticalPosition
@@ -127,14 +179,70 @@ c.downloads.position = 'bottom'
 # Type: Int
 c.downloads.remove_finished = 60000
 
+# When a hint can be automatically followed without pressing Enter.
+# Type: String
+# Valid values:
+#   - always: Auto-follow whenever there is only a single hint on a page.
+#   - unique-match: Auto-follow whenever there is a unique non-empty match in either the hint string (word mode) or filter (number mode).
+#   - full-match: Follow the hint when the user typed the whole hint (letter, word or number mode) or the element's text (only in number mode).
+#   - never: The user will always need to press Enter to follow a hint.
+c.hints.auto_follow = 'unique-match'
+
 # Duration (in milliseconds) to ignore normal-mode key bindings after a
 # successful auto-follow.
 # Type: Int
 c.hints.auto_follow_timeout = 100
 
+# CSS border value for hints.
+# Type: String
+c.hints.border = '1px solid #E3BE23'
+
+# Characters used for hint strings.
+# Type: UniqueCharString
+c.hints.chars = 'qwertyuiasdfghjzxcvbnm'
+
+# Dictionary file to be used by the word hints.
+# Type: File
+c.hints.dictionary = '/usr/share/dict/words'
+
+# Hide unmatched hints in rapid mode.
+# Type: Bool
+c.hints.hide_unmatched_rapid_hints = True
+
 # Minimum number of characters used for hint strings.
 # Type: Int
 c.hints.min_chars = 2
+
+# Mode to use for hints.
+# Type: String
+# Valid values:
+#   - number: Use numeric hints. (In this mode you can also type letters from the hinted element to filter and reduce the number of elements that are hinted.)
+#   - letter: Use the characters in the `hints.chars` setting.
+#   - word: Use hints words based on the html elements and the extra words.
+c.hints.mode = 'letter'
+
+# Comma-separated list of regular expressions to use for 'next' links.
+# Type: List of Regex
+c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
+
+# Comma-separated list of regular expressions to use for 'prev' links.
+# Type: List of Regex
+c.hints.prev_regexes = ['\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
+
+# Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
+# number hints.
+# Type: Bool
+c.hints.scatter = True
+
+# Allow Escape to quit the crash reporter.
+# Type: Bool
+c.input.escape_quits_reporter = True
+
+# Timeout (in milliseconds) for partially typed key bindings. If the
+# current input forms only partial matches, the keystring will be
+# cleared after this time.
+# Type: Int
+c.input.partial_timeout = 2500
 
 # When to show the scrollbar.
 # Type: String
@@ -205,7 +313,7 @@ c.statusbar.hide = False
 
 # Padding (in pixels) for the statusbar.
 # Type: Padding
-c.statusbar.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
+c.statusbar.padding = {'bottom': 0, 'left': 0, 'right': 0, 'top': 0}
 
 # Position of the status bar.
 # Type: VerticalPosition
@@ -253,6 +361,14 @@ c.tabs.padding = {'bottom': 0, 'left': 0, 'right': 0, 'top': 0}
 #   - right
 c.tabs.position = 'left'
 
+# Which tab to select when the focused tab is removed.
+# Type: SelectOnRemove
+# Valid values:
+#   - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
+#   - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
+#   - last-used: Select the previously selected tab.
+c.tabs.select_on_remove = 'last-used'
+
 # When to show the tab bar.
 # Type: String
 # Valid values:
@@ -292,12 +408,12 @@ c.tabs.title.format = '{private}{audio}{index}{title_sep}{title}'
 # Format to use for the tab title for pinned tabs. The same placeholders
 # like for `tabs.title.format` are defined.
 # Type: FormatString
-c.tabs.title.format_pinned = 'PIN|{private}{audio}{index}{title_sep}{title}'
+c.tabs.title.format_pinned = '🔒|{private}{audio}{index}{title_sep}{title}'
 
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
 # Type: PercOrInt
-c.tabs.width = 75
+c.tabs.width = '7%'
 
 # Minimum width (in pixels) of tabs (-1 for the default minimum size
 # behavior). This setting only applies when tabs are horizontal. This
@@ -306,9 +422,17 @@ c.tabs.width = 75
 # Type: Int
 c.tabs.min_width = 50
 
+# Width (in pixels) of the progress indicator (0 to disable).
+# Type: Int
+c.tabs.indicator.width = 3
+
 # Padding (in pixels) for tab indicators.
 # Type: Padding
 c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
+
+# Force pinned tabs to stay at fixed URL.
+# Type: Bool
+c.tabs.pinned.frozen = True
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
@@ -338,7 +462,7 @@ c.window.hide_decoration = True
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
 # Type: FormatString
-c.window.title_format = '{audio}{protocol}{title_sep}{title}{title_sep}qutebrowser'
+c.window.title_format = '{audio}{host}{title_sep}{title}{title_sep}qutebrowser'
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
@@ -477,15 +601,20 @@ c.fonts.web.family.fantasy = None
 
 # Default font size (in pixels) for regular text.
 # Type: Int
-c.fonts.web.size.default = 10
+c.fonts.web.size.default = 11
 
 # Default font size (in pixels) for fixed-pitch text.
 # Type: Int
-c.fonts.web.size.default_fixed = 8
+c.fonts.web.size.default_fixed = 9
 
 # Hard minimum font size (in pixels).
 # Type: Int
 c.fonts.web.size.minimum = 0
+
+# Minimum logical font size (in pixels) that is applied when zooming
+# out.
+# Type: Int
+c.fonts.web.size.minimum_logical = 8
 
 # Bindings for normal mode
 config.bind(',hb', 'history -b')
