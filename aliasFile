@@ -30,8 +30,6 @@ alias editWifiConf="sudo nvim /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf && 
 #git aliasses
 alias gitStatusSub="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
 alias gpp="git pull origin && git push origin"
-alias quteCommit="git commit -sS -m \"qute updates\" "
-alias typoFixCommit"git commit -Ss -m \"typo fix\""
 
 #pacman aliasses
 alias search_package="yay -Ss"
