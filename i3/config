@@ -53,6 +53,8 @@ bindsym $mod+Shift+q kill
 	bindsym $mod+bracketleft exec rofi -show combi -show-icons
 	# my (local) passwordmanager (unix pass)
 	bindsym $mod+bracketright exec rofi-pass
+  # emoji rofi plugin 😎
+  bindsym $mod2+e exec rofimoji
 
 # start dmenu (a program launcher)
 # dmenu with some cool colors
