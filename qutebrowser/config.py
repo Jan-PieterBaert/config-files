@@ -103,7 +103,7 @@ c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.
 # The file `~/.config/qutebrowser/blocked-hosts` is always read if it
 # exists.
 # Type: List of Url
-c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts']
+c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts', 'https://github.com/jmdugan/blocklists/blob/master/fb-addon-blocklists']
 
 # A list of patterns that should always be loaded, despite being ad-
 # blocked. Note this whitelists blocked hosts, not first-party URLs. As
@@ -448,7 +448,7 @@ c.url.default_page = 'https://google.com'
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}'}
+c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'pipy': 'https://pypi.org/search/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
