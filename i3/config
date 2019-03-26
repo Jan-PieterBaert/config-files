@@ -304,6 +304,7 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 	for_window [class="Pavucontrol"] floating enable
 	for_window [class="Arandr"] floating enable
 	for_window [class="Shutter"] floating enable
+  for_window [title="^Android Emulator -"] floating enable
 
 # Sreen brightness controls
 	# increase screen brightness
