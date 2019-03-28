@@ -337,7 +337,7 @@ exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts
 exec --no-startup-id numlockx &
 
 # kill the old xss-lock and start a new one, to make sure one is running
-exec_always --no-startup-id "killall xss-lock; xss-lock fancy_lock"
+#exec_always --no-startup-id "killall xss-lock; xss-lock fancy_lock"
 
 #start flux
 exec --no-startup-id fluxgui &
