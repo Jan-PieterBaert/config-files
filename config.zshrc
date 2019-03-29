@@ -1,5 +1,11 @@
 #if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
+# source aliasses
+source $HOME/.alias
+
+# source handy functions
+source $HOME/.functions
+
 export BROWSER="qutebrowser"
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
@@ -61,7 +67,6 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  python
   dircycle
   dirhistory
   systemd
@@ -99,8 +104,12 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMT_PREFIX=''
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# source aliasses
-source $HOME/.alias
+# fix pandoc completions
+autoload bashcompinit
+bashcompinit
+eval "$(pandoc --bash-completion)"
 
-# source handy functions
-source $HOME/.functions
+# fix hub completions
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+
