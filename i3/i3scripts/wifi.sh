@@ -20,6 +20,11 @@
 #
 #echo "$essid ($strength)"
 
+if [ $(systemctl is-active wpa_supplicant@wlp2s0.service | rg '^inactive$') ];then
+  echo 'airplane mode'
+  exit
+fi
+
 name=$(wpa_cli status -i wlp2s0 | grep "^ssid" | grep -oi "[^=]*$")
 ip_a=$(wpa_cli -i wlp2s0 status | grep "^ip_add" | grep -o "[^=]*$")
 freq=$(wpa_cli -i wlp2s0 status | grep "^freq" | sed 's/^[^0-9]*\([0-9]\)\([0-9]\{3\}\)$/\1.\2/g' | sed 's/0*$//g')
