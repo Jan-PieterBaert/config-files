@@ -21,7 +21,7 @@
 #echo "$essid ($strength)"
 
 if [ $(systemctl is-active wpa_supplicant@wlp2s0.service | rg '^inactive$') ];then
-  echo 'airplane mode'
+  echo '✈️'
   exit
 fi
 

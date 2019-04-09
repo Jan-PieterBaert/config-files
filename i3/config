@@ -255,7 +255,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	  mode hide
 	  hidden_state hide
 	  modifier $mod1
-	  output eDP1
+	  #output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
