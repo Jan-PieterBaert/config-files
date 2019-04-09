@@ -38,8 +38,8 @@ alias update_packages="yay -Syu"
 alias download_updates="yay -Syuw"
 
 # package-list backup and down
-alias backdown_yay="yay -S --needed - < /fast_files/git_repos/custum_scripts/pkglist.txt"
-alias backup_yay="yay -Qqe > /fast_files/git_repos/custum_scripts/pkglist.txt"
+alias backdown_yay="yay -S --needed - < ~/pkglist.txt"
+alias backup_yay="yay -Qqe > ~/pkglist.txt"
 alias yay="time yay"
 
 # bumblebee aliasses

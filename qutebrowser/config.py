@@ -609,7 +609,7 @@ c.fonts.web.size.default_fixed = 9
 
 # Hard minimum font size (in pixels).
 # Type: Int
-c.fonts.web.size.minimum = 0
+c.fonts.web.size.minimum = 7
 
 # Minimum logical font size (in pixels) that is applied when zooming
 # out.
