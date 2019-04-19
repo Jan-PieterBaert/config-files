@@ -14,7 +14,7 @@
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 6.75
+font pango:DejaVu Sans Mono 6
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -252,12 +252,13 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Bar settings and hotkeys
 	# Start the i3bar which contains some cool stuff and information from the i3blocks command, there are also a few awesome color settings
 	bar {
-	  mode hide
-	  hidden_state hide
+	  mode dock
+	  #hidden_state hide
 	  modifier $mod1
 	  #output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    font pango:DejaVu Sans Mono 6.5
 
     colors {
      	background #000000
@@ -280,7 +281,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
-	for_window [class="^.*"] border pixel 1
+	#for_window [class="^.*"] border pixel 1
 	#gaps inner 10
 	#gaps outer 10
 	#smart_gaps on
