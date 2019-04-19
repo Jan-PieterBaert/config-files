@@ -48,7 +48,7 @@ alias stopbbs="sudo systemctl stop bumblebeed.service"
 alias statusbbs="sudo systemctl status bumblebeed.service"
 
 # stackstorage aliasses
-alias startStack="sudo mount ~/stackstorage && sudo chown jan-pieter:jan-pieter ~/stackstorage"
+alias startStack="sudo mount ~/stackstorage"
 alias stopStack="sudo umount ~/stackstorage"
 
 # kelder aliasses
