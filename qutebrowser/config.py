@@ -150,8 +150,9 @@ c.completion.cmd_history_max_items = -1
 # Type: PercOrInt
 c.completion.height = '40%'
 
-# Format of timestamps (e.g. for the history completion).
-# Type: TimestampTemplate
+# Format of timestamps (e.g. for the history completion). See
+# https://sqlite.org/lang_datefunc.html for allowed substitutions.
+# Type: String
 c.completion.timestamp_format = '%d/%m/%Y'
 
 # Number of URLs to show in the web history. 0: no history / -1:
@@ -178,6 +179,15 @@ c.downloads.position = 'bottom'
 # If set to -1, downloads are never removed.
 # Type: Int
 c.downloads.remove_finished = 60000
+
+# Editor (and arguments) to use for the `open-editor` command. The
+# following placeholders are defined: * `{file}`: Filename of the file
+# to be edited. * `{line}`: Line in which the caret is found in the
+# text. * `{column}`: Column in which the caret is found in the text. *
+# `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
+# Same as `{column}`, but starting from index 0.
+# Type: ShellCommand
+c.editor.command = ['urxvt', '-e', 'vim', '{file}']
 
 # When a hint can be automatically followed without pressing Enter.
 # Type: String
@@ -638,12 +648,14 @@ config.bind('<Ctrl+Tab>', 'tab-next')
 config.bind('<Ctrl+b>', None)
 config.bind('<Ctrl+f>', 'set-cmd-text /')
 config.bind('<Ctrl+q>', None)
-config.bind('@', None)
+config.bind('@', 'enter-mode passthrough')
 config.bind('Ctrl+f', 'set-cmd-text /')
 config.bind('M', None)
 config.bind('Sb', None)
 config.bind('Ss', 'open -t qute://settings')
 config.bind('ZQ', None)
+config.bind('ad', None)
+config.bind('add', 'spawn -u qutepocket')
 config.bind('eew', ':set-cmd-text :open -p {url:pretty}')
 config.bind('ewc', ':set-cmd-text :open -p {clipboard}')
 config.bind('ewf', 'hint links fill :open -p {hint-url}')
