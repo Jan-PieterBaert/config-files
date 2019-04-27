@@ -281,7 +281,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
-	#for_window [class="^.*"] border pixel 1
+	for_window [class="^.*"] border pixel 1
 	#gaps inner 10
 	#gaps outer 10
 	#smart_gaps on

@@ -413,12 +413,12 @@ c.tabs.title.alignment = 'left'
 # `{protocol}`: Protocol (http/https/...) of the current web page. *
 # `{audio}`: Indicator for audio/mute status.
 # Type: FormatString
-c.tabs.title.format = '{private}{audio}{index}{title_sep}{title}'
+c.tabs.title.format = '{private}{audio}{index}{title_sep}{current_title}'
 
 # Format to use for the tab title for pinned tabs. The same placeholders
 # like for `tabs.title.format` are defined.
 # Type: FormatString
-c.tabs.title.format_pinned = '🔒|{private}{audio}{index}{title_sep}{title}'
+c.tabs.title.format_pinned = '🔒|{private}{audio}{index}{title_sep}{current_title}'
 
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
@@ -472,7 +472,7 @@ c.window.hide_decoration = True
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
 # Type: FormatString
-c.window.title_format = '{audio}{host}{title_sep}{title}{title_sep}qutebrowser'
+c.window.title_format = '{audio}{host}{title_sep}{current_title}{title_sep}qutebrowser'
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
@@ -530,7 +530,7 @@ c.colors.tabs.selected.even.bg = '#000088'
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = 'black'
+c.colors.webpage.bg = 'white'
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.

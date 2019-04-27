@@ -113,3 +113,4 @@ eval "$(pandoc --bash-completion)"
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
+source /usr/share/autojump/autojump.zsh
