@@ -129,19 +129,19 @@ bindsym $mod+space focus mode_toggle
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 # We have 13 workspaces because the number row on my keyboard has 3 keys except for the 10 numbers also fuck people who think 13 brings them bad luck
-	set $ws0 "0|✉"
-	set $ws1 "1|Random"
-	set $ws2 "2|🎶"
-	set $ws3 "3|📺"
-	set $ws4 "4|CompArch"
-	set $ws5 "5|Multi"
-	set $ws6 "6|SEL1"
-	set $ws7 "7|WebDev"
-	set $ws8 "8|Wetrek"
-	set $ws9 "9|ZeusWPI"
+	set $ws0 "0"
+	set $ws1 "1"
+	set $ws2 "2"
+	set $ws3 "3"
+	set $ws4 "4"
+	set $ws5 "5"
+	set $ws6 "6"
+	set $ws7 "7"
+	set $ws8 "8"
+	set $ws9 "9"
 	set $ws10 "10"
 	set $ws11 "11"
-	set $ws12 "12ul"
+	set $ws12 "12"
 
 # switch to workspace
 	bindsym $mod+grave workspace $ws0
