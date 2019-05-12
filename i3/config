@@ -27,7 +27,7 @@ font pango:DejaVu Sans Mono 6
 set $mod Mod4
 set $mod1 Mod5
 set $mod2 Mod1
-set $terminal /usr/bin/urxvt
+set $terminal /usr/bin/xfce4-terminal
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -178,10 +178,6 @@ bindsym $mod+space focus mode_toggle
 	bindsym --whole-window $mod+Shift+Tab workspace prev_on_output
 	bindsym --whole-window $mod+BackSpace workspace prev_on_output
 
-#workspace assignment
-assign [class="Rambox"] $ws1
-assign [class="Thunderbird"] $ws0
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -300,6 +296,11 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 	bindsym $mod1+Right exec playerctl next
 	bindsym $mod1+$right exec playerctl next
 
+	bindsym XF86AudioPlay exec playerctl play
+	bindsym XF86AudioPause exec playerctl pause
+	bindsym XF86AudioPrev exec playerctl prev
+	bindsym XF86AudioNext exec playerctl next
+
 #floating windows
 	for_window [class="GParted"] floating enable
 	for_window [class="Pavucontrol"] floating enable
@@ -332,8 +333,9 @@ bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto;arandr"
 exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_12.png &"
 
 # startup rambox and thunderbird
-  exec --no-startup-id rambox
-  exec --no-startup-id thunderbird
+  exec --no-startup-id caprine &
+  exec --no-startup-id rambox &
+  exec --no-startup-id thunderbird &
 
 # Num lock on
 exec --no-startup-id numlockx &
@@ -346,9 +348,9 @@ exec --no-startup-id fluxgui &
 
 for_window [instance="volume_scratchpad"] move to scratchpad
 bindsym $mod+$mod2+v [instance="volume_scratchpad"] scratchpad show
-exec urxvt -name "volume_scratchpad" -title "volume_scratchpad" -e pulsemixer
+exec xfce4-terminal -name "volume_scratchpad" -title "volume_scratchpad" -e pulsemixer
 
 for_window [instance="terminal_scratchpad"] move to scratchpad
 bindsym $mod+$mod2+t [instance="terminal_scratchpad"] scratchpad show
-exec urxvt -name "terminal_scratchpad" -title "terminal_scratchpad"
+exec xfce4-terminal -name "terminal_scratchpad" -title "terminal_scratchpad"
 
