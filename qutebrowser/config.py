@@ -248,6 +248,17 @@ c.hints.scatter = True
 # Type: Bool
 c.input.escape_quits_reporter = True
 
+# Automatically enter insert mode if an editable element is focused
+# after loading the page.
+# Type: Bool
+c.input.insert_mode.auto_load = True
+
+# Leave insert mode when starting a new page load. Patterns may be
+# unreliable on this setting, and they may match the url you are
+# navigating to, or the URL you are navigating from.
+# Type: Bool
+c.input.insert_mode.leave_on_load = False
+
 # Timeout (in milliseconds) for partially typed key bindings. If the
 # current input forms only partial matches, the keystring will be
 # cleared after this time.
@@ -403,10 +414,10 @@ c.tabs.title.alignment = 'left'
 
 # Format to use for the tab title. The following placeholders are
 # defined:  * `{perc}`: Percentage as a string like `[10%]`. *
-# `{perc_raw}`: Raw percentage, e.g. `10`. * `{title}`: Title of the
-# current web page. * `{title_sep}`: The string ` - ` if a title is set,
-# empty otherwise. * `{index}`: Index of this tab. * `{id}`: Internal
-# tab ID of this tab. * `{scroll_pos}`: Page scroll position. *
+# `{perc_raw}`: Raw percentage, e.g. `10`. * `{current_title}`: Title of
+# the current web page. * `{title_sep}`: The string ` - ` if a title is
+# set, empty otherwise. * `{index}`: Index of this tab. * `{id}`:
+# Internal tab ID of this tab. * `{scroll_pos}`: Page scroll position. *
 # `{host}`: Host of the current web page. * `{backend}`: Either
 # ''webkit'' or ''webengine'' * `{private}`: Indicates when private mode
 # is enabled. * `{current_url}`: URL of the current web page. *
