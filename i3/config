@@ -120,11 +120,11 @@ bindsym $mod+space focus mode_toggle
 
 ## I don't use a scratchpad because I have enough workspaces
   # move the currently focused window to the scratchpad
-	bindsym $mod+Shift+m move scratchpad
+	bindsym $mod+Shift+comma move scratchpad
 
 	# Show the next scratchpad window or hide the focused scratchpad window.
 	# If there are multiple scratchpad windows, this command cycles through them.
-	bindsym $mod+m scratchpad show
+	bindsym $mod+comma scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
