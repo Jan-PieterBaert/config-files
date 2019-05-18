@@ -114,3 +114,7 @@ fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
 source /usr/share/autojump/autojump.zsh
+
+echo "faketime is een ding"
+echo "locate is een ding"
+neofetch
