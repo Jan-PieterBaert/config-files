@@ -16,17 +16,17 @@ alias update_time="sudo ntpdate -s ntp.ugent.be"
 alias serveDirectory="python3 -m http.server"
 alias fuck="sudo"
 alias copy="xclip -selection clipboard"
-alias pptToPdf="unoconv -f pdf"
 alias capsState="xset -q | grep \"Caps Lock\" | sed \"s/^.*Caps Lock: *\([onf]*\) .*$/\1/\""
 alias sl="sl | lolcat"
 alias ayy=yay
 alias cat=bat
 alias ":q"=exit
+alias ":wq"=exit
 alias make="make -j8"
 
 #network aliasses
-alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0"
-alias stopWifi="sudo systemctl stop wpa_supplicant@wlp2s0.service"
+alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0; notify-send 'restarted wpa-supplicant'"
+alias stopWifi="sudo systemctl stop wpa_supplicant@wlp2s0.service; notify-send 'stopped wpa-supplicant'"
 alias fixEth="sudo systemctl restart dhcpcd.service"
 alias wifiStatus="watch wpa_cli -i wlp2s0 status"
 alias editWifiConf="sudo nvim /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf && fixWifi"
