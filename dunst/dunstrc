@@ -39,7 +39,7 @@
 
     # show age of message if message is older than show_age_threshold seconds.
     # set to -1 to disable
-    show_age_threshold = 60
+    show_age_threshold = 120
 
     # split notifications into multiple lines if they don't fit into geometry
     word_wrap = yes
@@ -59,7 +59,7 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "250x10-30+20"
+    geometry = "250x10-60+40"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -87,7 +87,7 @@
 
     # should a notification popped up from history be sticky or
     # timeout as if it would normally do.
-    sticky_history = yes
+    sticky_history = no
 
     # The height of a single line. If the height is smaller than the font height,
     # it will get raised to the font height.
@@ -99,10 +99,10 @@
     separator_height = 2
 
     # padding between text and separator
-    padding = 8
+    padding = 4
 
     # horizontal padding
-    horizontal_padding = 8
+    horizontal_padding = 4
 
     # Define a color for the separator.
     # possible values are:
@@ -110,7 +110,7 @@
     #  * foreground: use the same color as the foreground
     #  * frame: use the same color as the frame.
     #  * anything else will be interpreted as a X color
-    separator_color = frame
+    separator_color = auto
 
     # print a notification on startup
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -153,12 +153,12 @@
     timeout = 10
 
 [urgency_normal]
-    background = "#2855aa"
+    background = "#0000ff"
     foreground = "#ffffff"
     timeout = 10
 
 [urgency_critical]
-    background = "#770000"
+    background = "#aa0000"
     foreground = "#ffffff"
     timeout = 0
 
