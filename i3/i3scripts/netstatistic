@@ -44,20 +44,22 @@ if [[ "${time_diff}" -gt 0 ]]; then
 
   # incoming
   rx_kib=$(( $rx_rate >> 10 ))
+  
+  echo -n "D:"
   if [[ "$rx_rate" -gt 1048576 ]]; then
-    echo -n "${rx_kib:0:-3}.${rx_kib: -3:-2} M↓"
+    echo -n "${rx_kib:0:-3}.${rx_kib: -3:-2} M"
   else
-    echo -n "${rx_kib} K↓"
+    echo -n "${rx_kib} K"
   fi
 
-  echo -n "  "
+  echo -n "|U:"
 
   # outgoing
   tx_kib=$(( $tx_rate >> 10 ))
   if [[ "$tx_rate" -gt 1048576 ]]; then
-    echo -n "${tx_kib:0:-3}.${tx_kib: -3:-2} M↑"
+    echo -n "${tx_kib:0:-3}.${tx_kib: -3:-2} M"
   else
-    echo -n "${tx_kib} K↑"
+    echo -n "${tx_kib} K"
   fi
 else
   echo -n " ? "

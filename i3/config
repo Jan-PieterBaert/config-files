@@ -45,6 +45,7 @@ bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod2+F4 kill
 
 # Rofi things, it's just the best ever, MAKE ROFI GREAT AGAIN!
 	# alternative to dmenu, we use the rofi-version
