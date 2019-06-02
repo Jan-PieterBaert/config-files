@@ -28,6 +28,7 @@ set $mod Mod4
 set $mod1 Mod5
 set $mod2 Mod1
 set $terminal /usr/bin/alacritty
+set $scriptlocation /fast_files/git_repos/custum_scripts
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -252,7 +253,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	  mode dock
 	  #hidden_state hide
 	  modifier $mod1
-	  #output eDP1
+	  output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
     font pango:DejaVu Sans Mono 6.5
@@ -278,7 +279,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
-	for_window [class="^.*"] border pixel 1
+	for_window [class="^.*"] border normal
 	#gaps inner 10
 	#gaps outer 10
 	#smart_gaps on
@@ -311,9 +312,9 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 
 # Sreen brightness controls
 	# increase screen brightness
-	bindsym XF86MonBrightnessUp exec "/fast_files/git_repos/custum_scripts/changebacklight.sh up"
+	bindsym $mod+t exec "$scriptlocation/changebacklight.sh up"
 	# decrease screen brightness
-	bindsym XF86MonBrightnessDown exec "/fast_files/git_repos/custum_scripts/changebacklight.sh down"
+	bindsym $mod+Shift+t exec "$scriptlocation/changebacklight.sh down"
 
 # Pulse Audio controls
 	bindsym XF86AudioRaiseVolume exec --no-startup-id /fast_files/git_repos/custum_scripts/changeVolume +2 #increase sound volume
@@ -346,12 +347,4 @@ exec --no-startup-id numlockx &
 
 #start flux
 exec --no-startup-id fluxgui &
-
-for_window [instance="volume_scratchpad"] move to scratchpad
-bindsym $mod+$mod2+v [instance="volume_scratchpad"] scratchpad show
-exec xfce4-terminal -name "volume_scratchpad" -title "volume_scratchpad" -e pulsemixer
-
-for_window [instance="terminal_scratchpad"] move to scratchpad
-bindsym $mod+$mod2+t [instance="terminal_scratchpad"] scratchpad show
-exec xfce4-terminal -name "terminal_scratchpad" -title "terminal_scratchpad"
 
