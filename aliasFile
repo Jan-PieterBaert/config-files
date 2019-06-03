@@ -19,10 +19,10 @@ alias copy="xclip -selection clipboard"
 alias capsState="xset -q | grep \"Caps Lock\" | sed \"s/^.*Caps Lock: *\([onf]*\) .*$/\1/\""
 alias sl="sl | lolcat"
 alias ayy=yay
-alias cat=bat
 alias ":q"=exit
 alias ":wq"=exit
 alias make="make -j8"
+alias rm="rm -v"
 
 #network aliasses
 alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0; notify-send 'restarted wpa-supplicant'"

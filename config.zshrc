@@ -9,7 +9,6 @@ source $HOME/.functions
 
 export BROWSER="qutebrowser"
 export LANG=en_US.UTF-8
-export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 export PATH=/home/jan-pieter/.gem/ruby/2.5.0/bin:/home/jan-pieter/.local/bin:/fast_files/git_repos/custum_scripts/trackerScripts:/home/jan-pieter/jetbrains-scripts:$PATH
 
@@ -97,7 +96,7 @@ fi
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs battery)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs host)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_MULTILINE_FIRST_PROMT_PREFIX=''

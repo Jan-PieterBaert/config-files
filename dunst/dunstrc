@@ -143,7 +143,7 @@
     history = mod4+n
 
     # context menu
-    context = mod4+shift+i
+    context = mod4+shift+n
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
