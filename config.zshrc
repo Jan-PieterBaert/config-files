@@ -9,8 +9,10 @@ source $HOME/.functions
 
 export BROWSER="qutebrowser"
 export LANG=en_US.UTF-8
+export TERM="xterm-256color"
+export COLORTERM="truecolor"
 # If you come from bash you might have to change your $PATH.
-export PATH=/home/jan-pieter/.gem/ruby/2.5.0/bin:/home/jan-pieter/.local/bin:/fast_files/git_repos/custum_scripts/trackerScripts:/home/jan-pieter/jetbrains-scripts:$PATH
+export PATH=/home/jan-pieter/.gem/ruby/2.6.0/bin:/home/jan-pieter/.local/bin:/home/jan-pieter/jetbrains-scripts:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/jan-pieter/.oh-my-zsh"
