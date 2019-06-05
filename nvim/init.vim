@@ -7,32 +7,32 @@ colorscheme Tomorrow-Night-Eighties
 
 " Start of pluginlist
 call plug#begin('~/.config/nvim/plugs')
-" Git highlighting
-Plug 'airblade/vim-gitgutter'
-" Pretty statusline
-Plug 'vim-airline/vim-airline'
-" completions
-Plug '/usr/bin/fzf'
-Plug 'junegunn/fzf.vim'
-" Completions
-Plug 'Valloric/YouCompleteMe'
-" Formatting code
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'google/vim-glaive'
-" Auto pair things like quotes and paratheses
-Plug 'jiangmiao/auto-pairs'
-" Easy commenting
-Plug 'tomtom/tcomment_vim'
-" Jumping using `\\w` and `\\b``
-Plug 'easymotion/vim-easymotion'
+	" Git highlighting
+	Plug 'airblade/vim-gitgutter'
+	" Pretty statusline
+	Plug 'vim-airline/vim-airline'
+	" completions
+	Plug '/usr/bin/fzf'
+	Plug 'junegunn/fzf.vim'
+	" Completions
+	Plug 'Valloric/YouCompleteMe'
+	" Formatting code
+	Plug 'google/vim-maktaba'
+	Plug 'google/vim-codefmt'
+	Plug 'google/vim-glaive'
+	" Auto pair things like quotes and paratheses
+	Plug 'jiangmiao/auto-pairs'
+	" Easy commenting
+	Plug 'tomtom/tcomment_vim'
+	" Jumping using `\\w` and `\\b``
+	Plug 'easymotion/vim-easymotion'
 
-Plug 'Yggdroot/indentLine'
+	Plug 'Yggdroot/indentLine'
 
-Plug 'tpope/vim-surround'
-Plug 'vim-syntastic/syntastic'
-Plug 'flazz/vim-colorschemes'
-" End of pluginlist
+	Plug 'tpope/vim-surround'
+	Plug 'vim-syntastic/syntastic'
+	Plug 'flazz/vim-colorschemes'
+	" End of pluginlist
 call plug#end()
 
 " Link the system and vim clipboard
@@ -71,6 +71,15 @@ map <C-o> :tabedit
 
 set mouse=a
 set showmatch
+
+set complete+=k
+" add english words to completion
+	set dictionary+=/usr/share/dict/american-english
+	set dictionary+=/usr/share/dict/british-english
+	set dictionary+=/fast_files/git_repos/wordlists/english-all.txt
+" add Dutch words to completion
+	set dictionary+=/fast_files/git_repos/wordlists/dutch-all.txt
+	inoremap <F12> <C-X><C-K>
 
 let g:indentLine_enabled = 1
 let g:indentLine_color_term = 74
