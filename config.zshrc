@@ -1,12 +1,5 @@
 #if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
-# source aliasses
-source $HOME/.alias
-source $HOME/.secretAlias
-
-# source handy functions
-source $HOME/.functions
-
 export BROWSER="qutebrowser"
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
