@@ -9,8 +9,7 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'private': 'open -p', 'quickmarks': 'open -t qute://bookmarks/',
-             'bindings': 'open -t qute://bindings/'}
+c.aliases = {'private': 'open -p', 'quickmarks': 'open -t qute://bookmarks/', 'bindings': 'open -t qute://bindings/'}
 
 # Require a confirmation before quitting the application.
 # Type: ConfirmQuit
@@ -104,8 +103,7 @@ c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.
 # The file `~/.config/qutebrowser/blocked-hosts` is always read if it
 # exists.
 # Type: List of Url
-c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',
-                                 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts', 'https://github.com/jmdugan/blocklists/blob/master/fb-addon-blocklists']
+c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts', 'https://github.com/jmdugan/blocklists/blob/master/fb-addon-blocklists']
 
 # A list of patterns that should always be loaded, despite being ad-
 # blocked. Note this whitelists blocked hosts, not first-party URLs. As
@@ -189,7 +187,7 @@ c.downloads.remove_finished = 60000
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['urxvt', '-e', 'vim', '{file}']
+c.editor.command = ['nvim-qt', '{file}']
 
 # When a hint can be automatically followed without pressing Enter.
 # Type: String
@@ -235,13 +233,11 @@ c.hints.mode = 'letter'
 
 # Comma-separated list of regular expressions to use for 'next' links.
 # Type: List of Regex
-c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b',
-                        '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
+c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
 
 # Comma-separated list of regular expressions to use for 'prev' links.
 # Type: List of Regex
-c.hints.prev_regexes = [
-    '\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
+c.hints.prev_regexes = ['\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
 
 # Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
 # number hints.
@@ -357,8 +353,7 @@ c.statusbar.position = 'top'
 #   - tabs: Current active tab, e.g. `2`.
 #   - keypress: Display pressed keys when composing a vi command.
 #   - progress: Progress bar for the current page loading.
-c.statusbar.widgets = ['keypress', 'url',
-                       'scroll_raw', 'history', 'tabs', 'progress']
+c.statusbar.widgets = ['keypress', 'url', 'scroll_raw', 'history', 'tabs', 'progress']
 
 # Open new tabs (middleclick/ctrl+click) in the background.
 # Type: Bool
@@ -372,7 +367,7 @@ c.tabs.background = True
 #   - startpage: Load the start page.
 #   - default-page: Load the default page.
 #   - close: Close the window.
-c.tabs.last_close = 'blank'
+c.tabs.last_close = 'close'
 
 # Padding (in pixels) around text for tabs.
 # Type: Padding
@@ -474,8 +469,7 @@ c.url.default_page = 'https://google.com'
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all',
-                       'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'pipy': 'https://pypi.org/search/?q={}'}
+c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'pipy': 'https://pypi.org/search/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
@@ -651,25 +645,18 @@ config.bind(',read', 'config-source')
 config.bind(',ta', 'set tabs.show always')
 config.bind(',tm', 'set tabs.show multiple')
 config.bind(',ts', 'set tabs.show switching')
-config.bind(
-    ',vd', 'set content.user_stylesheets $HOME/.config/qutebrowser/very_dark.css')
+config.bind(',vd', 'set content.user_stylesheets $HOME/.config/qutebrowser/very_dark.css')
 config.bind(',write!!!', 'config-write-py --force')
 config.bind('<Ctrl+Alt+Shift+`>', 'spawn --detach mpv {url}')
-config.bind('<Ctrl+Alt+Shift+m>',
-            'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{url}"')
-config.bind('<Ctrl+Alt+Shift+v>',
-            'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{url}"')
-config.bind('<Ctrl+Alt+Shift+y>',
-            'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{url}"')
+config.bind('<Ctrl+Alt+Shift+m>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{url}"')
+config.bind('<Ctrl+Alt+Shift+v>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{url}"')
+config.bind('<Ctrl+Alt+Shift+y>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{url}"')
 config.bind('<Ctrl+Alt+`>', 'hint links spawn --detach mpv {hint-url}')
 config.bind('<Ctrl+Backspace>', 'tab-prev')
 config.bind('<Ctrl+Shift+Tab>', 'tab-prev')
-config.bind('<Ctrl+Shift+m>',
-            'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{hint-url}"')
-config.bind('<Ctrl+Shift+v>',
-            'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{hint-url}"')
-config.bind('<Ctrl+Shift+y>',
-            'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{hint-url}"')
+config.bind('<Ctrl+Shift+m>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{hint-url}"')
+config.bind('<Ctrl+Shift+v>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{hint-url}"')
+config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{hint-url}"')
 config.bind('<Ctrl+Tab>', 'tab-next')
 config.bind('<Ctrl+b>', None)
 config.bind('<Ctrl+f>', 'set-cmd-text /')
