@@ -334,6 +334,14 @@ bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto;arandr"
 # Set wallpaper
 exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_12.png &"
 
+# sway version
+# bindsym Print               exec "        grim      Pictures/$(date +%Y-%m-%d_%H:%M).png"
+# bindsym Shift+Print         exec "slurp | grim -g - Pictures/$(date +%Y-%m-%d_%H:%M).png"
+
+# i3 version
+bindsym --release Print exec "escrotum ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+bindsym --release shift+Print exec "escrotum -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+
 # startup rambox and thunderbird
   exec --no-startup-id caprine &
   exec --no-startup-id rambox &
