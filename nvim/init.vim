@@ -71,7 +71,7 @@ map <C-o> :tabedit
 
 set mouse=a
 set showmatch
-
+set tabstop=4
 set complete+=k
 " add english words to completion
 	set dictionary+=/usr/share/dict/american-english
