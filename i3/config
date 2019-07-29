@@ -24,29 +24,30 @@ font pango:DejaVu Sans Mono 6
 # font, it doesn't scale on retina/hidpi displays.
 
 # set super mods (at the moment Windows is $mod, AltGr is $mod1 and Alt is $mod2)
-set $mod Mod4
-set $mod1 Mod5
-set $mod2 Mod1
-set $terminal /usr/bin/alacritty
-set $scriptlocation /fast_files/git_repos/custum_scripts
+    set $mod Mod4
+    set $mod1 Mod5
+    set $mod2 Mod1
+# set some variables
+    set $terminal /usr/bin/alacritty
+    set $scriptlocation /fast_files/git_repos/custum_scripts
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 # the directions are like vim!
-set $up k
-set $down j
-set $left h
-set $right l
+    set $up k
+    set $down j
+    set $left h
+    set $right l
 
 # use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+    floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec $terminal
+    bindsym $mod+Return exec $terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
-bindsym $mod2+F4 kill
+    bindsym $mod+Shift+q kill
+    bindsym $mod2+F4 kill
 
 # Rofi things, it's just the best ever, MAKE ROFI GREAT AGAIN!
 	# alternative to dmenu, we use the rofi-version
@@ -55,17 +56,9 @@ bindsym $mod2+F4 kill
 	bindsym $mod+bracketleft exec rofi -show combi -show-icons
 	# my (local) passwordmanager (unix pass)
 	bindsym $mod+bracketright exec rofi-pass
-  # emoji rofi plugin 😎
-  bindsym $mod2+e exec rofimoji
+    # emoji rofi plugin 😎
+    bindsym $mod2+e exec rofimoji
 
-# start dmenu (a program launcher)
-# dmenu with some cool colors
-#bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#6F7700' -sf '#EEEEEE' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
-#bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 	bindsym $mod+$left focus left
@@ -110,23 +103,22 @@ bindsym $mod2+F4 kill
 	bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+	bindsym $mod+f fullscreen toggle
 
 # floating and sticky keybindings
-  bindsym $mod+Shift+space floating toggle
-  bindsym $mod+Shift+s floating enable; sticky enable
-  bindsym $mod+s sticky toggle
+    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+Shift+s floating enable; sticky enable
+    bindsym $mod+s sticky toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+    bindsym $mod+space focus mode_toggle
 
-## I don't use a scratchpad because I have enough workspaces
-  # move the currently focused window to the scratchpad
-	bindsym $mod+Shift+comma move scratchpad
+# move the currently focused window to the scratchpad
+    bindsym $mod+Shift+comma move scratchpad
 
-	# Show the next scratchpad window or hide the focused scratchpad window.
-	# If there are multiple scratchpad windows, this command cycles through them.
-	bindsym $mod+comma scratchpad show
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+comma scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -181,11 +173,11 @@ bindsym $mod+space focus mode_toggle
 	bindsym --whole-window $mod+BackSpace workspace prev_on_output
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+    bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+    bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 	mode "resize" {
@@ -226,17 +218,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	}
 	bindsym $mod+x mode "[l]ogout / [h]ibernate / [r]eboot / [s]hutdown / suspend-[t]hen-hibernate / sus[p]end"
 
-# Mode to start frequently used programs and handy ones
-	mode "[c]hromium | [r]ambox | [g]hostwriter | [q]utebrowser | [t]hunderbird" {
-		bindsym c exec google-chrome
-		bindsym r exec rambox
-		bindsym g exec ghostwriter
-		bindsym q exec qutebrowser
-		bindsym t exec thunderbird
-    bindsym Escape mode "default"
-	}
-	bindsym $mod+Shift+b mode "[c]hromium | [r]ambox | [g]hostwriter | [q]utebrowser | [t]hunderbird"
-
 # Set some cool colors for i3
 	# class                 border  bground text    indicator child_border
 	client.focused          #004F00 #000088 #FFFFFF #00004F   #00FF00
@@ -244,7 +225,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	client.unfocused        #333333 #222222 #888888 #292D2E   #222222
 	client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 	client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
-
 	client.background       #FFFFFF
 
 # Bar settings and hotkeys
@@ -287,8 +267,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 	new_float normal 10
 	hide_edge_borders smart
 
-#Move to top right, for video playing
-bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window to position 200 75
+# Move to top right, for video playing
+    bindsym $mod+y floating enable; resize set 400 240; sticky enable; move window to position 175 60
 
 #playerctl keybinding
 	bindsym Pause exec playerctl play-pause
@@ -323,36 +303,31 @@ bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window t
 
 # Hotkeys for my custum scripts
 	# Lock the screen when scroll lock is pressed
-	bindsym Mod1+Mod4+l exec /fast_files/git_repos/custum_scripts/blur_lock
+	bindsym Mod1+Mod4+l exec /fast_files/git_repos/custum_scripts/fancy_lock
 	bindsym Scroll_Lock exec /fast_files/git_repos/custum_scripts/blur_lock
 	# Hibernate (and lock) the computer using this key combination
 	#bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
 
 # Used to configure my screens layout when a new one connects
-bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto;arandr"
+    bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto && arandr"
 
 # Set wallpaper
-exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_12.png &"
+    exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_21.jpg &"
 
 # sway version
-# bindsym Print               exec "        grim      Pictures/$(date +%Y-%m-%d_%H:%M).png"
-# bindsym Shift+Print         exec "slurp | grim -g - Pictures/$(date +%Y-%m-%d_%H:%M).png"
+    # bindsym Print               exec "        grim      Pictures/$(date +%Y-%m-%d_%H:%M).png"
+    # bindsym Shift+Print         exec "slurp | grim -g - Pictures/$(date +%Y-%m-%d_%H:%M).png"
 
 # i3 version
-bindsym --release Print exec "escrotum ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
-bindsym --release shift+Print exec "escrotum -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+    bindsym --release Print exec "escrotum ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+    bindsym --release shift+Print exec "escrotum -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
 
 # startup rambox and thunderbird
-  exec --no-startup-id caprine &
   exec --no-startup-id rambox &
   exec --no-startup-id thunderbird &
 
+bindsym $mod+q exec --no-startup-id qutebrowser
+
 # Num lock on
-exec --no-startup-id numlockx &
-
-# kill the old xss-lock and start a new one, to make sure one is running
-#exec_always --no-startup-id "killall xss-lock; xss-lock fancy_lock"
-
-#start flux
-exec --no-startup-id fluxgui &
+    exec --no-startup-id numlockx &
 
