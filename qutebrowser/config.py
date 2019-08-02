@@ -9,7 +9,7 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'private': 'open -p', 'quickmarks': 'open -t qute://bookmarks/', 'bindings': 'open -t qute://bindings/'}
+c.aliases = {'bindings': 'open -t qute://bindings/', 'private': 'open -p', 'quickmarks': 'open -t qute://bookmarks/'}
 
 # Require a confirmation before quitting the application.
 # Type: ConfirmQuit
@@ -251,7 +251,15 @@ c.input.escape_quits_reporter = True
 # Automatically enter insert mode if an editable element is focused
 # after loading the page.
 # Type: Bool
-c.input.insert_mode.auto_load = True
+c.input.insert_mode.auto_load = False
+
+# Enter insert mode if an editable element is clicked.
+# Type: Bool
+c.input.insert_mode.auto_enter = True
+
+# Leave insert mode if a non-editable element is clicked.
+# Type: Bool
+c.input.insert_mode.auto_leave = True
 
 # Leave insert mode when starting a new page load. Patterns may be
 # unreliable on this setting, and they may match the url you are
@@ -330,7 +338,7 @@ c.spellcheck.languages = ['en-US', 'en-GB', 'nl-NL']
 
 # Hide the statusbar unless a message is shown.
 # Type: Bool
-c.statusbar.hide = False
+c.statusbar.hide = True
 
 # Padding (in pixels) for the statusbar.
 # Type: Padding
@@ -658,23 +666,23 @@ config.bind('<Ctrl+Shift+m>', 'hint links spawn --detach /fast_files/git_repos/c
 config.bind('<Ctrl+Shift+v>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{hint-url}"')
 config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{hint-url}"')
 config.bind('<Ctrl+Tab>', 'tab-next')
-config.bind('<Ctrl+b>', None)
+config.unbind("<Ctrl+b>")
+config.unbind("<Ctrl+q>")
+config.unbind("Sb")
+config.unbind("ZQ")
+config.unbind("M")
+config.unbind("ad")
+config.unbind("gB")
+config.unbind("gb")
+config.unbind("q")
+config.unbind("wB")
 config.bind('<Ctrl+f>', 'set-cmd-text /')
-config.bind('<Ctrl+q>', None)
 config.bind('@', 'enter-mode passthrough')
 config.bind('Ctrl+f', 'set-cmd-text /')
-config.bind('M', None)
-config.bind('Sb', None)
 config.bind('Ss', 'open -t qute://settings')
-config.bind('ZQ', None)
-config.bind('ad', None)
 config.bind('add', 'spawn -u qutepocket')
 config.bind('eew', ':set-cmd-text :open -p {url:pretty}')
 config.bind('ewc', ':set-cmd-text :open -p {clipboard}')
 config.bind('ewf', 'hint links fill :open -p {hint-url}')
 config.bind('eww', ':set-cmd-text -s :open -p ')
-config.bind('gB', None)
-config.bind('gb', None)
 config.bind('m', 'quickmark-save')
-config.bind('q', None)
-config.bind('wB', None)
