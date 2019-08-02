@@ -27,6 +27,7 @@ font pango:DejaVu Sans Mono 6
     set $mod Mod4
     set $mod1 Mod5
     set $mod2 Mod1
+
 # set some variables
     set $terminal /usr/bin/alacritty
     set $scriptlocation /fast_files/git_repos/custum_scripts
@@ -136,6 +137,7 @@ font pango:DejaVu Sans Mono 6
 	set $ws10 "10"
 	set $ws11 "11"
 	set $ws12 "12"
+
 
 # switch to workspace
 	bindsym $mod+grave workspace $ws0
@@ -270,6 +272,9 @@ font pango:DejaVu Sans Mono 6
 # Move to top right, for video playing
     bindsym $mod+y floating enable; resize set 400 240; sticky enable; move window to position 175 60
 
+# Change screensaver timeout
+    bindsym $mod+u exec $scriptlocation/screensaver-timeout.bash
+
 #playerctl keybinding
 	bindsym Pause exec playerctl play-pause
 	bindsym $mod1+Pause exec playerctl pause
@@ -292,27 +297,27 @@ font pango:DejaVu Sans Mono 6
 
 # Sreen brightness controls
 	# increase screen brightness
-	bindsym $mod+t exec "$scriptlocation/changebacklight.sh up"
+	bindsym $mod+t exec $scriptlocation/changebacklight.sh up
 	# decrease screen brightness
-	bindsym $mod+Shift+t exec "$scriptlocation/changebacklight.sh down"
+	bindsym $mod+Shift+t exec $scriptlocation/changebacklight.sh down
 
 # Pulse Audio controls
-	bindsym XF86AudioRaiseVolume exec --no-startup-id /fast_files/git_repos/custum_scripts/changeVolume +2 #increase sound volume
-	bindsym XF86AudioLowerVolume exec --no-startup-id /fast_files/git_repos/custum_scripts/changeVolume -2 #decrease sound volume
-	bindsym XF86AudioMute exec --no-startup-id /fast_files/git_repos/custum_scripts/changeVolume # mute sound by dailing back the volume to 0
+	bindsym XF86AudioRaiseVolume exec --no-startup-id $scriptlocation/changeVolume +2 #increase sound volume
+	bindsym XF86AudioLowerVolume exec --no-startup-id $scriptlocation/changeVolume -2 #decrease sound volume
+	bindsym XF86AudioMute exec --no-startup-id $scriptlocation/changeVolume # mute sound by dailing back the volume to 0
 
 # Hotkeys for my custum scripts
 	# Lock the screen when scroll lock is pressed
-	bindsym Mod1+Mod4+l exec /fast_files/git_repos/custum_scripts/fancy_lock
-	bindsym Scroll_Lock exec /fast_files/git_repos/custum_scripts/blur_lock
+	bindsym Mod1+Mod4+l exec $scriptlocation/fancy_lock
+	bindsym Scroll_Lock exec $scriptlocation/blur_lock
 	# Hibernate (and lock) the computer using this key combination
-	#bindsym $mod+$mod2+h exec /fast_files/git_repos/custum_scripts/hibernate_lock
+	#bindsym $mod+$mod2+h exec $scriptlocation/hibernate_lock
 
 # Used to configure my screens layout when a new one connects
     bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto && arandr"
 
 # Set wallpaper
-    exec_always --no-startup-id "feh --bg-scale /fast_files/git_repos/custum_scripts/lockscreen/background_21.jpg &"
+    exec_always --no-startup-id "feh --bg-scale $scriptlocation/lockscreen/background_21.jpg &"
 
 # sway version
     # bindsym Print               exec "        grim      Pictures/$(date +%Y-%m-%d_%H:%M).png"
