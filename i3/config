@@ -14,7 +14,7 @@
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 6
+font pango:DejaVu Sans Mono 5.5
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -57,8 +57,6 @@ font pango:DejaVu Sans Mono 6
 	bindsym $mod+bracketleft exec rofi -show combi -show-icons
 	# my (local) passwordmanager (unix pass)
 	bindsym $mod+bracketright exec rofi-pass
-    # emoji rofi plugin 😎
-    bindsym $mod2+e exec rofimoji
 
 
 # change focus
@@ -181,6 +179,7 @@ font pango:DejaVu Sans Mono 6
 # exit i3 (logs you out of your X session)
     bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+set $resize_size 2
 # resize window (you can also use the mouse for that)
 	mode "resize" {
 	        # These bindings trigger as soon as you enter the resize mode
@@ -189,16 +188,16 @@ font pango:DejaVu Sans Mono 6
 	        # Pressing right will grow the window’s width.
 	        # Pressing up will shrink the window’s height.
 	        # Pressing down will grow the window’s height.
-	        bindsym $left       resize shrink width 5 px or 5 ppt
-	        bindsym $down       resize grow height 5 px or 5 ppt
-	        bindsym $up         resize shrink height 5 px or 5 ppt
-	        bindsym $right      resize grow width 5 px or 5 ppt
+	        bindsym $left       resize shrink width $resize_size px or $resize_size ppt
+	        bindsym $down       resize grow height $resize_size px or $resize_size ppt
+	        bindsym $up         resize shrink height $resize_size px or $resize_size ppt
+	        bindsym $right      resize grow width $resize_size px or $resize_size ppt
 
 	        # same bindings, but for the arrow keys
-	        bindsym Left        resize shrink width 5 px or 5 ppt
-	        bindsym Down        resize grow height 5 px or 5 ppt
-	        bindsym Up          resize shrink height 5 px or 5 ppt
-	        bindsym Right       resize grow width 5 px or 5 ppt
+	        bindsym Left       resize shrink width $resize_size px or $resize_size ppt
+	        bindsym Down       resize grow height $resize_size px or $resize_size ppt
+	        bindsym Up         resize shrink height $resize_size px or $resize_size ppt
+	        bindsym Right      resize grow width $resize_size px or $resize_size ppt
 
 	        # back to normal: Enter or Escape or $mod+r
 	        bindsym Return mode "default"
@@ -238,13 +237,13 @@ font pango:DejaVu Sans Mono 6
 	  output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    font pango:DejaVu Sans Mono 6.5
+    # font pango:DejaVu Sans Mono 6.5
 
     colors {
      	background #000000
      	statusline #FFFFFF
-   	  separator  #006600
-  	  focused_workspace  #00FF00 #000088 #FFFFFF
+   	  separator  #FF0000
+  	  focused_workspace  #444444 #000088 #FFFFFF
    	  active_workspace   #333333 #000000 #FFFFFF
    	  inactive_workspace #333333 #555555 #FFFFFF
    	  urgent_workspace   #2F343A #900000 #FFFFFF
@@ -261,7 +260,8 @@ font pango:DejaVu Sans Mono 6
 
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
-	for_window [class="^.*"] border normal
+	for_window [class="^.*"] border pixel 1
+	#for_window [class="^.*"] border normal
 	#gaps inner 10
 	#gaps outer 10
 	#smart_gaps on
@@ -326,10 +326,6 @@ font pango:DejaVu Sans Mono 6
 # i3 version
     bindsym --release Print exec "escrotum ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
     bindsym --release shift+Print exec "escrotum -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
-
-# startup rambox and thunderbird
-  exec --no-startup-id rambox &
-  exec --no-startup-id thunderbird &
 
 bindsym $mod+q exec --no-startup-id qutebrowser
 
