@@ -4,7 +4,7 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+config.load_autoconfig()
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
@@ -598,7 +598,7 @@ c.fonts.prompts = '8pt sans-serif'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '8pt monospace'
+c.fonts.statusbar = '6pt monospace'
 
 # Font used in the tab bar.
 # Type: QtFont
@@ -648,11 +648,12 @@ c.fonts.web.size.minimum_logical = 8
 # Bindings for normal mode
 config.bind(',hb', 'history -b')
 config.bind(',m', 'set content.user_stylesheets ""')
-config.bind(',n', 'config-cycle content.user_stylesheets /fast_files/git_repos/solarized-everything-css/css/darculized/darculized-all-sites.css /fast_files/git_repos/solarized-everything-css/css/apprentice/apprentice-all-sites.css /fast_files/git_repos/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css')
+config.bind(',n', 'config-cycle content.user_stylesheets /home/jan-pieter/.config/qutebrowser/stylesheets/messenger.css /fast_files/git_repos/solarized-everything-css/css/darculized/darculized-all-sites.css /fast_files/git_repos/solarized-everything-css/css/apprentice/apprentice-all-sites.css /fast_files/git_repos/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css')
 config.bind(',read', 'config-source')
 config.bind(',ta', 'set tabs.show always')
 config.bind(',tm', 'set tabs.show multiple')
 config.bind(',ts', 'set tabs.show switching')
+config.bind(',tt', 'config-cycle statusbar.hide false true')
 config.bind(',vd', 'set content.user_stylesheets $HOME/.config/qutebrowser/very_dark.css')
 config.bind(',write!!!', 'config-write-py --force')
 config.bind('<Ctrl+Alt+Shift+`>', 'spawn --detach mpv {url}')
@@ -666,23 +667,23 @@ config.bind('<Ctrl+Shift+m>', 'hint links spawn --detach /fast_files/git_repos/c
 config.bind('<Ctrl+Shift+v>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{hint-url}"')
 config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{hint-url}"')
 config.bind('<Ctrl+Tab>', 'tab-next')
-config.unbind("<Ctrl+b>")
-config.unbind("<Ctrl+q>")
-config.unbind("Sb")
-config.unbind("ZQ")
-config.unbind("M")
-config.unbind("ad")
-config.unbind("gB")
-config.unbind("gb")
-config.unbind("q")
-config.unbind("wB")
+config.unbind('<Ctrl+b>')
 config.bind('<Ctrl+f>', 'set-cmd-text /')
+config.unbind('<Ctrl+q>')
 config.bind('@', 'enter-mode passthrough')
 config.bind('Ctrl+f', 'set-cmd-text /')
+config.unbind('M')
+config.unbind('Sb')
 config.bind('Ss', 'open -t qute://settings')
+config.unbind('ZQ')
+config.unbind('ad')
 config.bind('add', 'spawn -u qutepocket')
 config.bind('eew', ':set-cmd-text :open -p {url:pretty}')
 config.bind('ewc', ':set-cmd-text :open -p {clipboard}')
 config.bind('ewf', 'hint links fill :open -p {hint-url}')
 config.bind('eww', ':set-cmd-text -s :open -p ')
+config.unbind('gB')
+config.unbind('gb')
 config.bind('m', 'quickmark-save')
+config.unbind('q')
+config.unbind('wB')
