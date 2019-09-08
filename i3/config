@@ -232,8 +232,8 @@ set $resize_size 2
 	# Start the i3bar which contains some cool stuff and information from the i3blocks command, there are also a few awesome color settings
 	bar {
 	  mode dock
-	  #hidden_state hide
-	  modifier $mod1
+	  hidden_state hide
+	  modifier $mod
 	  output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
@@ -277,7 +277,6 @@ set $resize_size 2
 
 #playerctl keybinding
 	bindsym Pause exec playerctl play-pause
-	bindsym $mod1+Pause exec playerctl pause
 	bindsym $mod1+Left exec playerctl previous
 	bindsym $mod1+$left exec playerctl previous
 	bindsym $mod1+Right exec playerctl next
@@ -312,6 +311,7 @@ set $resize_size 2
 	bindsym Scroll_Lock exec $scriptlocation/blur_lock
 	# Hibernate (and lock) the computer using this key combination
 	#bindsym $mod+$mod2+h exec $scriptlocation/hibernate_lock
+	bindsym XF86TouchpadToggle exec $scriptlocation/touchpad_toggle
 
 # Used to configure my screens layout when a new one connects
     bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto && arandr"

@@ -9,29 +9,44 @@ colorscheme Tomorrow-Night-Eighties
 call plug#begin('~/.config/nvim/plugs')
 	" Git highlighting
 	Plug 'airblade/vim-gitgutter'
+
 	" Pretty statusline
 	Plug 'vim-airline/vim-airline'
+
 	" completions
 	Plug '/usr/bin/fzf'
 	Plug 'junegunn/fzf.vim'
+
 	" Completions
 	Plug 'Valloric/YouCompleteMe'
+
 	" Formatting code
 	Plug 'google/vim-maktaba'
 	Plug 'google/vim-codefmt'
 	Plug 'google/vim-glaive'
+
 	" Auto pair things like quotes and paratheses
 	Plug 'jiangmiao/auto-pairs'
+
 	" Easy commenting
 	Plug 'tomtom/tcomment_vim'
+
 	" Jumping using `\\w` and `\\b``
 	Plug 'easymotion/vim-easymotion'
 
 	Plug 'Yggdroot/indentLine'
-
+    Plug 'dense-analysis/ale'
 	Plug 'tpope/vim-surround'
 	Plug 'vim-syntastic/syntastic'
 	Plug 'flazz/vim-colorschemes'
+
+	" Clojure
+	Plug 'guns/vim-clojure-highlight'
+	Plug 'guns/vim-clojure-static'
+
+	" Python
+	Plug 'nvie/vim-flake8'
+
 	" End of pluginlist
 call plug#end()
 
@@ -66,9 +81,13 @@ command! -range -nargs=* Reloadsettings source ~/.vimrc
 map J :tabnext<CR>
 map K :tabprev<CR>
 map <C-t> :tabnew<CR>
-map <C-w> :tabclose<CR>
+" map <C-w> :tabclose<CR>
 map <C-o> :tabedit
 
+" add incidators for 80, 100 and 120 char width
+set colorcolumn=80,100,120
+set ignorecase
+set smartcase
 set mouse=a
 set showmatch
 set tabstop=4

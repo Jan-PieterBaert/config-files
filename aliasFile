@@ -25,8 +25,8 @@ alias make="make -j8"
 alias rm="rm -v"
 
 #network aliasses
-alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0; notify-send 'restarted wpa-supplicant'"
-alias stopWifi="sudo systemctl stop wpa_supplicant@wlp2s0.service; notify-send 'stopped wpa-supplicant'"
+alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0 && notify-send 'restarted wpa-supplicant'"
+alias stopWifi="sudo systemctl stop wpa_supplicant@wlp2s0.service && notify-send 'stopped wpa-supplicant'"
 alias fixEth="sudo systemctl restart dhcpcd.service"
 alias wifiStatus="watch wpa_cli -i wlp2s0 status"
 alias editWifiConf="sudo nvim /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf && fixWifi"
@@ -61,5 +61,5 @@ alias cammie='curl https://kelder.zeus.ugent.be/webcam/video/mjpg.cgi | mpv --no
 alias keldermuziek="ncmpcpp -h 10.0.0.5"
 alias pong="ping ugent.be"
 alias playOnHoek="PULSE_SERVER=10.0.0.5 "
-alias keldersay="curl 'https://kelder.zeus.ugent.be/messages/' -H 'Content-Type: text/plain' -H 'X-Username: JP' --compressed --data-binary"
+alias keldersay="curl 'https://kelder.zeus.ugent.be/messages/' -H 'Content-Type: text/plain' -H 'X-Username: !{somebody}!' --compressed --data-binary"
 
