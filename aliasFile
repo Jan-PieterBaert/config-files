@@ -29,7 +29,7 @@ alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0 && notify-send 'rest
 alias stopWifi="sudo systemctl stop wpa_supplicant@wlp2s0.service && notify-send 'stopped wpa-supplicant'"
 alias fixEth="sudo systemctl restart dhcpcd.service"
 alias wifiStatus="watch wpa_cli -i wlp2s0 status"
-alias editWifiConf="sudo nvim /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf && fixWifi"
+alias editWifiConf="sudoedit /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf && fixWifi"
 
 #git aliasses
 alias gitStatusSub="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
