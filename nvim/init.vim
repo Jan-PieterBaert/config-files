@@ -47,7 +47,10 @@ call plug#begin('~/.config/nvim/plugs')
 	" Python
 	Plug 'nvie/vim-flake8'
 
-	" End of pluginlist
+    " C
+    Plug 'wolfgangmehner/c.vim'
+
+    " End of pluginlist
 call plug#end()
 
 " Link the system and vim clipboard
@@ -91,6 +94,8 @@ set smartcase
 set mouse=a
 set showmatch
 set tabstop=4
+set shiftwidth=4
+set expandtab
 set complete+=k
 " add english words to completion
 	set dictionary+=/usr/share/dict/american-english
