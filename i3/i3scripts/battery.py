@@ -76,5 +76,5 @@ else:
 
 print(fulltext)
 print(fulltext)
-if percentleft < 25:
+if percentleft < 15:
     exit(33)

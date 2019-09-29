@@ -260,7 +260,8 @@ set $resize_size 2
 
 # Reduce gaps to basically an indicator where the focus is
 	# Set the borderwidth to 1 pixel, almost borderless, but you can see focus + other border/gaps modifications
-	for_window [class="^.*"] border pixel 1
+	# for_window [class="^.*"] border pixel 1
+	for_window [class="^.*"] border pixel 0
 	#for_window [class="^.*"] border normal
 	#gaps inner 10
 	#gaps outer 10
