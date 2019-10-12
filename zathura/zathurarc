@@ -1,0 +1,8 @@
+map <C-w> quit
+set statusbar-home-tilde 1
+set adjust-open "best-fit"
+
+set first-page-column 1
+set selection-clipboard clipboard
+
+set recolor-keephue 1
