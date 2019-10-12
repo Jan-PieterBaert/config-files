@@ -20,7 +20,7 @@ swapVal=$(~/.config/i3/i3scripts/swap.sh)
 
 if [ $(echo $swapVal -n | wc -l) -gt 0 ]
 then
-	echo -n "<span color='lightblue'>$swapVal|</span>"
+	echo -n "<span color='lightgrey'>$swapVal|</span>"
 fi
 
 echo "<span color='$color'>$used/$total($perc%)</span>"

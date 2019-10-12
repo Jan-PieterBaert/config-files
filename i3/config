@@ -233,11 +233,11 @@ set $resize_size 2
 	bar {
 	  mode dock
 	  hidden_state hide
-	  modifier $mod
+	  modifier $mod2
 	  output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    # font pango:DejaVu Sans Mono 6.5
+    # font pango:DejaVu Sans Mono 5.5
 
     colors {
      	background #000000
@@ -271,7 +271,7 @@ set $resize_size 2
 	hide_edge_borders smart
 
 # Move to top right, for video playing
-    bindsym $mod+y floating enable; resize set 400 240; sticky enable; move window to position 175 60
+    bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window to position 175 60
 
 # Change screensaver timeout
     bindsym $mod+u exec $scriptlocation/screensaver-timeout.bash
@@ -293,7 +293,7 @@ set $resize_size 2
 	for_window [class="Pavucontrol"] floating enable
 	for_window [class="Arandr"] floating enable
 	for_window [class="Shutter"] floating enable
-  for_window [title="^Android Emulator -"] floating enable
+    for_window [title="^Android Emulator -"] floating enable
 
 # Sreen brightness controls
 	# increase screen brightness
@@ -318,7 +318,7 @@ set $resize_size 2
     bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto && arandr"
 
 # Set wallpaper
-    exec_always --no-startup-id "feh --bg-scale $scriptlocation/lockscreen/background_21.jpg &"
+    exec_always --no-startup-id "feh --bg-scale $HOME/Pictures/lockscreen/home_screen.png &"
 
 # sway version
     # bindsym Print               exec "        grim      Pictures/$(date +%Y-%m-%d_%H:%M).png"
