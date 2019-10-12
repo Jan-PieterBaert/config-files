@@ -91,9 +91,9 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs battery)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs host time)
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=false
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_MULTILINE_FIRST_PROMT_PREFIX=''
 
@@ -113,4 +113,6 @@ source /usr/share/autojump/autojump.zsh
 
 echo "faketime is een ding"
 echo "locate is een ding"
-#neofetch
+ufetch
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
