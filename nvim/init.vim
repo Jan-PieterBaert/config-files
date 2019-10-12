@@ -94,7 +94,6 @@ set smartcase
 set mouse=a
 set showmatch
 set tabstop=4
-set shiftwidth=4
 set expandtab
 set complete+=k
 " add english words to completion

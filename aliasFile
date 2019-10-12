@@ -23,6 +23,7 @@ alias ":q"=exit
 alias ":wq"=exit
 alias make="make -j8"
 alias rm="rm -v"
+alias evince=zathura
 
 #network aliasses
 alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0 && notify-send 'restarted wpa-supplicant'"

@@ -488,6 +488,11 @@ c.url.start_pages = 'https://xkcd.com/'
 # Type: Bool
 c.window.hide_decoration = True
 
+# Show tooltips on tabs. Note this setting only affects windows opened
+# after it has been set.
+# Type: Bool
+c.tabs.tooltips = False
+
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
 # Type: FormatString
