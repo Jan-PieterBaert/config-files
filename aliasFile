@@ -21,7 +21,7 @@ alias sl="sl | lolcat"
 alias ayy=yay
 alias ":q"=exit
 alias ":wq"=exit
-alias make="make -j8"
+alias make="make -j4"
 alias rm="rm -v"
 alias evince=zathura
 
