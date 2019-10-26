@@ -117,6 +117,10 @@ c.content.host_blocking.whitelist = ['piwik.org']
 
 # Enable JavaScript.
 # Type: Bool
+c.content.javascript.enabled = True
+
+# Enable JavaScript.
+# Type: Bool
 config.set('content.javascript.enabled', True, 'file://*')
 
 # Enable JavaScript.
@@ -338,7 +342,7 @@ c.spellcheck.languages = ['en-US', 'en-GB', 'nl-NL']
 
 # Hide the statusbar unless a message is shown.
 # Type: Bool
-c.statusbar.hide = True
+c.statusbar.hide = False
 
 # Padding (in pixels) for the statusbar.
 # Type: Padding
@@ -463,6 +467,11 @@ c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
 # Type: Bool
 c.tabs.pinned.frozen = True
 
+# Show tooltips on tabs. Note this setting only affects windows opened
+# after it has been set.
+# Type: Bool
+c.tabs.tooltips = False
+
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
@@ -487,11 +496,6 @@ c.url.start_pages = 'https://xkcd.com/'
 # Wayland.
 # Type: Bool
 c.window.hide_decoration = True
-
-# Show tooltips on tabs. Note this setting only affects windows opened
-# after it has been set.
-# Type: Bool
-c.tabs.tooltips = False
 
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
