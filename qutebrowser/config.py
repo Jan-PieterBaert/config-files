@@ -89,21 +89,34 @@ c.content.canvas_reading = False
 #   - never: Don't accept cookies at all.
 c.content.cookies.accept = 'no-3rdparty'
 
+# Allow websites to request geolocations.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.geolocation', False, 'https://www.delijn.be')
+
+# Allow websites to request geolocations.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.geolocation', False, 'https://www.google.com')
+
+# Allow websites to request geolocations.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.geolocation', False, 'https://www.takeaway.com')
+
 # User agent to send. Unset to send the default. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
 c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
-
-# List of URLs of lists which contain hosts to block.  The file can be
-# in one of the following formats:  - An `/etc/hosts`-like file - One
-# host per line - A zip-file of any of the above, with either only one
-# file, or a file   named `hosts` (with any extension).  It's also
-# possible to add a local file or directory via a `file://` URL. In case
-# of a directory, all files in the directory are read as adblock lists.
-# The file `~/.config/qutebrowser/blocked-hosts` is always read if it
-# exists.
-# Type: List of Url
-c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts', 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts', 'https://github.com/jmdugan/blocklists/blob/master/fb-addon-blocklists']
 
 # A list of patterns that should always be loaded, despite being ad-
 # blocked. Note this whitelists blocked hosts, not first-party URLs. As
@@ -131,6 +144,78 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://baert.jp.net')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://calendar.google.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://mattermost.zeus.gent')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://web.whatsapp.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://webchat.freenode.net')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://www.facebook.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://www.messenger.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://www.reddit.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', False, 'https://www.hln.be')
+
 # Allow pdf.js to view PDF files in the browser. Note that the files can
 # still be downloaded by clicking the download button in the pdf.js
 # viewer.
@@ -140,6 +225,24 @@ c.content.pdfjs = True
 # Enable plugins in Web pages.
 # Type: Bool
 c.content.plugins = True
+
+# Allow websites to register protocol handlers via
+# `navigator.registerProtocolHandler`.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.register_protocol_handler', False, 'https://calendar.google.com?cid=%25s')
+
+# Allow websites to register protocol handlers via
+# `navigator.registerProtocolHandler`.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
 
 # List of user stylesheet filenames to use.
 # Type: List of File, or File
@@ -657,7 +760,7 @@ c.fonts.web.size.minimum_logical = 8
 # Bindings for normal mode
 config.bind(',hb', 'history -b')
 config.bind(',m', 'set content.user_stylesheets ""')
-config.bind(',n', 'config-cycle content.user_stylesheets /home/jan-pieter/.config/qutebrowser/stylesheets/messenger.css /fast_files/git_repos/solarized-everything-css/css/darculized/darculized-all-sites.css /fast_files/git_repos/solarized-everything-css/css/apprentice/apprentice-all-sites.css /fast_files/git_repos/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css')
+config.bind(',n', 'config-cycle content.user_stylesheets $HOME/.config/qutebrowser/stylesheets/darculized-aggressive.css $HOME/.config/qutebrowser/stylesheets/messenger.css $HOME/.config/qutebrowser/stylesheets/darculized-all-sites.css $HOME/.config/qutebrowser/stylesheets/apprentice-all-sites.css $HOME/.config/qutebrowser/stylesheets/gruvbox-all-sites.css')
 config.bind(',read', 'config-source')
 config.bind(',ta', 'set tabs.show always')
 config.bind(',tm', 'set tabs.show multiple')
