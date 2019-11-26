@@ -18,7 +18,7 @@ call plug#begin('~/.config/nvim/plugs')
 	Plug 'junegunn/fzf.vim'
 
 	" Completions
-	Plug 'Valloric/YouCompleteMe'
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 
 	" Formatting code
 	Plug 'google/vim-maktaba'
@@ -88,12 +88,13 @@ map <C-t> :tabnew<CR>
 map <C-o> :tabedit
 
 " add incidators for 80, 100 and 120 char width
-set colorcolumn=80,100,120
+set colorcolumn=80,100,120,140
 set ignorecase
 set smartcase
 set mouse=a
 set showmatch
 set tabstop=4
+set sts=4 sw=4
 set expandtab
 set complete+=k
 " add english words to completion
@@ -108,3 +109,5 @@ let g:indentLine_enabled = 1
 let g:indentLine_color_term = 74
 
 map <F2> :echo 'Current date is ' . strftime('%H:%M:%S %a %d/%m/%y')<CR>
+
+" TODO: add hightlighting for keywords like TODO
