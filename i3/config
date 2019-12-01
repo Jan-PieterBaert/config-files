@@ -271,7 +271,7 @@ set $resize_size 2
 	hide_edge_borders smart
 
 # Move to top right, for video playing
-    bindsym $mod+y floating enable; resize set 375 225; sticky enable; move window to position 175 60
+    bindsym $mod+y floating enable; resize set 450 270; sticky enable; move window to position 125 30
 
 # Change screensaver timeout
     bindsym $mod+u exec $scriptlocation/screensaver-timeout.bash
@@ -329,7 +329,4 @@ set $resize_size 2
     bindsym --release shift+Print exec "escrotum -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
 
 bindsym $mod+q exec --no-startup-id qutebrowser
-
-# Num lock on
-    exec --no-startup-id numlockx &
 
