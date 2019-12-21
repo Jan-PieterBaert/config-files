@@ -1,0 +1,36 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":hi"
+    replace: "Hi there!"
+
+  # Dates
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d/%m/%Y"
+
+  - trigger: ":term"
+    replace: "{{terminal}}"
+    vars:
+        - name: terminal
+          type: shell
+          params:
+              cmd: "cat /fast_files/git_repos/custum_scripts/terminal | grep -v '^#' | tr -d '\n'"
+
+  - trigger: ":end_of_mail_en"
+    replace: "Kind regards,\nJan-Pieter Baert"
+
+  - trigger: ":end_of_mail_nl"
+    replace: "Met vriendelijk groeten,\nJan-Pieter Baert"
+
