@@ -118,6 +118,17 @@ config.set('content.geolocation', False, 'https://www.takeaway.com')
 # Type: String
 c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
 
+# List of URLs of lists which contain hosts to block.  The file can be
+# in one of the following formats:  - An `/etc/hosts`-like file - One
+# host per line - A zip-file of any of the above, with either only one
+# file, or a file   named `hosts` (with any extension).  It's also
+# possible to add a local file or directory via a `file://` URL. In case
+# of a directory, all files in the directory are read as adblock lists.
+# The file `~/.config/qutebrowser/blocked-hosts` is always read if it
+# exists.
+# Type: List of Url
+c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+
 # A list of patterns that should always be loaded, despite being ad-
 # blocked. Note this whitelists blocked hosts, not first-party URLs. As
 # an example, if `example.org` loads an ad from `ads.example.org`, the
@@ -143,6 +154,22 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', False, 'https://fres-news.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://vtm.be')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -589,7 +616,7 @@ c.url.default_page = 'https://google.com'
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'pipy': 'https://pypi.org/search/?q={}'}
+c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://duckduckgo.com/?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'pipy': 'https://pypi.org/search/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
