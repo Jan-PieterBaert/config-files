@@ -7,9 +7,11 @@
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
-  # Simple text replacement
+# Simple things
   - trigger: ":hi"
     replace: "Hi there!"
+
+# Terminal commands
 
   # Dates
   - trigger: ":date"
@@ -20,6 +22,7 @@ matches:
         params:
           format: "%d/%m/%Y"
 
+  # Current terminal
   - trigger: ":term"
     replace: "{{terminal}}"
     vars:
@@ -28,9 +31,17 @@ matches:
           params:
               cmd: "cat /fast_files/git_repos/custum_scripts/terminal | grep -v '^#' | tr -d '\n'"
 
+# Personal emoji shortcuts
+  - trigger: ":p:"
+    replace: "😛"
+
+  - trigger: ":pedoface:"
+    replace: "😏"
+
+
+# End of mail signature in both English and Dutch
   - trigger: ":end_of_mail_en"
     replace: "Kind regards,\nJan-Pieter Baert"
 
   - trigger: ":end_of_mail_nl"
     replace: "Met vriendelijk groeten,\nJan-Pieter Baert"
-
