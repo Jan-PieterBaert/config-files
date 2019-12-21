@@ -10,8 +10,11 @@ call plug#begin('~/.config/nvim/plugs')
 	" Git highlighting
 	Plug 'airblade/vim-gitgutter'
 
-	" Pretty statusline
-	Plug 'vim-airline/vim-airline'
+    " Latex in vim
+    Plug 'lervag/vimtex'
+
+    " Pretty statusline
+	" Plug 'vim-airline/vim-airline'
 
 	" completions
 	Plug '/usr/bin/fzf'
