@@ -29,8 +29,8 @@ font pango:DejaVu Sans Mono 5.5
     set $mod2 Mod1
 
 # set some variables
-    set $terminal /usr/bin/alacritty
     set $scriptlocation /fast_files/git_repos/custum_scripts
+    set $terminal /fast_files/git_repos/custum_scripts/terminal
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -297,19 +297,23 @@ set $resize_size 2
 
 # Sreen brightness controls
 	# increase screen brightness
-	bindsym $mod+t exec $scriptlocation/changebacklight.sh up
+	bindsym $mod+F9 exec $scriptlocation/changebacklight.sh up
 	# decrease screen brightness
-	bindsym $mod+Shift+t exec $scriptlocation/changebacklight.sh down
+	bindsym $mod+F8 exec $scriptlocation/changebacklight.sh down
 
 # Pulse Audio controls
 	bindsym XF86AudioRaiseVolume exec --no-startup-id $scriptlocation/changeVolume +2 #increase sound volume
 	bindsym XF86AudioLowerVolume exec --no-startup-id $scriptlocation/changeVolume -2 #decrease sound volume
-	bindsym XF86AudioMute exec --no-startup-id $scriptlocation/changeVolume # mute sound by dailing back the volume to 0
+	bindsym XF86AudioMute exec --no-startup-id $scriptlocation/changeVolume # mute sound
+	bindsym $mod+F10 exec --no-startup-id $scriptlocation/changeVolume -2 #decrease sound volume
+	bindsym $mod+F11 exec --no-startup-id $scriptlocation/changeVolume # mute sound
+	bindsym $mod+F12 exec --no-startup-id $scriptlocation/changeVolume +2 #increase sound volume
 
 # Hotkeys for my custum scripts
 	# Lock the screen when scroll lock is pressed
 	bindsym Mod1+Mod4+l exec $scriptlocation/fancy_lock
-	bindsym Scroll_Lock exec $scriptlocation/blur_lock
+	bindsym Scroll_Lock exec $scriptlocation/fancy_lock
+	# bindsym Scroll_Lock exec $scriptlocation/blur_lock
 	# Hibernate (and lock) the computer using this key combination
 	#bindsym $mod+$mod2+h exec $scriptlocation/hibernate_lock
 	bindsym XF86TouchpadToggle exec $scriptlocation/touchpad_toggle
