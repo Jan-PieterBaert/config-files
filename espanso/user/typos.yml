@@ -1,0 +1,15 @@
+name: typos_nl
+parent: default
+matches:
+# Typos vervangen
+  - trigger: "geod "
+    replace: "goed "
+
+# Afkortingen languit schrijven
+  - trigger: "mss "
+    replace: "misschien "
+
+  - trigger: "wss "
+    replace: "waarschijnlijk "
+
+
