@@ -9,6 +9,7 @@ alias dir=ls -al
 alias vi=vim
 alias vim=nvim
 alias nano=nvim
+alias se=sudoedit
 
 # general aliasses
 alias weather="curl 'https://wttr.in'"
@@ -17,7 +18,6 @@ alias serveDirectory="python3 -m http.server"
 alias fuck="sudo"
 alias copy="xclip -selection clipboard"
 alias capsState="xset -q | grep \"Caps Lock\" | sed \"s/^.*Caps Lock: *\([onf]*\) .*$/\1/\""
-alias sl="sl | lolcat"
 alias ayy=yay
 alias ":q"=exit
 alias ":wq"=exit
@@ -29,7 +29,7 @@ alias murder="kill -9"
 
 #network aliasses
 alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0 && notify-send 'restarted wpa-supplicant'"
-alias stopWifi="sudo systemctl stop wpa_supplicant@wlp2s0.service && notify-send 'stopped wpa-supplicant'"
+alias startFlight="sudo systemctl stop bluetooth.service && sudo systemctl stop wpa_supplicant@wlp2s0.service && notify-send 'entered flight mode'"
 alias fixEth="sudo systemctl restart dhcpcd.service"
 alias wifiStatus="watch wpa_cli -i wlp2s0 status"
 alias editWifiConf="sudoedit /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf && fixWifi"
@@ -37,12 +37,6 @@ alias editWifiConf="sudoedit /etc/wpa_supplicant/wpa_supplicant-wlp2s0.conf && f
 #git aliasses
 alias gitStatusSub="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
 alias gpp="git pull origin && git push origin"
-
-#pacman aliasses
-alias search_package="yay -Ss"
-alias fix_package="yay -S"
-alias update_packages="yay -Syu"
-alias download_updates="yay -Syuw"
 
 # package-list backup and down
 alias backdown_yay="yay -S --needed - < ~/pkglist.txt"
@@ -65,4 +59,5 @@ alias keldermuziek="ncmpcpp -h 10.0.0.5"
 alias pong="ping ugent.be"
 alias playOnHoek="PULSE_SERVER=10.0.0.5 "
 alias keldersay="curl 'https://kelder.zeus.ugent.be/messages/' -H 'Content-Type: text/plain' -H 'X-Username: !{somebody}!' --compressed --data-binary"
+alias kelderlisten="curl https://kelder.zeus.ugent.be/messages/ | w3m -T text/html -dump"
 
