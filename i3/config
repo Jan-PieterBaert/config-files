@@ -234,10 +234,10 @@ set $resize_size 2
 	  mode dock
 	  hidden_state hide
 	  modifier $mod2
-	  output eDP1
+	  # output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    # font pango:DejaVu Sans Mono 5.5
+      font pango:DejaVu Sans Mono 5.5
 
     colors {
      	background #000000
@@ -276,6 +276,9 @@ set $resize_size 2
 # Change screensaver timeout
     bindsym $mod+u exec $scriptlocation/screensaver-timeout.bash
 
+# Restart espanso
+    bindsym $mod2+e exec notify-send "Restarting espanso" && espanso restart
+
 #playerctl keybinding
 	bindsym Pause exec playerctl play-pause
 	bindsym $mod1+Left exec playerctl previous
@@ -302,8 +305,8 @@ set $resize_size 2
 	bindsym $mod+F8 exec $scriptlocation/changebacklight.sh down
 
 # Pulse Audio controls
-	bindsym XF86AudioRaiseVolume exec --no-startup-id $scriptlocation/changeVolume +2 #increase sound volume
-	bindsym XF86AudioLowerVolume exec --no-startup-id $scriptlocation/changeVolume -2 #decrease sound volume
+	bindsym XF86AudioRaiseVolume exec --no-startup-id $scriptlocation/changeVolume +1 #increase sound volume
+	bindsym XF86AudioLowerVolume exec --no-startup-id $scriptlocation/changeVolume -1 #decrease sound volume
 	bindsym XF86AudioMute exec --no-startup-id $scriptlocation/changeVolume # mute sound
 	bindsym $mod+F10 exec --no-startup-id $scriptlocation/changeVolume -2 #decrease sound volume
 	bindsym $mod+F11 exec --no-startup-id $scriptlocation/changeVolume # mute sound
@@ -313,6 +316,7 @@ set $resize_size 2
 	# Lock the screen when scroll lock is pressed
 	bindsym Mod1+Mod4+l exec $scriptlocation/fancy_lock
 	bindsym Scroll_Lock exec $scriptlocation/fancy_lock
+	bindsym $mod+b exec $scriptlocation/blur_lock
 	# bindsym Scroll_Lock exec $scriptlocation/blur_lock
 	# Hibernate (and lock) the computer using this key combination
 	#bindsym $mod+$mod2+h exec $scriptlocation/hibernate_lock
@@ -329,8 +333,8 @@ set $resize_size 2
     # bindsym Shift+Print         exec "slurp | grim -g - Pictures/$(date +%Y-%m-%d_%H:%M).png"
 
 # i3 version
-    bindsym --release Print exec "escrotum ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
-    bindsym --release shift+Print exec "escrotum -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+    bindsym --release Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+    bindsym --release shift+Print exec "scrot -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
 
 bindsym $mod+q exec --no-startup-id qutebrowser
 
