@@ -1,0 +1,12 @@
+name: typos_en
+parent: default
+matches:
+# Change my typos
+
+# Expand abbreviations
+  - trigger: "idk "
+    replace: "I don't know "
+
+  - trigger: "idc "
+    replace: "I don't care "
+

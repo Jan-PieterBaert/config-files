@@ -7,7 +7,7 @@
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
-# Simple things
+# Simple/example things
   - trigger: ":hi"
     replace: "Hi there!"
 
