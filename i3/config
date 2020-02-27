@@ -234,7 +234,7 @@ set $resize_size 2
 	  mode dock
 	  hidden_state hide
 	  modifier $mod2
-	  # output eDP1
+	  output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
       font pango:DejaVu Sans Mono 5.5
