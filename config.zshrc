@@ -116,3 +116,7 @@ echo "locate is een ding"
 ufetch
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+export HISTSIZE=100000
+export HISTFILESIZE=$HISTSIZE
+export SAVEHIST=$HISTSIZE

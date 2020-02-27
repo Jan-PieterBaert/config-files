@@ -797,9 +797,9 @@ c.colors.tabs.selected.even.bg = '#000088'
 # Type: QtColor
 c.colors.webpage.bg = 'white'
 
-# Force `prefer-color-scheme: dark` colors for websites.
+# Force `prefers-color-scheme: dark` colors for websites.
 # Type: Bool
-c.colors.webpage.force_dark_color_scheme = True
+c.colors.webpage.prefers_color_scheme_dark = True
 
 # Font used in the completion widget.
 # Type: Font
@@ -901,7 +901,6 @@ config.bind(',ts', 'set tabs.show switching')
 config.bind(',tt', 'config-cycle statusbar.hide false true')
 config.bind(',vd', 'set content.user_stylesheets $HOME/.config/qutebrowser/very_dark.css')
 config.bind(',write!!!', 'config-write-py --force')
-config.bind('<Ctrl+Alt+Shift+`>', 'spawn --detach mpv {url}')
 config.bind('<Ctrl+Alt+Shift+m>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{url}"')
 config.bind('<Ctrl+Alt+Shift+v>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{url}"')
 config.bind('<Ctrl+Alt+Shift+y>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{url}"')

@@ -26,6 +26,7 @@ alias ip="ip -c"
 alias rm="rm -v"
 alias evince=zathura
 alias murder="kill -9"
+alias pptToPdf="unoconv -f pdf"
 
 #network aliasses
 alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0 && notify-send 'restarted wpa-supplicant'"
@@ -59,5 +60,4 @@ alias keldermuziek="ncmpcpp -h 10.0.0.5"
 alias pong="ping ugent.be"
 alias playOnHoek="PULSE_SERVER=10.0.0.5 "
 alias keldersay="curl 'https://kelder.zeus.ugent.be/messages/' -H 'Content-Type: text/plain' -H 'X-Username: !{somebody}!' --compressed --data-binary"
-alias kelderlisten="curl https://kelder.zeus.ugent.be/messages/ | w3m -T text/html -dump"
-
+alias kelderlisten="curl https://kelder.zeus.ugent.be/messages/ | w3m -T text/html -dump | less"
