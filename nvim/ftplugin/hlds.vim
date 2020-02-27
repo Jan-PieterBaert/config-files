@@ -1,0 +1,1 @@
+/home/jan-pieter/git_repos/_Zeus/Haldis/etc/vim/ftplugin.vim

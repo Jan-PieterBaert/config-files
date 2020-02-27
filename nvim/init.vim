@@ -14,7 +14,7 @@ call plug#begin('~/.config/nvim/plugs')
     Plug 'lervag/vimtex'
 
     " Pretty statusline
-	" Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline'
 
 	" completions
 	Plug '/usr/bin/fzf'
@@ -52,6 +52,9 @@ call plug#begin('~/.config/nvim/plugs')
 
     " C
     Plug 'wolfgangmehner/c.vim'
+
+    " Prolog
+    Plug 'soli/prolog-vim'
 
     " End of pluginlist
 call plug#end()
