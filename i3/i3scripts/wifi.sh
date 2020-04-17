@@ -1,4 +1,5 @@
 #!/bin/bash
+interface=wlp2s0
 
 
 # If click, open xterm to restart NetworkManager
@@ -20,15 +21,16 @@
 #
 #echo "$essid ($strength)"
 
-if [ $(systemctl is-active wpa_supplicant@wlp2s0.service | rg '^inactive$') ];then
+if [ $(systemctl is-active wpa_supplicant@$interface.service | rg '^inactive$') ];then
   echo '✈️'
   exit
 fi
 
-name=$(wpa_cli status -i wlp2s0 | grep "^ssid" | grep -oi "[^=]*$")
-ip_a=$(wpa_cli -i wlp2s0 status | grep "^ip_add" | grep -o "[^=]*$")
-freq=$(wpa_cli -i wlp2s0 status | grep "^freq" | sed 's/^[^0-9]*\([0-9]\)\([0-9]\{3\}\)$/\1.\2/g' | sed 's/0*$//g')
-perc=$(grep wlp2s0 /proc/net/wireless | awk '{ print int($3 * 100/70)}')
+name=$(wpa_cli status -i $interface | grep "^ssid" | grep -oi "[^=]*$")
+ip_a=$(wpa_cli -i $interface status | grep "^ip_add" | grep -o "[^=]*$")
+id_s=$(wpa_cli -i $interface status | grep "^id_str" | grep -o "[^=]*$")
+freq=$(wpa_cli -i $interface status | grep "^freq" | sed 's/^[^0-9]*\([0-9]\)\([0-9]\{3\}\)$/\1.\2/g' | sed 's/0*$//g')
+perc=$(grep $interface /proc/net/wireless | awk '{ print int($3 * 100/70)}')
 
-echo "$name($freq|$ip_a|$perc%)"
-echo "$name($ip_a)"
+echo "$id_s($freq|$ip_a|$perc%|$name)"
+echo "$id_s($ip_a|$name)"
