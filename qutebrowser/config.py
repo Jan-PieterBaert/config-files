@@ -4,7 +4,7 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-config.load_autoconfig()
+# config.load_autoconfig()
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
@@ -239,6 +239,22 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://irc.baert.jp.net:444')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', True, 'https://media.baert.jp.net:444')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -678,7 +694,7 @@ c.tabs.title.format_pinned = '🔒|{private}{audio}{index}{title_sep}{current_ti
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
 # Type: PercOrInt
-c.tabs.width = '7%'
+c.tabs.width = 75
 
 # Minimum width (in pixels) of tabs (-1 for the default minimum size
 # behavior). This setting only applies when tabs are horizontal. This
@@ -723,7 +739,7 @@ c.url.open_base_url = True
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://duckduckgo.com/?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://www.startpage.com/do/search?&query={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'pipy': 'https://pypi.org/search/?q={}'}
+c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'DEFAULT': 'https://duckduckgo.com/?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'hoogle': 'https://www.haskell.org/hoogle/?hoogle={}', 'google': 'https://www.google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'pipy': 'https://pypi.org/search/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
