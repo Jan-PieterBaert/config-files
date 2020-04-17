@@ -10,18 +10,19 @@ call plug#begin('~/.config/nvim/plugs')
 	" Git highlighting
 	Plug 'airblade/vim-gitgutter'
 
+    " Syntax checking
+    Plug 'dense-analysis/ale'
+
     " Latex in vim
     Plug 'lervag/vimtex'
 
     " Pretty statusline
 	Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
 	" completions
 	Plug '/usr/bin/fzf'
 	Plug 'junegunn/fzf.vim'
-
-	" Completions
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 
 	" Formatting code
 	Plug 'google/vim-maktaba'
@@ -33,6 +34,9 @@ call plug#begin('~/.config/nvim/plugs')
 
 	" Easy commenting
 	Plug 'tomtom/tcomment_vim'
+
+    " Nerdtree
+    Plug 'preservim/nerdtree'
 
 	" Jumping using `\\w` and `\\b``
 	Plug 'easymotion/vim-easymotion'
@@ -49,6 +53,7 @@ call plug#begin('~/.config/nvim/plugs')
 
 	" Python
 	Plug 'nvie/vim-flake8'
+    Plug 'davidhalter/jedi-vim'
 
     " C
     Plug 'wolfgangmehner/c.vim'
@@ -113,6 +118,12 @@ set complete+=k
 
 let g:indentLine_enabled = 1
 let g:indentLine_color_term = 74
+
+" Airline configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_theme='murmur'
+
 
 map <F2> :echo 'Current date is ' . strftime('%H:%M:%S %a %d/%m/%y')<CR>
 
