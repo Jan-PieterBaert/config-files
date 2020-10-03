@@ -1,12 +1,16 @@
 source ~/.zprofile
 #if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
+# For using BAT as pager
+export BAT_THEME="Nord"
+export BAT_PAGER="less -RF"
+
 export BROWSER="qutebrowser"
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
 # If you come from bash you might have to change your $PATH.
-export PATH=/home/jan-pieter/.gem/ruby/2.6.0/bin:/home/jan-pieter/.local/bin:/home/jan-pieter/jetbrains-scripts:$PATH
+export PATH=/home/jan-pieter/.gem/ruby/2.6.0/bin:/home/jan-pieter/.local/bin:/home/jan-pieter/.cargo/bin:/home/jan-pieter/jetbrains-scripts:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/jan-pieter/.oh-my-zsh"
@@ -21,7 +25,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
