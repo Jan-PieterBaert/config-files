@@ -1,13 +1,8 @@
-# editting configs
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias editi3Config="vim ~/.config/i3/config"
-
 # typo aliasses
 alias cls=clear
 alias dir=ls -al
 alias vi=vim
-alias vim=nvim
+alias vim="nvim -p"
 alias nano=nvim
 alias se=sudoedit
 
