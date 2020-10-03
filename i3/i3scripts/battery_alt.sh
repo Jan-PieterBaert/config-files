@@ -10,10 +10,11 @@ then
 	color="lime"
 elif [ $perc -lt 20 ]
 then
-	notify-send "battery almost empty"
+	notify-send -u critical "battery almost empty"
     	color="red"
 fi
-if [ $state == 'discharging' ] || [ $perc -lt 90 ]
-then
+
+# if [ $state == 'discharging' ] || [ $perc -lt 90 ]
+# then
 	echo "<span color='$color'>${perc}%</span> $timeLeft"
-fi
+# fi
