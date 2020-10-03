@@ -136,6 +136,9 @@ font pango:DejaVu Sans Mono 5.5
 	set $ws11 "11"
 	set $ws12 "12"
 
+# Define screens for workspaces
+workspace $ws0 output HDMI1 HDMI2 eDP1
+workspace $ws4 output HDMI2 HDMI1 eDP1
 
 # switch to workspace
 	bindsym $mod+grave workspace $ws0
@@ -178,6 +181,44 @@ font pango:DejaVu Sans Mono 5.5
     bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
     bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Type greek easily
+    mode "greek" {
+            bindsym --release a     exec "xdotool type --delay 1ms α"
+            bindsym --release b     exec "xdotool type --delay 1ms β"
+            bindsym --release c     exec "xdotool type --delay 1ms ψ"
+            bindsym --release d     exec "xdotool type --delay 1ms δ"
+            bindsym --release e     exec "xdotool type --delay 1ms ε"
+            bindsym --release f     exec "xdotool type --delay 1ms φ"
+            bindsym --release g     exec "xdotool type --delay 1ms γ"
+            bindsym --release h     exec "xdotool type --delay 1ms η"
+            bindsym --release i     exec "xdotool type --delay 1ms ι"
+            bindsym --release j     exec "xdotool type --delay 1ms ξ"
+            bindsym --release k     exec "xdotool type --delay 1ms κ"
+            bindsym --release l     exec "xdotool type --delay 1ms λ"
+            bindsym --release m     exec "xdotool type --delay 1ms μ"
+            bindsym --release n     exec "xdotool type --delay 1ms ν"
+            bindsym --release o     exec "xdotool type --delay 1ms ο"
+            bindsym --release p     exec "xdotool type --delay 1ms π"
+            bindsym --release q     exec "xdotool type --delay 1ms ;"
+            bindsym --release r     exec "xdotool type --delay 1ms ρ"
+            bindsym --release s     exec "xdotool type --delay 1ms σ"
+            bindsym --release t     exec "xdotool type --delay 1ms τ"
+            bindsym --release u     exec "xdotool type --delay 1ms θ"
+            bindsym --release v     exec "xdotool type --delay 1ms ω"
+            bindsym --release w     exec "xdotool type --delay 1ms ς"
+            bindsym --release x     exec "xdotool type --delay 1ms χ"
+            bindsym --release y     exec "xdotool type --delay 1ms υ"
+            bindsym --release z     exec "xdotool type --delay 1ms ζ"
+
+            # Because of the weird keyboard I have
+            bindsym --release $mod+p     exec "xdotool type --delay 1ms π"
+
+	        bindsym Return mode "default"
+	        bindsym Escape mode "default"
+    }
+    bindsym $mod2+g mode "greek"
+
 
 set $resize_size 2
 # resize window (you can also use the mouse for that)
@@ -234,7 +275,7 @@ set $resize_size 2
 	  mode dock
 	  hidden_state hide
 	  modifier $mod2
-	  # output eDP1
+	  output eDP1
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
       font pango:DejaVu Sans Mono 5.5
@@ -303,9 +344,9 @@ set $resize_size 2
 
 # Sreen brightness controls
 	# increase screen brightness
-	bindsym $mod+F9 exec $scriptlocation/changebacklight.sh up
+	bindsym $mod+F8 exec $scriptlocation/changebacklight.sh up
 	# decrease screen brightness
-	bindsym $mod+F8 exec $scriptlocation/changebacklight.sh down
+	bindsym $mod+F7 exec $scriptlocation/changebacklight.sh down
 
 # Pulse Audio controls
 	bindsym XF86AudioRaiseVolume exec --no-startup-id $scriptlocation/changeVolume +1 #increase sound volume
