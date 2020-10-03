@@ -10,11 +10,14 @@ call plug#begin('~/.config/nvim/plugs')
 	" Git highlighting
 	Plug 'airblade/vim-gitgutter'
 
+    " Completions
+    Plug 'Shougo/deoplete.nvim'
+
     " Syntax checking
     Plug 'dense-analysis/ale'
 
-    " Latex in vim
-    Plug 'lervag/vimtex'
+    " " Latex in vim
+    " Plug 'lervag/vimtex'
 
     " Pretty statusline
 	Plug 'vim-airline/vim-airline'
@@ -123,7 +126,6 @@ let g:indentLine_color_term = 74
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_theme='murmur'
-
 
 map <F2> :echo 'Current date is ' . strftime('%H:%M:%S %a %d/%m/%y')<CR>
 

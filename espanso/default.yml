@@ -22,21 +22,16 @@ matches:
           params:
               cmd: "/fast_files/git_repos/custum_scripts/date_script"
 
-  # Current terminal
-  - trigger: ":term"
-    replace: "{{terminal}}"
-    vars:
-        - name: terminal
-          type: shell
-          params:
-              cmd: "cat /fast_files/git_repos/custum_scripts/terminal | grep -v '^#' | tr -d '\n'"
-
 # Personal emoji shortcuts
   - trigger: ":p:"
     replace: "😛"
 
   - trigger: ":pedoface:"
     replace: "😏"
+
+  - trigger: ":end_sigma"
+    replace: "ς"
+
 
 # End of mail signature in both English and Dutch
   - trigger: ":end_of_mail_en"
