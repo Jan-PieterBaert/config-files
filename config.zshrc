@@ -1,6 +1,9 @@
 source ~/.zprofile
 #if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
+# For school
+export SPARK_HOME=/opt/apache-spark/
+
 # For using BAT as pager
 export BAT_THEME="Nord"
 export BAT_PAGER="less -RF"
@@ -11,6 +14,10 @@ export TERM="xterm-256color"
 export COLORTERM="truecolor"
 # If you come from bash you might have to change your $PATH.
 export PATH=/home/jan-pieter/.gem/ruby/2.6.0/bin:/home/jan-pieter/.local/bin:/home/jan-pieter/.cargo/bin:/home/jan-pieter/jetbrains-scripts:$PATH
+export PATH="$PATH:/home/jan-pieter/.dotnet/tools"
+export PATH="$PATH:$(pyenv root)/shims"
+export PATH="$PATH:$HOME/.npm/bin"
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/home/jan-pieter/.oh-my-zsh"
@@ -18,7 +25,7 @@ export PATH=/home/jan-pieter/.gem/ruby/2.6.0/bin:/home/jan-pieter/.local/bin:/ho
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -73,6 +80,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.alias
 
 # User configuration
 
@@ -103,6 +111,7 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMT_PREFIX=''
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # fix pandoc completions
 autoload bashcompinit
@@ -115,12 +124,15 @@ autoload -U compinit && compinit
 
 source /usr/share/autojump/autojump.zsh
 
-echo "faketime is een ding"
-echo "locate is een ding"
-ufetch
-
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 export HISTSIZE=100000
 export HISTFILESIZE=$HISTSIZE
 export SAVEHIST=$HISTSIZE
+
+export LC_ALL=en_GB.UTF-8
+
+# redpencil mu cli
+autoload -U +X bashcompinit && bashcompinit
+PATH="/home/jan-pieter/git_repos/_RedpencilIO/mu-cli/:$PATH"
+source /home/jan-pieter/git_repos/_RedpencilIO/mu-cli/completions

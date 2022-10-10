@@ -128,23 +128,24 @@
     width = 0
     color = "#000000"
 
-[shortcuts]
-    # shortcuts are specified as [modifier+][modifier+]...key
-    # available modifiers are 'ctrl', 'mod1' (the alt-key), 'mod2', 'mod3'
-    # and 'mod4' (windows-key)
-    # xev might be helpful to find names for keys
-
-    # close notification
-    close = mod4+m
-
-    # close all notifications
-    close_all = mod4+shift+m
-
-    # redisplay last message(s)
-    history = mod4+n
-
-    # context menu
-    context = mod4+shift+n
+# deprecated and replaced by dunstctl commands in i3 config
+#[shortcuts]
+#    # shortcuts are specified as [modifier+][modifier+]...key
+#    # available modifiers are 'ctrl', 'mod1' (the alt-key), 'mod2', 'mod3'
+#    # and 'mod4' (windows-key)
+#    # xev might be helpful to find names for keys
+#
+#    # close notification
+#    close = mod4+m
+#
+#    # close all notifications
+#    close_all = mod4+shift+m
+#
+#    # redisplay last message(s)
+#    history = mod4+n
+#
+#    # context menu
+#    context = mod4+shift+n
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
@@ -154,7 +155,7 @@
     timeout = 10
 
 [urgency_normal]
-    background = "#0000ff"
+    background = "#0000aa"
     foreground = "#ffffff"
 
 [urgency_critical]

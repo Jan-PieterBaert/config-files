@@ -53,4 +53,6 @@
 #done |
 #tr -d '\n' | sed 's/$/\n/'
 
-amixer get Master | grep -o "\[.*\]" | tr -d "\[\]"  
+# amixer get Master | grep -o "\[.*\]" | tr -d "\[\]"  
+volume=$(pulsemixer --get-volume | grep -Eo "[0-9]+ " | grep -Eo "[0-9]+")
+echo "$volume%"

@@ -1,1 +1,1 @@
-/home/jan-pieter/git_repos/_Zeus/Haldis/etc/vim/ftdetect.vim
+au BufRead,BufNewFile *.hlds  set filetype=hlds

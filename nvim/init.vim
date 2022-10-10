@@ -1,5 +1,7 @@
 set number
 colorscheme Tomorrow-Night-Eighties
+set termguicolors
+
 
 " Updating: PlugUpdate
 " Remove unneeded: PlugClean
@@ -23,9 +25,9 @@ call plug#begin('~/.config/nvim/plugs')
 	Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
-	" completions
-	Plug '/usr/bin/fzf'
-	Plug 'junegunn/fzf.vim'
+    " Fuzzy file finder
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 
 	" Formatting code
 	Plug 'google/vim-maktaba'
@@ -64,6 +66,23 @@ call plug#begin('~/.config/nvim/plugs')
     " Prolog
     Plug 'soli/prolog-vim'
 
+    " Csv
+    Plug 'chrisbra/csv.vim'
+
+    " TODO comments
+    " see https://github.com/folke/todo-comments.nvim
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'folke/todo-comments.nvim'
+
+    " Editorconfig plugin
+    Plug 'editorconfig/editorconfig-vim'
+
+    " Rainbow brackets
+    Plug 'luochen1990/rainbow'
+
+    " Fancy start screen
+    Plug 'mhinz/vim-startify'
+
     " End of pluginlist
 call plug#end()
 
@@ -86,20 +105,50 @@ set clipboard=unnamedplus
 	inoremap <s-tab> <c-n>
 
 " Highligh trailing whitespace
-	highlight ExtraWhitespace ctermbg=red guibg=red
+	highlight ExtraWhitespace ctermbg=red guibg=#f44336
 	match ExtraWhitespace /\s\+$/
 	autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 	autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 	autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 	autocmd BufWinLeave * call clearmatches()
 
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+noremap :ProjectFiles<CR>
+
+command! -bang -nargs=? -complete=dir Files
+            \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 command! -range -nargs=* Reloadsettings source ~/.vimrc
+
 
 map J :tabnext<CR>
 map K :tabprev<CR>
 map <C-t> :tabnew<CR>
-" map <C-w> :tabclose<CR>
 map <C-o> :tabedit
+
+nnoremap <leader>f :FormatCode<CR>
+nnoremap <leader>w :write<CR>
+nnoremap <leader>q :quit<CR>
+nnoremap <leader>c :TComment<CR>
+nnoremap <leader>r :RainbowToggle<CR>
+nnoremap <leader>s :source ~/.vimrc<CR>
+xnoremap f :fold<CR>
+
+" Faster split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <leader>n :new<CR>
+nnoremap <leader>h :new<CR>
+nnoremap <leader>v :vnew<CR>
+" Make splits more naturally
+set splitright
+set splitbelow
 
 " add incidators for 80, 100 and 120 char width
 set colorcolumn=80,100,120,140
@@ -119,6 +168,9 @@ set complete+=k
 	set dictionary+=/fast_files/git_repos/wordlists/dutch-all.txt
 	inoremap <F12> <C-X><C-K>
 
+set scrolloff=10
+
+let g:rainbow_active = 1
 let g:indentLine_enabled = 1
 let g:indentLine_color_term = 74
 
@@ -129,4 +181,7 @@ let g:airline_theme='murmur'
 
 map <F2> :echo 'Current date is ' . strftime('%H:%M:%S %a %d/%m/%y')<CR>
 
-" TODO: add hightlighting for keywords like TODO
+lua << EOF
+  require("todo-comments").setup {
+}
+EOF

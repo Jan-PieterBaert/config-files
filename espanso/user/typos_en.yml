@@ -1,9 +1,0 @@
-name: typos_en
-parent: default
-matches:
-# Change my typos
-
-# Expand abbreviations
-  - trigger: "mby "
-    replace: "maybe "
-

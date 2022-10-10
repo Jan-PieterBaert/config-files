@@ -1,0 +1,6 @@
+configuration {
+	modi: "combi,drun,window,ssh,run";
+	font: "hack 10";
+	combi-modi: "window,drun,ssh";
+	theme: "/usr/share/rofi/themes/Pop-Dark.rasi";
+}

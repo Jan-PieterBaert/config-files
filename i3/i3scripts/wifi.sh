@@ -1,5 +1,6 @@
 #!/bin/bash
-interface=wlp2s0
+interface=wlo1
+eth_interface=enp6s0f4u1u2
 
 
 # If click, open xterm to restart NetworkManager
@@ -32,5 +33,14 @@ id_s=$(wpa_cli -i $interface status | grep "^id_str" | grep -o "[^=]*$")
 freq=$(wpa_cli -i $interface status | grep "^freq" | sed 's/^[^0-9]*\([0-9]\)\([0-9]\{3\}\)$/\1.\2/g' | sed 's/0*$//g')
 perc=$(grep $interface /proc/net/wireless | awk '{ print int($3 * 100/70)}')
 
-echo "$id_s($freq|$ip_a|$perc%|$name)"
-echo "$id_s($ip_a|$name)"
+ip_eth=$(ifconfig $eth_interface | grep "inet [0-9.]*" -o | grep "[0-9.]*" -o || echo "")
+
+if [ "$ip_eth" == "" ];
+then
+    echo "$id_s($freq|$ip_a|$perc%|$name)"
+    echo "$id_s($ip_a|$name)"
+else
+    echo "$id_s($freq|$ip_a|$perc%|$name)|$ip_eth"
+    echo "$id_s($ip_a|$name)|$ip_eth"
+fi
+
