@@ -11,12 +11,16 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+config.load_autoconfig()
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'bindings': 'open -t qute://bindings/', 'private': 'open -p', 'quickmarks': 'open -t qute://bookmarks/'}
+c.aliases = {
+    'bindings': 'open -t qute://bindings/',
+    'private': 'open -p',
+    'quickmarks': 'open -t qute://bookmarks/'
+}
 
 # Require a confirmation before quitting the application.
 # Type: ConfirmQuit
@@ -109,7 +113,9 @@ c.content.canvas_reading = False
 # AppCache. Note that with QtWebKit, only `all` and `never` are
 # supported as per-domain values. Setting `no-3rdparty` or `no-
 # unknown-3rdparty` per-domain on QtWebKit will have the same effect as
-# `all`.
+# `all`. If this setting is used with URL patterns, the pattern gets
+# applied to the origin/first party URL of the page making the request,
+# not the request URL.
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
@@ -124,7 +130,9 @@ c.content.cookies.accept = 'no-3rdparty'
 # AppCache. Note that with QtWebKit, only `all` and `never` are
 # supported as per-domain values. Setting `no-3rdparty` or `no-
 # unknown-3rdparty` per-domain on QtWebKit will have the same effect as
-# `all`.
+# `all`. If this setting is used with URL patterns, the pattern gets
+# applied to the origin/first party URL of the page making the request,
+# not the request URL.
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
@@ -139,7 +147,9 @@ config.set('content.cookies.accept', 'all', '*://*.microsoft.com')
 # AppCache. Note that with QtWebKit, only `all` and `never` are
 # supported as per-domain values. Setting `no-3rdparty` or `no-
 # unknown-3rdparty` per-domain on QtWebKit will have the same effect as
-# `all`.
+# `all`. If this setting is used with URL patterns, the pattern gets
+# applied to the origin/first party URL of the page making the request,
+# not the request URL.
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
@@ -154,7 +164,9 @@ config.set('content.cookies.accept', 'all', '*//*.ugent.be')
 # AppCache. Note that with QtWebKit, only `all` and `never` are
 # supported as per-domain values. Setting `no-3rdparty` or `no-
 # unknown-3rdparty` per-domain on QtWebKit will have the same effect as
-# `all`.
+# `all`. If this setting is used with URL patterns, the pattern gets
+# applied to the origin/first party URL of the page making the request,
+# not the request URL.
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
@@ -169,7 +181,9 @@ config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 # AppCache. Note that with QtWebKit, only `all` and `never` are
 # supported as per-domain values. Setting `no-3rdparty` or `no-
 # unknown-3rdparty` per-domain on QtWebKit will have the same effect as
-# `all`.
+# `all`. If this setting is used with URL patterns, the pattern gets
+# applied to the origin/first party URL of the page making the request,
+# not the request URL.
 # Type: String
 # Valid values:
 #   - all: Accept all cookies.
@@ -216,7 +230,9 @@ config.set('content.geolocation', False, 'https://www.takeaway.com')
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+config.set('content.headers.user_agent',
+           'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0',
+           'https://docs.google.com/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -232,7 +248,9 @@ c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
+config.set('content.headers.user_agent',
+           'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0',
+           'https://drive.google.com/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -248,7 +266,10 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version} Edg/{upstream_browser_version}', 'https://accounts.google.com/*')
+config.set(
+    'content.headers.user_agent',
+    'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}',
+    'https://web.whatsapp.com/')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -264,7 +285,11 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
+# config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version} Edg/{upstream_browser_version}', 'https://accounts.google.com/*')
+config.set(
+    'content.headers.user_agent',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/Chromium 93.0.4577.82 Safari/537.36'
+)
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -280,7 +305,10 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/53
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://docs.google.com/*')
+config.set(
+    'content.headers.user_agent',
+    'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36',
+    'https://*.slack.com/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -296,28 +324,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://drive.google.com/*')
-
-# List of URLs of lists which contain hosts to block.  The file can be
-# in one of the following formats:  - An `/etc/hosts`-like file - One
-# host per line - A zip-file of any of the above, with either only one
-# file, or a file   named `hosts` (with any extension).  It's also
-# possible to add a local file or directory via a `file://` URL. In case
-# of a directory, all files in the directory are read as adblock lists.
-# The file `~/.config/qutebrowser/blocked-hosts` is always read if it
-# exists.
-# Type: List of Url
-c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
-
-# A list of patterns that should always be loaded, despite being ad-
-# blocked. Note this whitelists blocked hosts, not first-party URLs. As
-# an example, if `example.org` loads an ad from `ads.example.org`, the
-# whitelisted host should be `ads.example.org`. If you want to disable
-# the adblocker on a given page, use the `content.host_blocking.enabled`
-# setting with a URL pattern instead. Local domains are always exempt
-# from hostblocking.
-# Type: List of UrlPattern
-c.content.host_blocking.whitelist = ['piwik.org']
+c.content.headers.user_agent = 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}'
 
 # Load images automatically in web pages.
 # Type: Bool
@@ -361,7 +368,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://irc.baert.jp.net:444')
+config.set('content.notifications.enabled', True,
+           'https://irc.baert.jp.net:444')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -369,7 +377,8 @@ config.set('content.notifications', True, 'https://irc.baert.jp.net:444')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://media.baert.jp.net:444')
+config.set('content.notifications.enabled', True,
+           'https://media.baert.jp.net:444')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -377,7 +386,7 @@ config.set('content.notifications', True, 'https://media.baert.jp.net:444')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://baert.jp.net')
+config.set('content.notifications.enabled', True, 'https://baert.jp.net')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -385,7 +394,8 @@ config.set('content.notifications', True, 'https://baert.jp.net')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://calendar.google.com')
+config.set('content.notifications.enabled', True,
+           'https://calendar.google.com')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -393,7 +403,8 @@ config.set('content.notifications', True, 'https://calendar.google.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://mattermost.zeus.gent')
+config.set('content.notifications.enabled', True,
+           'https://mattermost.zeus.gent')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -401,7 +412,7 @@ config.set('content.notifications', True, 'https://mattermost.zeus.gent')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://web.whatsapp.com')
+config.set('content.notifications.enabled', True, 'https://web.whatsapp.com')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -409,7 +420,7 @@ config.set('content.notifications', True, 'https://web.whatsapp.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://www.facebook.com')
+config.set('content.notifications.enabled', True, 'https://www.facebook.com')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -417,7 +428,7 @@ config.set('content.notifications', True, 'https://www.facebook.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://www.messenger.com')
+config.set('content.notifications.enabled', True, 'https://www.messenger.com')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -425,7 +436,7 @@ config.set('content.notifications', True, 'https://www.messenger.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://www.reddit.com')
+config.set('content.notifications.enabled', True, 'https://www.reddit.com')
 
 # Allow pdf.js to view PDF files in the browser. Note that the files can
 # still be downloaded by clicking the download button in the pdf.js
@@ -444,7 +455,8 @@ c.content.plugins = True
 #   - true
 #   - false
 #   - ask
-config.set('content.register_protocol_handler', False, 'https://calendar.google.com?cid=%25s')
+config.set('content.register_protocol_handler', False,
+           'https://calendar.google.com?cid=%25s')
 
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
@@ -453,7 +465,8 @@ config.set('content.register_protocol_handler', False, 'https://calendar.google.
 #   - true
 #   - false
 #   - ask
-config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
+config.set('content.register_protocol_handler', False,
+           'https://mail.google.com?extsrc=mailto&url=%25s')
 
 # List of user stylesheet filenames to use.
 # Type: List of File, or File
@@ -469,7 +482,10 @@ c.completion.cmd_history_max_items = -1
 c.completion.height = '50%'
 
 # Format of timestamps (e.g. for the history completion). See
-# https://sqlite.org/lang_datefunc.html for allowed substitutions.
+# https://sqlite.org/lang_datefunc.html and
+# https://docs.python.org/3/library/datetime.html#strftime-strptime-
+# behavior for allowed substitutions, qutebrowser uses both sqlite and
+# Python to format its timestamps.
 # Type: String
 c.completion.timestamp_format = '%d/%m/%Y'
 
@@ -555,11 +571,17 @@ c.hints.mode = 'letter'
 
 # Comma-separated list of regular expressions to use for 'next' links.
 # Type: List of Regex
-c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
+c.hints.next_regexes = [
+    '\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b',
+    '\\bcontinue\\b'
+]
 
 # Comma-separated list of regular expressions to use for 'prev' links.
 # Type: List of Regex
-c.hints.prev_regexes = ['\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
+c.hints.prev_regexes = [
+    '\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b',
+    '\\b(<<|«)\\b'
+]
 
 # Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
 # number hints.
@@ -670,7 +692,7 @@ c.spellcheck.languages = ['en-US', 'en-GB', 'nl-NL']
 #   - always: Always show the statusbar.
 #   - never: Always hide the statusbar.
 #   - in-mode: Show the statusbar when in modes other than normal mode.
-c.statusbar.show = 'in-mode'
+c.statusbar.show = 'always'
 
 # Padding (in pixels) for the statusbar.
 # Type: Padding
@@ -693,7 +715,9 @@ c.statusbar.position = 'top'
 #   - tabs: Current active tab, e.g. `2`.
 #   - keypress: Display pressed keys when composing a vi command.
 #   - progress: Progress bar for the current page loading.
-c.statusbar.widgets = ['keypress', 'url', 'scroll_raw', 'history', 'tabs', 'progress']
+c.statusbar.widgets = [
+    'keypress', 'url', 'scroll_raw', 'history', 'tabs', 'progress'
+]
 
 # Open new tabs (middleclick/ctrl+click) in the background.
 # Type: Bool
@@ -755,15 +779,15 @@ c.tabs.title.alignment = 'left'
 # Format to use for the tab title. The following placeholders are
 # defined:  * `{perc}`: Percentage as a string like `[10%]`. *
 # `{perc_raw}`: Raw percentage, e.g. `10`. * `{current_title}`: Title of
-# the current web page. * `{title_sep}`: The string ` - ` if a title is
-# set, empty otherwise. * `{index}`: Index of this tab. *
+# the current web page. * `{title_sep}`: The string `" - "` if a title
+# is set, empty otherwise. * `{index}`: Index of this tab. *
 # `{aligned_index}`: Index of this tab padded with spaces to have the
-# same width. * `{id}`: Internal tab ID of this tab. * `{scroll_pos}`:
+# same   width. * `{id}`: Internal tab ID of this tab. * `{scroll_pos}`:
 # Page scroll position. * `{host}`: Host of the current web page. *
-# `{backend}`: Either ''webkit'' or ''webengine'' * `{private}`:
-# Indicates when private mode is enabled. * `{current_url}`: URL of the
-# current web page. * `{protocol}`: Protocol (http/https/...) of the
-# current web page. * `{audio}`: Indicator for audio/mute status.
+# `{backend}`: Either `webkit` or `webengine` * `{private}`: Indicates
+# when private mode is enabled. * `{current_url}`: URL of the current
+# web page. * `{protocol}`: Protocol (http/https/...) of the current web
+# page. * `{audio}`: Indicator for audio/mute status.
 # Type: FormatString
 c.tabs.title.format = '{private}{audio}{current_title}'
 
@@ -829,7 +853,38 @@ c.url.open_base_url = True
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'archwiki': 'https://wiki.archlinux.org/?search={}', 'contact': 'https://contacts.google.com/search/{}', 'cpp': 'https://en.cppreference.com/mwiki/index.php?search={}', 'DEFAULT': 'https://www.google.com/search?q={}', 'ddg': 'https://duckduckgo.com/?q={}', 'emoji': 'https://emojipedia.org/search/?q={}', 'facebook': 'https://facebook.com/search/top/?q={}', 'google': 'https://www.google.com/search?q={}', 'github': 'https://github.com/search?q={}', 'maps': 'https://www.google.be/maps/search/{}+', 'movie': 'https://www.imdb.com/find?q={}&s=all', 'osm': 'https://www.openstreetmap.org/search?query={}', 'reddit': 'https://www.reddit.com/search?q={}', 'word': 'https://www.wordnik.com/words/{}', 'time': 'https://time.is/{}', 'urban': 'https://www.urbandictionary.com/define.php?term={}', 'unsplash': 'https://unsplash.com/search/photos/{}', 'weather': 'https://wttr.in/{}', 'wiki': 'https://en.wikipedia.org/wiki/{}', 'woord': 'https://woordenlijst.org/#/?q={}', 'youtube': 'https://www.youtube.com/results?search_query={}', 'pypi': 'https://pypi.org/search/?q={}'}
+c.url.searchengines = {
+    'aw': 'https://wiki.archlinux.org/?search={}',
+    'color': 'https://www.color-hex.com/color/{}',
+    'contact': 'https://contacts.google.com/search/{}',
+    'cppref': 'https://en.cppreference.com/mwiki/index.php?search={}',
+    'DEFAULT': 'https://www.google.com/search?&q={}',
+    'ddg': 'https://duckduckgo.com/?q={}',
+    'emoji': 'https://emojipedia.org/search/?q={}',
+    'fb': 'https://facebook.com/search/top/?q={}',
+    'gl': 'https://www.google.com/search?q={}',
+    'gh': 'https://github.com/search?q={}',
+    'gif': "https://giphy.com/search/{}",
+    'weer': "https://www.meteo.be/nl/{}",
+    'maps': 'https://www.google.be/maps/search/{}+',
+    'icon': "https://www.iconfinder.com/search?q={}",
+    'imdb': 'https://www.imdb.com/find?q={}&s=all',
+    'pypi': 'https://pypi.org/search/?q={}',
+    'osm': 'https://www.openstreetmap.org/search?query={}',
+    'reddit': 'https://www.reddit.com/search?q={}',
+    'sp': 'https://www.startpage.com/do/search?&query={}',
+    'word': 'https://www.wordnik.com/words/{}',
+    'time': 'https://time.is/{}',
+    'twi': 'https://twitter.com/search?q={}',
+    'ud': 'https://www.urbandictionary.com/define.php?term={}',
+    'unsplash': 'https://unsplash.com/search/photos/{}',
+    'weather': 'https://wttr.in/{}',
+    'wiki': 'https://en.wikipedia.org/wiki/{}',
+    'wikinl': 'https://nl.wikipedia.org/wiki/{}',
+    'woord':
+    'https://www.vandale.nl/gratis-woordenboek/nederlands/betekenis/{}',
+    'yt': 'https://www.youtube.com/results?search_query={}',
+}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
@@ -872,7 +927,7 @@ c.colors.statusbar.command.private.bg = '#880000'
 
 # Background color of the tab bar.
 # Type: QssColor
-c.colors.tabs.bar.bg = '#22222200'
+c.colors.tabs.bar.bg = '#222222'
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
@@ -905,7 +960,7 @@ c.colors.webpage.bg = 'white'
 
 # Force `prefers-color-scheme: dark` colors for websites.
 # Type: Bool
-c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 # Render all web contents using a dark theme. Example configurations
 # from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
@@ -917,7 +972,19 @@ c.colors.webpage.prefers_color_scheme_dark = True
 # `colors.webpage.darkmode.threshold.background` to 205.  - "With
 # selective inversion of everything": Combines the two variants   above.
 # Type: Bool
-c.colors.webpage.darkmode.enabled = True
+# c.colors.webpage.darkmode.enabled = True
+
+# Which images to apply dark mode to. WARNING: With QtWebengine 5.15.0,
+# this setting can cause frequent renderer process crashes due to a
+# https://codereview.qt-project.org/c/qt/qtwebengine-
+# chromium/+/304211[bug in Qt]. Thus, the 'smart' setting is ignored and
+# treated like 'never' in that case.
+# Type: String
+# Valid values:
+#   - always: Apply dark mode filter to all images.
+#   - never: Never apply dark mode filter to any images.
+#   - smart: Apply dark mode based on image content.
+# c.colors.webpage.darkmode.policy.images = 'smart'
 
 # Font used in the completion widget.
 # Type: Font
@@ -995,49 +1062,84 @@ c.fonts.web.family.cursive = None
 # Type: FontFamily
 c.fonts.web.family.fantasy = None
 
-# Default font size (in pixels) for regular text.
-# Type: Int
-c.fonts.web.size.default = 11
-
-# Default font size (in pixels) for fixed-pitch text.
-# Type: Int
-c.fonts.web.size.default_fixed = 9
-
-# Hard minimum font size (in pixels).
-# Type: Int
-c.fonts.web.size.minimum = 7
-
-# Minimum logical font size (in pixels) that is applied when zooming
-# out.
-# Type: Int
-c.fonts.web.size.minimum_logical = 8
+# # Default font size (in pixels) for regular text.
+# # Type: Int
+# c.fonts.web.size.default = 11
+#
+# # Default font size (in pixels) for fixed-pitch text.
+# # Type: Int
+# c.fonts.web.size.default_fixed = 9
+#
+# # Hard minimum font size (in pixels).
+# # Type: Int
+# c.fonts.web.size.minimum = 7
+#
+# # Minimum logical font size (in pixels) that is applied when zooming
+# # out.
+# # Type: Int
+# c.fonts.web.size.minimum_logical = 8
 
 # Bindings for normal mode
 config.bind(',hb', 'history -b')
 config.bind(',m', 'set content.user_stylesheets ""')
-config.bind(',n', 'config-cycle content.user_stylesheets $HOME/.config/qutebrowser/stylesheets/darculized-aggressive.css $HOME/.config/qutebrowser/stylesheets/messenger.css $HOME/.config/qutebrowser/stylesheets/darculized-all-sites.css $HOME/.config/qutebrowser/stylesheets/apprentice-all-sites.css $HOME/.config/qutebrowser/stylesheets/gruvbox-all-sites.css')
+config.bind(
+    ',n',
+    'config-cycle content.user_stylesheets $HOME/.config/qutebrowser/stylesheets/darculized-aggressive.css $HOME/.config/qutebrowser/stylesheets/messenger.css $HOME/.config/qutebrowser/stylesheets/darculized-all-sites.css $HOME/.config/qutebrowser/stylesheets/apprentice-all-sites.css $HOME/.config/qutebrowser/stylesheets/gruvbox-all-sites.css'
+)
 config.bind(',read', 'config-source')
 config.bind(',ta', 'set tabs.show always')
 config.bind(',tm', 'set tabs.show multiple')
 config.bind(',ts', 'set tabs.show switching')
 config.bind(',tt', 'config-cycle statusbar.show always in-mode')
-config.bind(',vd', 'set content.user_stylesheets $HOME/.config/qutebrowser/very_dark.css')
+config.bind(
+    ',vd',
+    'set content.user_stylesheets $HOME/.config/qutebrowser/very_dark.css')
 config.bind(',write!!!', 'config-write-py --force')
-config.bind('<Ctrl+Alt+Shift+m>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{url}"')
-config.bind('<Ctrl+Alt+Shift+v>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{url}"')
-config.bind('<Ctrl+Alt+Shift+y>', 'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{url}"')
+config.bind(",12ft", "spawn --userscript 12ft.io")
+config.bind(",12ff", "hint links userscript 12ft.io")
+config.bind(",tw", "spawn --userscript twitterthreadreader")
+config.bind(",tf", "hint links userscript twitterthreadreader")
+config.bind(
+    '<Ctrl+Alt+Shift+e>',
+    'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Extra "{url}"'
+)
+config.bind(
+    '<Ctrl+Alt+Shift+m>',
+    'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{url}"'
+)
+config.bind(
+    '<Ctrl+Alt+Shift+v>',
+    'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{url}"'
+)
+config.bind(
+    '<Ctrl+Alt+Shift+y>',
+    'spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{url}"'
+)
 config.bind('<Ctrl+Alt+Shift+~>', 'spawn --detach mpv {url}')
 config.bind('<Ctrl+Alt+`>', 'hint links spawn --detach mpv {hint-url}')
 config.bind('<Ctrl+Backspace>', 'tab-prev')
 config.bind('<Ctrl+Shift+Tab>', 'tab-prev')
-config.bind('<Ctrl+Shift+m>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{hint-url}"')
-config.bind('<Ctrl+Shift+v>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{hint-url}"')
-config.bind('<Ctrl+Shift+y>', 'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{hint-url}"')
+config.bind(
+    '<Ctrl+Shift+e>',
+    'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Extra "{hint-url}"'
+)
+config.bind(
+    '<Ctrl+Shift+m>',
+    'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Music "{hint-url}"'
+)
+config.bind(
+    '<Ctrl+Shift+v>',
+    'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Video "{hint-url}"'
+)
+config.bind(
+    '<Ctrl+Shift+y>',
+    'hint links spawn --detach /fast_files/git_repos/custum_scripts/addToMpv Series "{hint-url}"'
+)
 config.bind('<Ctrl+Tab>', 'tab-next')
 config.unbind('<Ctrl+b>')
 config.bind('<Ctrl+f>', 'set-cmd-text /')
 config.unbind('<Ctrl+q>')
-config.bind('@', 'enter-mode passthrough')
+config.bind('@', 'mode-enter passthrough')
 config.bind('Ctrl+f', 'set-cmd-text /')
 config.unbind('M')
 config.unbind('Sb')
@@ -1051,6 +1153,9 @@ config.bind('ewf', 'hint links fill :open -p {hint-url}')
 config.bind('eww', ':set-cmd-text -s :open -p ')
 config.unbind('gB')
 config.unbind('gb')
+config.bind('gl', 'tab-move -')
+config.bind('gr', 'tab-move +')
 config.bind('m', 'quickmark-save')
 config.unbind('q')
+config.bind('qr', 'spawn -u qr')
 config.unbind('wB')

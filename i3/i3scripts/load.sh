@@ -7,10 +7,10 @@ else
 load=$(cut -f 2 -d ' ' /proc/loadavg)
 fi
 
-if [ "$(echo $load | sed 's/[^0-9].*//')" -gt "8" ]
+if [ "$(echo $load | sed 's/[^0-9].*//')" -gt "16" ]
 then
     echo "<span color='red'>$load</span>"
-elif [ "$(echo $load | sed 's/[^0-9].*//')" -lt "2" ]
+elif [ "$(echo $load | sed 's/[^0-9].*//')" -lt "6" ]
 then
     echo "<span color='lime'>$load</span>"
     echo ""

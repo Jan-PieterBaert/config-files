@@ -2,4 +2,4 @@
 
 id=$(echo "$QUTE_URL" | grep -o "status/[0-9]*" | grep -o "[0-9]*$")
 
-echo ":open -t threadreaderapp.com/thread/$id" >> "$QUTE_FIFO"
+echo ":open -p threadreaderapp.com/thread/$id" >> "$QUTE_FIFO"

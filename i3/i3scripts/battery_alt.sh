@@ -1,11 +1,11 @@
 #!/bin/bash
-location="/org/freedesktop/UPower/devices/battery_BAT1"
+location="/org/freedesktop/UPower/devices/battery_BAT0"
 perc=$( upower -i $location | grep 'percentage' | grep -o '[0-9]*' )
 state=$( upower -i $location | grep '^\s*state:' | grep -oE '(dis)?charging' )
 timeLeft=$( upower -i $location | egrep "time to " | grep -o "[0-9]*\.[0-9]* [a-zA-Z]" )
 color="aqua"
 
-if [ $state == 'charging' ]
+if [ "$state" == 'charging' ]
 then
 	color="lime"
 elif [ $perc -lt 20 ]

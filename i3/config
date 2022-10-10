@@ -10,11 +10,12 @@
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-#font pango:monospace 7
+# font pango:monospace 6
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 5.5
+#font pango:DejaVu Sans Mono 5.5
+font pango:DejaVu Sans Mono 6
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -29,8 +30,9 @@ font pango:DejaVu Sans Mono 5.5
     set $mod2 Mod1
 
 # set some variables
-    set $scriptlocation /fast_files/git_repos/custum_scripts
-    set $terminal /usr/local/bin/st
+    set $scriptlocation $HOME/git_repos/custum_scripts
+    # set $terminal /usr/bin/alacritty
+    set $terminal /usr/bin/kitty
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -52,11 +54,12 @@ font pango:DejaVu Sans Mono 5.5
 
 # Rofi things, it's just the best ever, MAKE ROFI GREAT AGAIN!
 	# alternative to dmenu, we use the rofi-version
-	bindsym $mod+d exec rofi -show run
+	# bindsym $mod+d exec "LC_ALL=C rofi -show run"
+	bindsym $mod+d exec "LC_ALL=C rofi -show combi -show-icons"
 	# this shows all open windows across workspaces
-	bindsym $mod+bracketleft exec rofi -show combi -show-icons
+	bindsym $mod+bracketleft exec "LC_ALL=C rofi -show combi -show-icons"
 	# my (local) passwordmanager (unix pass)
-	bindsym $mod+bracketright exec rofi-pass
+	bindsym $mod+bracketright exec "LC_ALL=C rofi-pass"
 
 
 # change focus
@@ -106,7 +109,7 @@ font pango:DejaVu Sans Mono 5.5
 
 # floating and sticky keybindings
     bindsym $mod+Shift+space floating toggle
-    bindsym $mod+Shift+s floating enable; sticky enable
+    # bindsym $mod+Shift+s floating enable; sticky enable
     bindsym $mod+s sticky toggle
 
 # change focus between tiling / floating windows
@@ -114,10 +117,12 @@ font pango:DejaVu Sans Mono 5.5
 
 # move the currently focused window to the scratchpad
     bindsym $mod+Shift+comma move scratchpad
+    bindsym $mod2+Shift+z move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+comma scratchpad show
+    bindsym $mod2+z scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -137,8 +142,11 @@ font pango:DejaVu Sans Mono 5.5
 	set $ws12 "12"
 
 # Define screens for workspaces
-workspace $ws0 output HDMI1 HDMI2 eDP1
-workspace $ws4 output HDMI2 HDMI1 eDP1
+workspace $ws0 output HDMI-0 HDMI-1-0
+workspace $ws1 output eDP-1-1 eDP-1 eDP-2
+workspace $ws2 output eDP-1-1 eDP-1 eDP-2
+workspace $ws4 output DP-0.5 DP-1-0.5
+workspace $ws5 output DP-0.6 DP-1-0.6
 
 # switch to workspace
 	bindsym $mod+grave workspace $ws0
@@ -182,42 +190,8 @@ workspace $ws4 output HDMI2 HDMI1 eDP1
 # exit i3 (logs you out of your X session)
     bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# Type greek easily
-    mode "greek" {
-            bindsym --release a     exec "xdotool type --delay 1ms α"
-            bindsym --release b     exec "xdotool type --delay 1ms β"
-            bindsym --release c     exec "xdotool type --delay 1ms ψ"
-            bindsym --release d     exec "xdotool type --delay 1ms δ"
-            bindsym --release e     exec "xdotool type --delay 1ms ε"
-            bindsym --release f     exec "xdotool type --delay 1ms φ"
-            bindsym --release g     exec "xdotool type --delay 1ms γ"
-            bindsym --release h     exec "xdotool type --delay 1ms η"
-            bindsym --release i     exec "xdotool type --delay 1ms ι"
-            bindsym --release j     exec "xdotool type --delay 1ms ξ"
-            bindsym --release k     exec "xdotool type --delay 1ms κ"
-            bindsym --release l     exec "xdotool type --delay 1ms λ"
-            bindsym --release m     exec "xdotool type --delay 1ms μ"
-            bindsym --release n     exec "xdotool type --delay 1ms ν"
-            bindsym --release o     exec "xdotool type --delay 1ms ο"
-            bindsym --release p     exec "xdotool type --delay 1ms π"
-            bindsym --release q     exec "xdotool type --delay 1ms ;"
-            bindsym --release r     exec "xdotool type --delay 1ms ρ"
-            bindsym --release s     exec "xdotool type --delay 1ms σ"
-            bindsym --release t     exec "xdotool type --delay 1ms τ"
-            bindsym --release u     exec "xdotool type --delay 1ms θ"
-            bindsym --release v     exec "xdotool type --delay 1ms ω"
-            bindsym --release w     exec "xdotool type --delay 1ms ς"
-            bindsym --release x     exec "xdotool type --delay 1ms χ"
-            bindsym --release y     exec "xdotool type --delay 1ms υ"
-            bindsym --release z     exec "xdotool type --delay 1ms ζ"
-
-            # Because of the weird keyboard I have
-            bindsym --release $mod+p     exec "xdotool type --delay 1ms π"
-
-	        bindsym Return mode "default"
-	        bindsym Escape mode "default"
-    }
-    bindsym $mod2+g mode "greek"
+# Switch between greek and us keyboards
+    bindsym $mod+Escape exec "/home/jan-pieter/git_repos/custum_scripts/greek-switch.sh switch"
 
 
 set $resize_size 2
@@ -258,7 +232,7 @@ set $resize_size 2
 		bindsym p exec systemctl suspend
 		bindsym Escape mode "default"
 	}
-	bindsym $mod+x mode "[l]ogout / [h]ibernate / [r]eboot / [s]hutdown / suspend-[t]hen-hibernate / sus[p]end"
+	bindsym $mod+Shift+x mode "[l]ogout / [h]ibernate / [r]eboot / [s]hutdown / suspend-[t]hen-hibernate / sus[p]end"
 
 # Set some cool colors for i3
 	# class                 border  bground text    indicator child_border
@@ -275,10 +249,14 @@ set $resize_size 2
 	  mode dock
 	  hidden_state hide
 	  modifier $mod2
-	  output eDP1
+      output HDMI-1-0
+      output HDMI-0
+      output eDP-1
+      output eDP-1-1
+      output eDP-2
 	  position top
 	  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-      font pango:DejaVu Sans Mono 5.5
+      font pango:DejaVu Sans Mono 8
 
     colors {
      	background #000000
@@ -312,16 +290,19 @@ set $resize_size 2
 	hide_edge_borders smart
 
 # Move to top right, for video playing
-    bindsym $mod+y floating enable; resize set 450 270; sticky enable; move window to position 125 30
+    bindsym $mod+y floating enable; resize set 720 432; sticky enable; move window to position 125 30
 
 # Change screensaver timeout
     bindsym $mod+u exec $scriptlocation/screensaver-timeout.bash
 
 # Restart espanso
-    bindsym $mod2+e exec notify-send "Restarting espanso" && espanso restart
+    bindsym $mod2+r exec notify-send "Restarting espanso" && espanso restart
 
-# Rofimoji
-    bindsym $mod2+r exec rofimoji
+# dunst
+    bindsym $mod+m exec "dunstctl close"
+    bindsym $mod+Shift+m exec "dunstctl close_all"
+    bindsym $mod+n exec "dunstctl history-pop"
+    bindsym $mod+Shift+n exec "dunstctl set-paused toggle"
 
 #playerctl keybinding
 	bindsym Pause exec playerctl play-pause
@@ -345,12 +326,14 @@ set $resize_size 2
 # Sreen brightness controls
 	# increase screen brightness
 	bindsym $mod+F8 exec $scriptlocation/changebacklight.sh up
+	bindsym XF86MonBrightnessUp exec $scriptlocation/changebacklight.sh up
 	# decrease screen brightness
 	bindsym $mod+F7 exec $scriptlocation/changebacklight.sh down
+	bindsym XF86MonBrightnessDown exec $scriptlocation/changebacklight.sh down
 
 # Pulse Audio controls
-	bindsym XF86AudioRaiseVolume exec --no-startup-id $scriptlocation/changeVolume +1 #increase sound volume
-	bindsym XF86AudioLowerVolume exec --no-startup-id $scriptlocation/changeVolume -1 #decrease sound volume
+	bindsym XF86AudioRaiseVolume exec --no-startup-id $scriptlocation/changeVolume +5 #increase sound volume
+	bindsym XF86AudioLowerVolume exec --no-startup-id $scriptlocation/changeVolume -5 #decrease sound volume
 	bindsym XF86AudioMute exec --no-startup-id $scriptlocation/changeVolume # mute sound
 	bindsym $mod+F10 exec --no-startup-id $scriptlocation/changeVolume -2 #decrease sound volume
 	bindsym $mod+F11 exec --no-startup-id $scriptlocation/changeVolume # mute sound
@@ -360,6 +343,7 @@ set $resize_size 2
 	# Lock the screen when scroll lock is pressed
 	bindsym Mod1+Mod4+l exec $scriptlocation/fancy_lock
 	bindsym Scroll_Lock exec $scriptlocation/fancy_lock
+	bindsym $mod+x exec $scriptlocation/fancy_lock
 	bindsym $mod+b exec $scriptlocation/blur_lock
 	# bindsym Scroll_Lock exec $scriptlocation/blur_lock
 	# Hibernate (and lock) the computer using this key combination
@@ -368,6 +352,7 @@ set $resize_size 2
 
 # Used to configure my screens layout when a new one connects
     bindsym $mod+Shift+a exec --no-startup-id "xrandr --auto && arandr"
+    bindsym $mod+p exec --no-startup-id "xrandr --auto && arandr"
 
 # Set wallpaper
     exec_always --no-startup-id "feh --bg-scale $HOME/Pictures/lockscreen/home_screen.png &"
@@ -377,8 +362,16 @@ set $resize_size 2
     # bindsym Shift+Print         exec "slurp | grim -g - Pictures/$(date +%Y-%m-%d_%H:%M).png"
 
 # i3 version
-    bindsym --release Print exec "scrot ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
-    bindsym --release shift+Print exec "scrot -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+    bindsym --release Print exec "scrot ~/Pictures/screenshot/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+    # bindsym --release shift+Print exec "scrot -s ~/Pictures/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+    bindsym --release shift+Print exec "flameshot gui"
+    bindsym $mod+Shift+s exec "flameshot gui"
 
 bindsym $mod+q exec --no-startup-id qutebrowser
+bindsym $mod2+q exec --no-startup-id "qutebrowser --target private-window"
+bindsym XF86Launch3 exec --no-startup-id "asusctl led-mode -n"
+bindsym XF86KbdBrightnessUp exec --no-startup-id "asusctl -n"
+bindsym XF86KbdBrightnessDown exec --no-startup-id "asusctl -p"
+bindsym XF86Launch4 exec --no-startup-id "asusctl profile -n"
 
+bindsym $mod+F5 exec rofi -modi "clipboard:greenclip print" -show clipboard

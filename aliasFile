@@ -5,9 +5,9 @@ alias vi=vim
 alias vim="nvim -p"
 alias nano=nvim
 alias se=sudoedit
+alias rsync="rsync --progress"
 
 # general aliasses
-alias weather="curl 'https://wttr.in'"
 alias update_time="sudo ntpdate -s ntp.ugent.be"
 alias serveDirectory="python3 -m http.server"
 alias fuck="sudo"
@@ -16,15 +16,27 @@ alias capsState="xset -q | grep \"Caps Lock\" | sed \"s/^.*Caps Lock: *\([onf]*\
 alias ayy=yay
 alias ":q"=exit
 alias ":wq"=exit
-alias make="make -j4"
+alias make="make -j8"
 alias ip="ip -c"
 alias rm="rm -v"
 alias evince=zathura
 alias murder="kill -9"
 alias pptToPdf="unoconv -f pdf"
+alias gcm="git checkout master || git checkout main"
+alias gtp="git push --tags origin"
+alias qr='qrencode -m 2 -t utf8 <<< "$1"'
+alias wcDir='find . -type f -exec cat {} + | wc -l'
+alias 'gpf!'='gpf' # force push without lease is not what we want
+alias discord='discord --no-sandbox'
+alias qr-read=zbarimg
+alias gcd="git checkout develop || git checkout dev"
+
+#kitty aliasses
+alias kssh="kitty +kitten ssh"
 
 #network aliasses
-alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0 && notify-send 'restarted wpa-supplicant'"
+alias fixWifi="sudo systemctl restart wpa_supplicant@wlp2s0"
+alias stopWifi="sudo systemctl stop wpa_supplicant@wlp2s0"
 alias startFlight="sudo systemctl stop bluetooth.service && sudo systemctl stop wpa_supplicant@wlp2s0.service && notify-send 'entered flight mode'"
 alias fixEth="sudo systemctl restart dhcpcd.service"
 alias wifiStatus="watch wpa_cli -i wlp2s0 status"
@@ -54,5 +66,5 @@ alias cammie='curl https://kelder.zeus.ugent.be/webcam/video/mjpg.cgi | mpv --no
 alias keldermuziek="ncmpcpp -h 10.0.0.5"
 alias pong="ping ugent.be"
 alias playOnHoek="PULSE_SERVER=10.0.0.5 "
-alias keldersay="curl 'https://kelder.zeus.ugent.be/messages/' -H 'Content-Type: text/plain' -H 'X-Username: !{somebody}!' --compressed --data-binary"
+alias keldersay="curl 'https://kelder.zeus.ugent.be/messages/' -H 'Content-Type: text/plain' -H 'X-Username: JP' --compressed --data-binary"
 alias kelderlisten="curl https://kelder.zeus.ugent.be/messages/ | w3m -T text/html -dump | less"

@@ -34,3 +34,8 @@ function readMarkDown() {
   file=${1:-README.md}
   pandoc -f gfm -t plain -s $file | less
 }
+
+# Test if the mic works
+test-microphone() {
+    arecord -vvv -f dat /dev/null
+}
